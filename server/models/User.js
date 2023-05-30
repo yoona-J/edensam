@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
         type:String,
         maxlength:50
     },
-    email: {
+    ID: {
         type:String,
         trim:true,
         unique: 1 
@@ -18,17 +18,19 @@ const userSchema = mongoose.Schema({
         type: String,
         minglength: 5
     },
-    lastname: {
+    birth: {
         type:String,
         maxlength: 50
     },
-    role : {
+    number : {
         type:Number,
         default: 0 
     },
-    image: String,
+    favorite: {
+        type:Array
+    },
     token : {
-        type: String,
+        type: String
     },
     tokenExp :{
         type: Number

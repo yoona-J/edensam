@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
-import { registerUser } from '../../../_actions/user_actions';
-import { useDispatch } from 'react-redux';
+import Axios from 'axios';
+
 
 function RegisterPage(props) {
-
-    const dispatch = useDispatch()
 
     const [ID, setID] = useState('')
     const [Password, setPassword] = useState('')
@@ -13,7 +11,7 @@ function RegisterPage(props) {
     const [Name, setName] = useState('')
     const [Birth, setBirth] = useState('')
     const [Number, setNumber] = useState('')
-    const [Favorite, setFavorite] = useState([])
+    const [Favorite, setFavorite] = useState('')
 
     const idChangeHandler = (event) => {
         setID(event.target.value)
@@ -39,9 +37,8 @@ function RegisterPage(props) {
         setNumber(event.target.value)
     }
     
-    const favoriteChangeHandler = (checkedValues) => {
-        setFavorite(checkedValues)
-        console.log('is checked: ', checkedValues)
+    const favoriteChangeHandler = (event) => {
+        setFavorite(event.target.value)
     }
 
     const submitHandler = (event) => {
@@ -62,16 +59,18 @@ function RegisterPage(props) {
 
         console.log('body', body)
 
-        dispatch(registerUser(body)).then(response => {
-          if(response.payload.success) {
-            alert('회원가입이 완료되었습니다.')
-            props
-              .history
-              .push('/')
-          } else {
-            console.log(response)
-          }
-        })
+        Axios
+            .post('./api/register', body)
+            .then(response => {
+                if (response.data.success) {
+                    alert('회원가입이 완료되었습니다.')
+                    props
+                        .history
+                        .push('/')
+                } else {
+                    alert('회원가입에 실패하였습니다.')
+                }
+            })
     }
 
   return (
@@ -143,14 +142,14 @@ function RegisterPage(props) {
             <div style={{ paddingTop: '20px' }}>
                  <p style={{fontSize: '15px', textAlign: 'center', padding: '30px'}}>관심 선물을 골라주세요!</p>
                  <Checkbox.Group onChange={favoriteChangeHandler} style={{ display: 'flex', width: '230px', justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap', margin: '0 auto'}}>
-                    <Checkbox value={1} style={{marginBottom: '20px'}}>화장품/향수</Checkbox>
-                    <Checkbox value={2}>가전/디지털</Checkbox>
-                    <Checkbox value={3} style={{marginBottom: '20px'}}>식품</Checkbox>
-                    <Checkbox value={4}>배달선물</Checkbox>
-                    <Checkbox value={5}>완구/취미</Checkbox>
-                    <Checkbox value={6} style={{marginBottom: '20px'}}>건강</Checkbox>
-                    <Checkbox value={7}>생활용품</Checkbox>
-                    <Checkbox value={8}>패션/의류</Checkbox>
+                    <Checkbox style={{marginBottom: '20px'}}>화장품/향수</Checkbox>
+                    <Checkbox>가전/디지털</Checkbox>
+                    <Checkbox style={{marginBottom: '20px'}}>식품</Checkbox>
+                    <Checkbox>배달선물</Checkbox>
+                    <Checkbox>완구/취미</Checkbox>
+                    <Checkbox style={{marginBottom: '20px'}}>건강</Checkbox>
+                    <Checkbox>생활용품</Checkbox>
+                    <Checkbox>패션/의류</Checkbox>
                  </Checkbox.Group>
             </div>
             <a href='/main'>
@@ -164,7 +163,7 @@ function RegisterPage(props) {
                             marginTop: '20px'
                         }}
                         htmlType='submit'>
-                        확인
+                        로그인
                 </Button>
             </a>
         </Form>
