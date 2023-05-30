@@ -67,7 +67,7 @@ function RegisterPage(props) {
             alert('회원가입이 완료되었습니다.')
             props
               .history
-              .push('/')
+              .push('/main')
           } else {
             console.log(response)
           }

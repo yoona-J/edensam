@@ -13,7 +13,8 @@ export default function (SpecificComponent, option, adminRoute = null) {
             //To know my current status, send Auth request 
             dispatch(auth()).then(response => {
                 //Not Loggined in Status 
-                if (!response.payload.isAuth) {
+                // console.log('rrrrrrrrrrr', response.payload)
+                if (!response.payload._id) {
                     if (option) {
                         props.history.push('/login')
                     }
