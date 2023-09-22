@@ -75,6 +75,7 @@ function LandingPage(props) {
                         placeholder='비밀번호'
                         onChange={passwordChangeHandler}
                         value={Password}
+                        type='password'
                         style={{
                             width: '100%',
                             height: '40px',
