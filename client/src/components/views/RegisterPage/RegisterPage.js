@@ -78,7 +78,7 @@ function RegisterPage(props) {
             alert('회원가입이 완료되었습니다.')
             props
               .history
-              .push('/main')
+              .push('/')
           } else if (response.payload.err.code == 11000) {
               console.log(response.payload.err.errmsg)
               alert('중복되는 아이디가 있습니다.')
