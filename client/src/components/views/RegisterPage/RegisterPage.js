@@ -51,11 +51,11 @@ function RegisterPage(props) {
             return alert('모든 내용을 작성해주세요.')
         } else if (Password !== PasswordConfirm) {
             return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.')
-        } else if (Favorite.length == 0) {
+        } else if (Favorite.length === 0) {
             return alert('관심 선물을 1개 이상 선택해주세요.')
-        } else if (Birth.length != 6) {
+        } else if (Birth.length !== 6) {
             return alert('생일은 6자리로 입력해주세요. (ex.980101')
-        } else if (Number.length != 11) {
+        } else if (Number.length !== 11) {
             return alert('전화번호는 숫자만 입력해주세요.')
         } else if (Password.length < 4) {
             console.log(Password.length)
@@ -79,7 +79,7 @@ function RegisterPage(props) {
             props
               .history
               .push('/')
-          } else if (response.payload.err.code == 11000) {
+          } else if (response.payload.err.code === 11000) {
               console.log(response.payload.err.errmsg)
               alert('중복되는 아이디가 있습니다.')
           }

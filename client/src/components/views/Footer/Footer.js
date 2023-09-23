@@ -1,16 +1,18 @@
-// import React from 'react'
-// import {Icon} from 'antd';
+import React from 'react'
 
-// function Footer() {
-//     return (
-//         <div style={{
-//             height: '80px', display: 'flex',
-//             flexDirection: 'column', alignItems: 'center',
-//             justifyContent: 'center', fontSize:'1rem'
-//         }}>
-//            <p> Happy Coding  <Icon type="smile" /></p>
-//         </div>
-//     )
-// }
+function Footer() {
+  return (
+    <div
+        style={{
+            width: '90%',
+            margin: '3rem auto',
+            fontFamily: 'NeoDunggeunmo'
+          }}>
+        <div style={{ fontSize: '10px', color: '#828282', display: 'flex', flexDirection: 'low', justifyContent: 'center', marginTop: '20px' }}>
+              <a href='/logout' style={{ textDecorationLine: 'none', color: '#828282' }}>로그아웃</a>
+        </div>
+    </div>
+  )
+}
 
-// export default Footer
+export default Footer
