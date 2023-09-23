@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require("../models/User");
-
 const { auth } = require("../middleware/auth");
 
 //=================================
@@ -11,9 +10,10 @@ const { auth } = require("../middleware/auth");
 router.get("/auth", auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
-        name: req.user.name,
         ID: req.user.ID,
+        password: req.user.password,
         birth: req.user.birth,
+        name: req.user.name,
         number: req.user.number,
         favorite: req.user.favorite
     });
@@ -36,7 +36,7 @@ router.post("/login", (req, res) => {
         if (!user)
             return res.json({
                 loginSuccess: false,
-                message: "Auth failed, email not found"
+                message: "Auth failed, ID is not found"
             });
 
         user.comparePassword(req.body.password, (err, isMatch) => {

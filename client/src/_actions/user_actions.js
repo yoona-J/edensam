@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Axios from 'axios';
 import {
     LOGIN_USER,
     REGISTER_USER,
@@ -7,8 +7,9 @@ import {
 } from './types';
 import { USER_SERVER } from '../components/Config.js';
 
-export function registerUser(dataToSubmit){
-    const request = axios.post(`${USER_SERVER}/register`,dataToSubmit)
+export function registerUser(dataToSubmit) {
+    console.log('user action res: ', dataToSubmit)
+    const request = Axios.post(`${USER_SERVER}/register`,dataToSubmit)
         .then(response => response.data);
     
     return {
@@ -18,8 +19,8 @@ export function registerUser(dataToSubmit){
 }
 
 export function loginUser(dataToSubmit){
-    const request = axios.post(`${USER_SERVER}/login`,dataToSubmit)
-                .then(response => response.data);
+    const request = Axios.post(`${USER_SERVER}/login`,dataToSubmit)
+        .then(response => response.data);
 
     return {
         type: LOGIN_USER,
@@ -28,8 +29,8 @@ export function loginUser(dataToSubmit){
 }
 
 export function auth(){
-    const request = axios.get(`${USER_SERVER}/auth`)
-    .then(response => response.data);
+    const request = Axios.get(`${USER_SERVER}/auth`)
+        .then(response => response.data);
 
     return {
         type: AUTH_USER,
@@ -38,12 +39,11 @@ export function auth(){
 }
 
 export function logoutUser(){
-    const request = axios.get(`${USER_SERVER}/logout`)
-    .then(response => response.data);
+    const request = Axios.get(`${USER_SERVER}/logout`)
+        .then(response => response.data);
 
     return {
         type: LOGOUT_USER,
         payload: request
     }
 }
-

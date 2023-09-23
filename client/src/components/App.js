@@ -21,6 +21,7 @@ import PaymentPage from "./views/PaymentPage/PaymentPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import ExitPage from './views/ExitPage/ExitPage.js';
 import RetakePage from "./views/RetakePage/RetakePage.js";
+import LogoutPage from './views/LogoutPage/LogoutPage';
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -49,10 +50,11 @@ function App() {
       <NavBar />
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)'}}>
         <Switch>
-          <Route exact path="/" component={Auth(LandingPage, false)} />
+          <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/exit" component={Auth(ExitPage, false)} />
+          <Route exact path="/exit" component={Auth(ExitPage, true)} />
           <Route exact path="/retake" component={Auth(RetakePage, false)} />
+          <Route exact path="/logout" component={Auth(LogoutPage, true)} />
           <Route exact path="/main" component={Auth(MainPage, true)} />
           <Route exact path="/mailbox/user" component={Auth(MyMailboxPage, true)} />
           <Route exact path="/search" component={Auth(SearchFriendPage, true)} />
