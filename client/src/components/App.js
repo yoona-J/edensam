@@ -22,6 +22,7 @@ import NavBar from "./views/NavBar/NavBar";
 import ExitPage from './views/ExitPage/ExitPage.js';
 import RetakePage from "./views/RetakePage/RetakePage.js";
 import LogoutPage from './views/LogoutPage/LogoutPage';
+import MyGiftBox from './views/MyGiftBox/MyGiftBox';
 
 import AdminPage from './views/UploadAdminPage/UploadAdminPage.js'
 
@@ -58,17 +59,18 @@ function App() {
           <Route exact path="/retake" component={Auth(RetakePage, false)} />
           <Route exact path="/logout" component={Auth(LogoutPage, true)} />
           <Route exact path="/main" component={Auth(MainPage, true)} />
-          <Route exact path="/mailbox/user" component={Auth(MyMailboxPage, true)} />
+          <Route exact path="/mailbox/:UserId" component={Auth(MyMailboxPage, true)} />
           <Route exact path="/search" component={Auth(SearchFriendPage, true)} />
           <Route exact path="/mailbox/friend" component={Auth(FriendMailboxPage, true)} />
           <Route exact path="/mailbox/friend/1/mailing" component={Auth(MailingPage, true)} />
           <Route exact path="/mailbox/user/create" component={Auth(MakeMailboxPage, true)} />
-          <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
-          <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} />
-          <Route exact path="/wish/my" component={Auth(MyWishlistPage, true)} />
+          <Route exact path="/wish/:UserId" component={Auth(MyWishlistPage, true)} />
           <Route exact path="/wish/friend" component={Auth(FriendWishlistPage, true)} />
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
           <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
+          <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
+          <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} />
+          <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
 
           <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />
         </Switch>

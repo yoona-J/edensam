@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-function SearchFriendPage() {
+function SearchFriendPage(props) {
 
     const [SearchTerm, setSearchTerm] = useState('')
 
     const searchChangeHandler = (event) => {
-        setSearchTerm(event.target.value)
+        setSearchTerm(event.currentTarget.value)
+        // props.refreshFunction(event.currentTarget.value)
     }
 
-    
 
   return (
       <div
@@ -29,6 +29,7 @@ function SearchFriendPage() {
           
           <div style={{ width: '100%', height: '530px', borderRadius: '20px', border: '5px solid' }}>
               {/* 검색된 전화 번호 card*/}
+
           </div>
       </div>
   )

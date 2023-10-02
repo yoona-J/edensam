@@ -3,7 +3,6 @@ import {Input, Form, Button} from 'antd'
 import ImageUploader from './ImageUploader'
 import Axios from 'axios';
 
-const {TextArea} = Input;
 
 function UploadAdminPage(props) {
 

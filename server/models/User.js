@@ -104,6 +104,12 @@ userSchema.statics.findByToken = function (token, cb) {
     })
 }
 
+userSchema.index (
+    {
+        number: "number"
+    }
+)
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = { User }
