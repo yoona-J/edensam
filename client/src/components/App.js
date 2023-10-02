@@ -23,6 +23,8 @@ import ExitPage from './views/ExitPage/ExitPage.js';
 import RetakePage from "./views/RetakePage/RetakePage.js";
 import LogoutPage from './views/LogoutPage/LogoutPage';
 
+import AdminPage from './views/UploadAdminPage/UploadAdminPage.js'
+
 //null   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
@@ -67,6 +69,8 @@ function App() {
           <Route exact path="/wish/friend" component={Auth(FriendWishlistPage, true)} />
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
           <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
+
+          <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />
         </Switch>
       </div>
     </Suspense>
