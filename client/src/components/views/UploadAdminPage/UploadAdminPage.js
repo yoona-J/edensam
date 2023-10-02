@@ -67,30 +67,32 @@ function UploadAdminPage(props) {
     <div style={{
                 width: '100%',
                 margin: '3rem auto',
-                fontFamily: 'NeoDunggeunmo'
+                fontFamily: 'NeoDunggeunmo',
         }}>
-            <p>admin upload page</p>
+            <p style={{textAlign: 'center', fontSize: '30px'}}>admin upload page</p>
             <Form onSubmitCapture={SubmitHandler}>
-                <p>등록 업체</p>
-                <Input 
+                <p style={{fontSize: '20px'}}>등록 업체</p>
+              <Input
                         placeholder="등록 업체를 입력하세요"
                         onChange={MakerChangeHandler}
                         value={Maker}/>
-                <p>상품 명</p>
+                <p style={{fontSize: '20px'}}>상품 명</p>
                 <Input 
                         placeholder="상품명을 입력하세요"
                         onChange={TitleChangeHandler}
                         value={Title}/>
-                <p>메인 상품 이미지 업로드</p>
+                <p style={{fontSize: '20px'}}>메인 상품 이미지 업로드</p>
                 <ImageUploader refreshFunction={MainImgChangeHandler} />
-                <p>상품 가격</p>
+                <p style={{fontSize: '20px'}}>상품 가격</p>
                 <Input 
                         placeholder="상품 가격을 입력하세요"
                         onChange={FeedChangeHandler}
                         value={Feed}/>
-                <p>상품 정보 이미지 업로드</p>
-                <ImageUploader refreshFunction={ItemInfoChangehandler} />
-                <Button htmlType='submit'>UPLOAD</Button>
+                <p style={{fontSize: '20px'}}>상품 정보 이미지 업로드</p>
+              <ImageUploader refreshFunction={ItemInfoChangehandler} />
+              <br />
+              <Button htmlType='submit'>UPLOAD</Button>
+              <br /><br />
                 <Button>CANCEL</Button>
           </Form>
     </div>
