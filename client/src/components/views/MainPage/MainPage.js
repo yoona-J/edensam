@@ -14,14 +14,16 @@ function MainPage() {
                 width: '100%',
                 margin: '3rem auto',
                 fontFamily: 'NeoDunggeunmo'
-            }}>
+        }}>
+        <a href='/search'>
             <img
                 src={MainPageImg}
                 alt='MainPageImg'
                 style={{
                     width: '90%',
                     marginLeft: '20px'
-                }}></img>
+            }}></img>
+          </a>
             <a>
                 <div
                     style={{
