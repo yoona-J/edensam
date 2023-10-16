@@ -66,4 +66,24 @@ router.get("/logout", auth, (req, res) => {
     });
 });
 
+router.post('/search', (req, res) => {
+
+    let term = req.body.searchTerm
+    
+    if (term) {
+        User.find()
+            .find({ "number": { '$regex': term } })
+            .exec((err, user) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({ success: true, user })
+            });
+    } else {
+        User.find()
+            .exec((err, user) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({ success: true, user })
+            });
+    }
+})
+
 module.exports = router;

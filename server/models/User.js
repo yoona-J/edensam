@@ -20,11 +20,11 @@ const userSchema = mongoose.Schema({
         minlength: 4
     },
     birth: {
-        type: Number,
+        type: String,
         minlength: 6
     },
     number : {
-        type: Number,
+        type: String,
         minlength: 11
     },
     favorite: {
@@ -106,7 +106,7 @@ userSchema.statics.findByToken = function (token, cb) {
 
 userSchema.index (
     {
-        number: "number"
+        number: "text"
     }
 )
 
