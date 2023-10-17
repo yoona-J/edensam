@@ -20,6 +20,9 @@ const itemUploadSchema = mongoose.Schema({
     how_much: {
         type: String
     },
+    item_category: {
+        type: String
+    },
 })
 
 const ItemUpload = mongoose.model('Upload', itemUploadSchema);

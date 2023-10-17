@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Input, Form, Button} from 'antd'
+import {Input, Form, Button, Radio} from 'antd'
 import ImageUploader from './ImageUploader'
 import Axios from 'axios';
 
@@ -11,6 +11,7 @@ function UploadAdminPage(props) {
     const [Feed, setFeed] = useState('')
     const [MainImg, setMainImg] = useState('')
     const [ItemInfo, setItemInfo] = useState('')
+    const [Category, setCategory] = useState('')
 
     const MakerChangeHandler = (event) => {
         setMaker(event.target.value)
@@ -32,9 +33,14 @@ function UploadAdminPage(props) {
         setItemInfo(newImages)
     }
 
+    const CategoryChangehandler = (event) => {
+        setCategory(event.target.value)
+        console.log('is checked: ', event.target.value)
+    }
+
     const SubmitHandler = (event) => {
         event.preventDefault();
-        if (!Maker | !Title | !Feed | !MainImg | !ItemInfo) {
+        if (!Maker | !Title | !Feed | !MainImg | !ItemInfo |!Category) {
             return alert('모든 값을 입력하세요')
         }
 
@@ -43,7 +49,8 @@ function UploadAdminPage(props) {
             item_title: Title,
             item_image: MainImg,
             item_info: ItemInfo,
-            how_much: Feed
+            how_much: Feed,
+            item_category: Category
         }
 
         console.log('body', body)
@@ -90,6 +97,18 @@ function UploadAdminPage(props) {
                 <p style={{fontSize: '20px'}}>상품 정보 이미지 업로드</p>
               <ImageUploader refreshFunction={ItemInfoChangehandler} />
               <br />
+              <p style={{fontSize: '20px'}}>상품 카테고리</p>
+                <Radio.Group onChange={CategoryChangehandler} value={Category} style={{ display: 'inline-flex', flexDirection: 'column'}}>
+                    <Radio value={1}>화장품/향수</Radio>
+                    <Radio value={2}>가전/디지털</Radio>
+                    <Radio value={3}>식품</Radio>
+                    <Radio value={4}>배달선물</Radio>
+                    <Radio value={5}>완구/취미</Radio>
+                    <Radio value={6}>건강</Radio>
+                    <Radio value={7}>생활용품</Radio>
+                    <Radio value={8}>패션/의류</Radio>
+              </Radio.Group>
+              <br /><br />
               <Button htmlType='submit'>UPLOAD</Button>
               <br /><br />
                 <Button>CANCEL</Button>
