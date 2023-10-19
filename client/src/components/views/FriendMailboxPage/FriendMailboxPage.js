@@ -2,7 +2,9 @@ import React from 'react'
 
 function FriendMailboxPage() {
   return (
-    <div>FriendMailboxPage</div>
+    <div>
+      
+    </div>
   )
 }
 

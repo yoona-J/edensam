@@ -63,7 +63,7 @@ function App() {
           <Route exact path="/search" component={Auth(SearchFriendPage, true)} />
           <Route exact path="/mailbox/friend/:FriendId" component={Auth(FriendMailboxPage, true)} />
           <Route exact path="/mailbox/friend/:FriendId/mailing" component={Auth(MailingPage, true)} />
-          <Route exact path="/mailbox/user/create" component={Auth(MakeMailboxPage, true)} />
+          <Route exact path="/mailbox/:UserId/create" component={Auth(MakeMailboxPage, true)} />
           <Route exact path="/wish/:UserId" component={Auth(MyWishlistPage, true)} />
           <Route exact path="/wish/friend" component={Auth(FriendWishlistPage, true)} />
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
