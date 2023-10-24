@@ -60,6 +60,7 @@ function App() {
           <Route exact path="/logout" component={Auth(LogoutPage, true)} />
           <Route exact path="/main" component={Auth(MainPage, true)} />
           <Route exact path="/mailbox/:UserId" component={Auth(MyMailboxPage, true)} />
+          <Route exact path="/mailbox/:UserId/create" component={Auth(MakeMailboxPage, true)} />
           <Route exact path="/search" component={Auth(SearchFriendPage, true)} />
           <Route exact path="/mailbox/friend/:FriendId" component={Auth(FriendMailboxPage, true)} />
           <Route exact path="/mailbox/friend/:FriendId/mailing" component={Auth(MailingPage, true)} />

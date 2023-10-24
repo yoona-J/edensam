@@ -36,6 +36,10 @@ const userSchema = mongoose.Schema({
     },
     tokenExp :{
         type: Number
+    },
+    mailbox: {
+        type: Array,
+        default: []
     }
 })
 
