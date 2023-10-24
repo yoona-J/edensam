@@ -11,9 +11,9 @@ function SearchFriendPage() {
     const getUsers = (body) => {
         Axios.post('/api/users/search', body)
             .then(response => {
-                console.log()
+                // console.log()
                 if (response.data.success) {
-                    console.log(response.data)
+                    // console.log(response.data)
                     setUsers(response.data.user)
                 } else {
                     alert("상품을 가져오는데 실패했습니다.")
@@ -22,7 +22,7 @@ function SearchFriendPage() {
     }
 
     const numberCards = Users.map((user, index) => {
-        console.log('Users', user)
+        // console.log('Users', user)
         return <div>
             <a href={`/mailbox/friend/${user._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
                 <div key={index} style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', border: '2px solid #FFF', borderBottomColor: '#828282' }}>

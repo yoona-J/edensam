@@ -15,7 +15,8 @@ router.get("/auth", auth, (req, res) => {
         birth: req.user.birth,
         name: req.user.name,
         number: req.user.number,
-        favorite: req.user.favorite
+        favorite: req.user.favorite,
+        mailbox: req.user.mailbox
     });
 });
 
@@ -85,5 +86,11 @@ router.post('/search', (req, res) => {
             });
     }
 })
+
+// router.post("/mailbox", auth, (req, res) => {
+//     User.findOne({ _id: req.user._id }, (err, userInfo) => {
+//         console.log('userInfo', userInfo)
+//     })
+// })
 
 module.exports = router;

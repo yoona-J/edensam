@@ -4,6 +4,7 @@ import {
     REGISTER_USER,
     AUTH_USER,
     LOGOUT_USER,
+    USER_MAILBOX
 } from './types';
 import { USER_SERVER } from '../components/Config.js';
 
@@ -44,6 +45,16 @@ export function logoutUser(){
 
     return {
         type: LOGOUT_USER,
+        payload: request
+    }
+}
+
+export function userMailbox(){
+    const request = Axios.get(`${USER_SERVER}/mailbox`)
+        .then(response => response.data);
+
+    return {
+        type: USER_MAILBOX,
         payload: request
     }
 }
