@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Form, Input } from 'antd';
-
-import { userMailbox } from '../../../_actions/user_actions';
-import { useDispatch  } from 'react-redux';
+import Axios from 'axios';
 
 import CalendarPage from './CalendarPage';
 
@@ -11,12 +9,9 @@ import Mailbox2 from './img/Mailbox2.png'
 import Mailbox3 from './img/Mailbox3.png'
 import Mailbox4 from './img/Mailbox4.png'
 import Mailbox5 from './img/Mailbox5.png'
-import Axios from 'axios';
 
 
 function MakeMailboxPage(props) {
-
-  const dispatch = useDispatch()
 
   const [UserId, setUserId] = useState('')
   const [CalendarForm, setCalendarForm] = useState({})
@@ -30,7 +25,7 @@ function MakeMailboxPage(props) {
     }
   }, [props.user.userData])
 
-  const [IsClicked, setIsClicked] = useState('')
+  const [IsClicked, setIsClicked] = useState('1')
   const [Title, setTitle] = useState('')
 
   const ImageHandelClick = (event) => {
@@ -89,6 +84,7 @@ function MakeMailboxPage(props) {
     }
 
     const body = {
+      maker: UserId._id,
       mailboxStyle: IsClicked,
       title: Title,
       calendar: CalendarForm
@@ -103,7 +99,7 @@ function MakeMailboxPage(props) {
             alert('우체통이 정상적으로 만들어졌습니다.')
             props
                 .history
-                .push(`/mailbox/${UserId}`)
+                .push(`/mailbox/${UserId._id}`)
         } else {
             alert('우체통이 만들어지지 않았습니다.')
         }

@@ -14,4 +14,16 @@ router.post('/', (req, res) => {
    
 })
 
+router.post('/getMailbox', (req, res) => {
+    // console.log(req.body)
+    const userId = req.body.params.userId._id
+    Mailbox.find({ 'maker': userId})
+        .populate("maker")
+        .exec((err, mailbox) => {
+            if(err) return res.status(400).send(err)
+            return res.status(200).send(mailbox)
+        })
+   
+})
+
 module.exports = router;
