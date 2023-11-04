@@ -1,0 +1,36 @@
+* {
+  font-family: Pretendard;
+}
+
+.box {
+  padding: 0, 2%;
+}
+
+.company {
+  color: lightslategray;
+  font-size: 13px;
+}
+.price {
+  text-align: right;
+  font-size: 16px;
+}
+
+.detail {
+  font-family: NeoDunggeunmo;
+  text-align: center;
+}
+
+.pay {
+  text-align: right;
+  display: inline-block;
+}
+.paybtn {
+  height: 39px;
+  width: 314px;
+  border-radius: 20px;
+  background-color: #b4e8e6;
+  border: none;
+}
+.item_title {
+  font-size: 22px;
+}

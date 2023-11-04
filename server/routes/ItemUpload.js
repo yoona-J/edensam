@@ -78,6 +78,32 @@ router.post('/', (req, res) => {
 
 })
 
+//여서부터 작성 중
+//ItemListPage.js db에서 아이템 정보 가져옴
+
+router.get("/product", (req, res) => {
+  ItemUpload.find().exec((err, upload) => {
+    if (err) return res.status(400).json({ success: false, err });
+    return res.status(200).json({ success: true, upload });
+  });
+});
+
+//detail page 작업중
+
+//  axios.get(`/api/admin/upload/product/products_by_id?id=${productId}&type=single`);
+
+router.get("/products_by_id", (req, res) => {
+  let type = req.query.type
+  let productId = req.query.id
+
+  ItemUpload.find({ _id: productId })
+    .exec((err, upload) => {
+      if (err) return res.status(400).send(err)
+      return res.status(200).send({success:true, upload})
+  })
+
+});
+
 
 
 module.exports = router;
