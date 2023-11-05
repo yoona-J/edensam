@@ -10,7 +10,7 @@
   margin-top: 28px;
   padding-left: 10px;
 }
-.postnum {
+#zipcode {
   width: 58.45%;
   height: 39px;
   border-radius: 20px;
@@ -21,6 +21,7 @@
   line-height: 39px;
   margin-bottom: 13px;
   padding-left: 15px;
+  border: none;
 }
 
 .Search {
@@ -41,9 +42,10 @@
   /* margin-right: 10px; */
 }
 
+#address,
 .blank {
   clear: both;
-  width: 100%-15px;
+  width: 364px;
   height: 39px;
   border-radius: 20px;
   text-align: left;
@@ -51,7 +53,8 @@
   color: #4f4f4f;
   line-height: 39px;
   margin-bottom: 13px;
-  padding-left: 15px;
+  padding: 0 15px;
+  border: none;
 }
 
 .donebtn {

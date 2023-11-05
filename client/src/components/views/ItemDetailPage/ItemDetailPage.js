@@ -19,27 +19,32 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Upload } from "antd";
+import { Button, Upload } from "antd";
 import "./ItemDetailPage.css";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../_actions/user_actions";
 
 function ItemDetailPage(props) {
   const productId = props.match.params.productId;
-
+  const dispatch = useDispatch();
   const [Product, setProduct] = useState([]);
 
   useEffect(() => {
     axios
       .get(`/api/admin/upload/products_by_id?id=${productId}&type=single`)
       .then((response) => {
-        if (response.data.success) {
-          console.log("response.data", response.data);
-          setProduct(response.data.upload[0]);
-        }
-        //   setProduct(response.data[0]);
+        // if (response.data.success) {
+        //   console.log("response.data", response.data);
+        setProduct(response.data.upload[0]);
       });
+    //   setProduct(response.data[0]);
   }, []);
+
+  const addToCartHandler = (productId) => {
+    dispatch(addToCart(productId));
+  };
 
   return (
     <div
@@ -59,7 +64,11 @@ function ItemDetailPage(props) {
         {/* 상품 가격 */}
         <div className="price">{Product.how_much} 원</div>
         {/* 찜하기 버튼 */}
+        {/* <Button onClick={}>찜</Button> */}
 
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ProductInfo addToCart={addToCartHandler} detail={Upload} />
+        </div>
         {/* 결제 버튼 */}
         <div className="pay">
           <a href="/payment">

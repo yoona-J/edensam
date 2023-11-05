@@ -6,14 +6,20 @@ const DaumPost = (props) => {
   const setAddress = props.setAddress;
 
   const onCompletePost = (data) => {
-    // console.log(data.address);
-    //   console.log(data.zonecode);
     console.log(`
     우편번호: ${data.zonecode}.            
     주소: ${data.address}`);
 
     setAddress(data.address);
+
+    document.querySelector("#zipcode").value = data.zonecode;
+    document.querySelector("#address").value = data.address;
   };
+
+  // function(data) {
+  //          document.querySelector("#zipcode").value = data.zonecode;
+  //          document.querySelector("#address").value =  data.address
+  //       }
 
   const postCodeStyle = {
     display: "block",

@@ -113,8 +113,12 @@ function App() {
 
           <Route exact path="/payment" component={Auth(PaymentPage, true)} />
           <Route exact path="/address" component={Auth(AddressPage, true)} />
-                   
-        
+          <Routes
+            exact
+            path="/mywishlist"
+            component={Auth(MyWishlistPage, true)}
+          />
+
           <Route
             exact
             path="/gift/recommend"

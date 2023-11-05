@@ -1,0 +1,20 @@
+.A {
+  font-family: Pretendard;
+  width: 100%;
+  margin: 3rem auto;
+  padding: 0 25px;
+}
+
+.wishtitle {
+  font-family: NeoDunggeunmo;
+  clear: both;
+  width: 364px;
+  height: 39px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #b4e8e6;
+  color: #333333;
+  line-height: 39px;
+  padding: 0 15px;
+  border: none;
+}

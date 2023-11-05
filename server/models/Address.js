@@ -1,12 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const mailboxSchema = mongoose.Schema(
+const AddressSchema = mongoose.Schema(
   {
     userFrom: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    productFrom: {
+      type: Schema.Types.ObjectId,
+      ref: "user"
+    }
+    ,
     mailboxId: {
       type: String,
     },
@@ -16,13 +21,10 @@ const mailboxSchema = mongoose.Schema(
     mailboxStyle: {
       type: String,
     },
-    calendar: {
-      type: Array,
-    },
   },
   { timestamps: true }
 );
 
-const Mailbox = mongoose.model("Mailbox", mailboxSchema);
+const Address = mongoose.model("Address", AddressSchema);
 
-module.exports = { Mailbox };
+module.exports = { Address };
