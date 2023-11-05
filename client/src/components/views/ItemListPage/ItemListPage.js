@@ -28,60 +28,44 @@ function ItemListPage() {
     // console.log("upload", upload);
     console.log("upload", upload.item_image);
 
-
-// const gridStyle: React.CSSProperties = {
-//   width: "50%",
-// };
+    // const gridStyle: React.CSSProperties = {
+    //   width: "50%",
+    // };
     return (
-      <div className="momCard">
-        <Col
-          key={index}
-          // style={{ width: "45%", height: "150px", margin: "1% 0% 1% 0%" }}
-        >
-          <Card
-            hoverable={true}
-            cover={
-              <a href={`/product/${upload._id}`}>
-                {/* <ImageSlider images={upload.item_image} /> */}
-                {/* <img
+      <a href={`/product/${upload._id}`}>
+        <div className="momCard">
+          <Col
+            key={index}
+            // style={{ width: "45%", height: "150px", margin: "1% 0% 1% 0%" }}
+          >
+            <Card
+              hoverable={true}
+              cover={
+                <a href={`/product/${upload._id}`}>
+                  {/* <ImageSlider images={upload.item_image} /> */}
+                  {/* <img
                   src={`http://localhost:3000/uploads/${upload.item_image}`}
                 /> */}
-                <img
-                  src={`${upload.item_image[0]}`}
-                />
-              </a>
-            }
-          >
-            <Meta
-              title={upload.item_title}
-              description={`${upload.how_much}원`}
-            />
-          </Card>
-        </Col>
-      </div>
-
-      // <div className="Product">
-      //   <div>
-      //     <Card title="상품 list">
-      //       <Card.Grid style={gridStyle}
-      //         hoverable={true}
-      //         cover={
-      //           <a href={`/product/${upload._id}`}>
-      //             {/* <ImageSlider images={upload.item_image} /> */}
-      //             <img
-      //               src={`http://localhost:3000/uploads/${upload.item_image}`}
-      //             />
-      //           </a>
-      //         }
-      //       >
-      //         <Meta
-      //           title={upload.item_title}
-      //           description={`${upload.how_much}원`}
-      //         />
-      //       </Card.Grid>
-      //     </Card>
-      //   </div>
-      // </div>
+                  <img
+                    src={`${upload.item_image[0]}`}
+                    style={{
+                      height: "166px",
+                      width: "166px",
+                      borderInline: "19px",
+                    }}
+                  />
+                </a>
+              }
+            >
+              <Meta
+                style={{ padding: "2px 10px" }}
+                title={upload.item_title}
+                description={`${upload.how_much}원`}
+              />
+            </Card>
+          </Col>
+        </div>
+      </a>
     );
   });
 
@@ -99,7 +83,7 @@ function ItemListPage() {
             fontFamily: "NeoDunggeunmo",
           }}
         >
-          products
+          --products--
         </h2>
 
         {/* checkbox */}

@@ -19,7 +19,10 @@ import ItemListPage from "./views/ItemListPage/ItemListPage.js";
 import MyWishlistPage from "./views/MyWishlistPage/MyWishlistPage.js";
 import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js";
 import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
+//
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
+import AddressPage from "./views/AddressPage/AddressPage.js";
+//
 import NavBar from "./views/NavBar/NavBar";
 import ExitPage from "./views/ExitPage/ExitPage.js";
 import RetakePage from "./views/RetakePage/RetakePage.js";
@@ -108,11 +111,10 @@ function App() {
             component={Auth(ItemDetailPage, true)}
           />
 
-          <Route
-            exact
-            path="/gift/payment"
-            component={Auth(PaymentPage, true)}
-          />
+          <Route exact path="/payment" component={Auth(PaymentPage, true)} />
+          <Route exact path="/address" component={Auth(AddressPage, true)} />
+                   
+        
           <Route
             exact
             path="/gift/recommend"

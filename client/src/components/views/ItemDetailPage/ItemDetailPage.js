@@ -62,7 +62,10 @@ function ItemDetailPage(props) {
 
         {/* 결제 버튼 */}
         <div className="pay">
-          <button className="paybtn">결제</button>
+          <a href="/payment">
+            <div>구매하기</div>
+          </a>
+          {/* <button className="paybtn">구매하기</button> */}
         </div>
       </div>
       {/* 상품 상세 정보 */}
