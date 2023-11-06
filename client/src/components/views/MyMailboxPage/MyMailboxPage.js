@@ -37,8 +37,8 @@ function MyMailboxPage(props) {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
@@ -47,8 +47,8 @@ function MyMailboxPage(props) {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
@@ -57,8 +57,8 @@ function MyMailboxPage(props) {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>  
         </a>
@@ -67,8 +67,8 @@ function MyMailboxPage(props) {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
@@ -77,8 +77,8 @@ function MyMailboxPage(props) {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>

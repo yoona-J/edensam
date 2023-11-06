@@ -182,7 +182,7 @@ function RegisterPage(props) {
                         <Checkbox value={8}>패션/의류</Checkbox>
                     </Checkbox.Group>
                 </div>
-                <a href='/main'>
+                <a href='/'>
                     <Button
                             style={{
                                 width: '100%',

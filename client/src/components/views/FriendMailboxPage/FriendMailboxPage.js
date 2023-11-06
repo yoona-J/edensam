@@ -22,7 +22,7 @@ function FriendMailboxPage(props) {
   useEffect(() => {
     // console.log(props.match.params)
     if (props.match.params !== undefined) {
-      setFriendId(props.match.params)
+      setFriendId(props.match.params.FriendId)
 
       Axios.post('/api/mailbox/friend/getMailbox', { params: props.match.params })
       .then(response => {
@@ -37,50 +37,50 @@ function FriendMailboxPage(props) {
 
     if (mailbox.mailboxStyle === '1') {
       return <div>
-        <a href={`/mailbox/${FriendId}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
       </div>
     } else if (mailbox.mailboxStyle === '2') { 
       return <div>
-        <a href={`/mailbox/${FriendId}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
       </div>
     } else if (mailbox.mailboxStyle === '3') { 
       return <div>
-        <a href={`/mailbox/${FriendId}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>  
         </a>
       </div>
     } else if (mailbox.mailboxStyle === '4') { 
       return <div>
-        <a href={`/mailbox/${FriendId}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
       </div>
     } else if (mailbox.mailboxStyle === '5') { 
       return <div>
-        <a href={`/mailbox/${FriendId}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
-            <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
+            <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
             <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
           </div>
         </a>
@@ -105,18 +105,6 @@ function FriendMailboxPage(props) {
       <Slider {...settings}>
         {mailboxCards}
       </Slider>
-      <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly' }}>
-        <a href={`/mailbox/${FriendId._id}/delete`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>
-          <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
-            <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>삭제</p>
-          </div>
-        </a>
-        <a href={`/mailbox/${FriendId._id}/create`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>
-          <div style={{ width: '100%', height: '40px', backgroundColor: '#FAD993', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
-            <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>생성</p>
-          </div>
-        </a>
-      </div>
     </div>
   }
 

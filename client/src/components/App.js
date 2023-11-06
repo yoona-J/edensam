@@ -23,6 +23,7 @@ import SearchFriendPage from "./views/SearchFriendPage/SearchFriendPage.js";
 import FriendMailboxPage from "./views/FriendMailboxPage/FriendMailboxPage.js";
 
 import MailingPage from "./views/MailingPage/MailingPage.js";
+import DecoratePage from './views/MailingPage/DecoratePage.js';
 
 import RecommendListPage from "./views/RecommendListPage/RecommendListPage.js";
 import TopItemListPage from "./views/TopItemListPage/TopItemListPage.js";
@@ -85,6 +86,7 @@ function App() {
           {/* 친구 메일함 */}
           <Route exact path="/mailbox/friend/:FriendId" component={Auth(FriendMailboxPage, true)} />
           <Route exact path="/mailbox/friend/:FriendId/mailing" component={Auth(MailingPage, true)} />
+          <Route exact path="/mailbox/friend/:FriendId/mailing/deco" component={Auth(DecoratePage, true)} />
 
           {/* 내 위시리스트 */}
           <Route exact path="/wish/:UserId" component={Auth(MyWishlistPage, true)} />
