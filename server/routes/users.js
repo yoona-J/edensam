@@ -16,7 +16,7 @@ router.get("/auth", auth, (req, res) => {
     name: req.user.name,
     number: req.user.number,
     favorite: req.user.favorite,
-    mailbox: req.user.mailbox,
+    wishList: req.user.wishList
   });
 });
 
@@ -93,19 +93,20 @@ router.post("/search", (req, res) => {
 // })
 router.post("/addToCart", auth, (req, res) => {
   //유저 정보 가져오기
-  User.findOne({ _id: req.user._id }),
+  // console.log(req.user._id)
+  User.findOne({ _id: req.user._id },
     (err, userInfo) => {
-      //가져온 정보에서 카트에
+      let duplicate = false;
       userInfo.wishList.forEach((item) => {
         if (item.id === req.body.productId) {
           duplicate = true;
         }
       });
-//상품이미 존재
+      //상품이미 존재
       if (duplicate) {
         User.findOneAndUpdate(
-          { _id: req.user._id, "wishList.id": req.query.productId },
-          { $inc: { "wishList.$.quantity": 0 } },
+          { _id: req.user._id, "wishList.id": req.body.productId },
+          { $inc: { "wishList.$.quantity": 1 } },
           { new: true },
           (err, userInfo) => {
             if (err) return res.json({ success: false, err });
@@ -120,7 +121,7 @@ router.post("/addToCart", auth, (req, res) => {
           {
             $push: {
               wishList: {
-                id: req.query.productId,
+                id: req.body.productId,
                 quantity: 1,
                 date: Date.now(),
               },
@@ -133,7 +134,8 @@ router.post("/addToCart", auth, (req, res) => {
           }
         );
       }
-    };
+    }
+  );
 });
 
 module.exports = router;

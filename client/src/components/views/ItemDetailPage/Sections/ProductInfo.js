@@ -1,16 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux'
 import { Button } from "antd";
+import { addToCart } from '../../../../_actions/user_actions'
 
 function ProductInfo(props) {
-  const [Product, setProduct] = useState({});
+  // const [Product, setProduct] = useState({});
 
-  useEffect(() => {
-    setProduct(props.detail);
-  }, [props.detail]);
+  // useEffect(() => {
+  //   setProduct(props.detail);
+  // }, [props.detail]);
 
-  const addToCarthandler = () => {
-    props.addToCart(props.detail._id);
-  };
+  // const addToCarthandler = () => {
+  //   // props.addToCart(props.detail._id);
+
+  // };
+
+  const dispatch = useDispatch();
+
+    const clickHandler = () => {
+        dispatch(addToCart(props.detail._id))
+        console.log('click=', props.detail._id)
+        
+        if (props.detail._id.length >= 1) {
+            alert('카트에 저장되었습니다.')
+        }
+    }
+
 
   return (
     <div>
@@ -19,7 +34,7 @@ function ProductInfo(props) {
           size="large"
           shape="round"
           type="danger"
-          onClick={addToCarthandler}
+          onClick={clickHandler}
         >
           Add to Cart
         </Button>

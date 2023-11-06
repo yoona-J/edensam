@@ -47,11 +47,7 @@ const userSchema = mongoose.Schema({
   },
   tokenExp: {
     type: Number,
-  },
-  mailbox: {
-    type: Array,
-    default: [],
-  },
+  }
 });
 
 //유저 정보를 저장하기 전에 함수를 연결함

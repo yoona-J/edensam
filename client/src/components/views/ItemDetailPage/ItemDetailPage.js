@@ -29,7 +29,7 @@ import { addToCart } from "../../../_actions/user_actions";
 
 function ItemDetailPage(props) {
   const productId = props.match.params.productId;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [Product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -43,9 +43,9 @@ function ItemDetailPage(props) {
     //   setProduct(response.data[0]);
   }, []);
 
-  const addToCartHandler = (productId) => {
-    dispatch(addToCart(productId));
-  };
+  // const addToCartHandler = (productId) => {
+  //   dispatch(addToCart(productId));
+  // };
 
   return (
     <div
@@ -66,7 +66,7 @@ function ItemDetailPage(props) {
         <div className="price">{Product.how_much} 원</div>
         {/* 찜하기 버튼 */}
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <ProductInfo addToCart={addToCartHandler} detail={Product} />
+          <ProductInfo detail={Product} />
         </div>
         {/* 결제 버튼 */}
         <div className="pay">

@@ -4,7 +4,6 @@ import {
   REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER,
-  USER_MAILBOX,
   ADD_TO_CART_USER,
 } from "./types";
 import { USER_SERVER } from '../components/Config.js';
@@ -51,26 +50,16 @@ export function logoutUser(){
 }
 
 export function addToCart(id) {
+
+    console.log('is', id)
     let body = {
       productId: id
-  }
-    const request = Axios
-    // .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-    .post(`${USER_SERVER}/addToCart`,body)
-    .then((response) => response.data);
-
-  return {
-    type: ADD_TO_CART_USER,
-    payload: request,
-  };
-}
-
-export function userMailbox(){
-    const request = Axios.get(`${USER_SERVER}/mailbox`)
-        .then(response => response.data);
+    }   
+    const request = Axios.post(`${USER_SERVER}/addToCart`, body)
+        .then((response) => response.data);
 
     return {
-        type: USER_MAILBOX,
-        payload: request
-    }
+        type: ADD_TO_CART_USER,
+        payload: request,
+    };
 }
