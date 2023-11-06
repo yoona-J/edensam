@@ -69,7 +69,8 @@ function LandingPage(props) {
                             background: '#D9D9D9',
                             border: '0',
                             marginTop: '20px',
-                            textIndent: '15px'
+                            textIndent: '15px',
+                            // boxShadow: '0px 4px 4px 0px #c4c4c4'
                         }}></Input>
                     <Input
                         placeholder='비밀번호'
@@ -92,7 +93,7 @@ function LandingPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#A3D6CC',
+                                background: '#B4E8E6',
                                 border: '0',
                                 marginTop: '20px'
                             }}

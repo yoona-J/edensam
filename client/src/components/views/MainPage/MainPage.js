@@ -10,15 +10,12 @@ import MyMailboxIcon from './img/MyMailboxIcon.png';
 
 function MainPage(props) {
 
-  // const userId = ''
-
   const [UserId, setUserId] = useState('')
 
   useEffect(() => {
     console.log(props.user.userData)
     if (props.user.userData !== undefined) {
       setUserId(props.user.userData)
-      // console.log('userId', UserId)
     } else {
       console.log('nothing')
     }
@@ -60,44 +57,45 @@ function MainPage(props) {
                         }}></img>
                     <p
                         style={{
-                            margin: '15px 0px 15px 0px',
-                            fontSize: '18px'
+                            margin: '13px 0px 15px 0px',
+                            fontSize: '18px',
+                            fontFamily: 'Pretendard-Regular'
                         }}>이번 주 HOT 신상 선물 세트가 왔다!</p>
           </div>
         </a>
         <div
-          style={{ width: '100%', backgroundColor: '#D9D9D9', height: '250px', marginTop: '26px', display: 'flex', alignContent: 'space-evenly', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+          style={{ width: '100%', backgroundColor: '#FFF1EF', height: '250px', marginTop: '26px', display: 'flex', alignContent: 'space-evenly', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
           <a href={`/gift/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
-            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              <img src={GiftBoxIcon} alt='GiftBoxIcon' style={{ width: '40px'}}></img>
-              <p style={{fontSize: '20px'}}>선물함</p>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={GiftBoxIcon} alt='GiftBoxIcon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>선물함가기</p>
             </div>
           </a>
           <a href={`/mailbox/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
-            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              <img src={MyMailboxIcon} alt='WishListIcon' style={{ width: '36px'}}></img>
-              <p style={{fontSize: '20px'}}>내 편지함</p>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={MyMailboxIcon} alt='MailboxIcon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>우편함가기</p>
             </div>
           </a>
           <a href='/gift/top' style={{ textDecorationLine: 'none', color: '#000' }}>
-            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              <img src={Top100Icon} alt='Top100Icon' style={{ width: '40px'}}></img>
-              <p style={{fontSize: '20px'}}>인기선물</p>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={Top100Icon} alt='Top100Icon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>선물하기</p>
             </div>
           </a>
           <a href={`/wish/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
-            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              <img src={WishListIcon} alt='WishListIcon' style={{ width: '52px'}}></img>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={WishListIcon} alt='WishListIcon' style={{ width: '50px'}}></img>
               <p style={{ fontSize: '20px', textAlign: 'center' }}>위시리스트</p>
             </div>
           </a>
         </div>
         <div>
-          <p style={{fontSize: '20px', textAlign: 'center'}}>회원님을 위한 인기 신상</p>
+          <p style={{fontSize: '20px', textAlign: 'center', fontFamily: 'Pretendard-Medium'}}>회원님을 위한 인기 신상</p>
         </div>
         <hr />
         <div>
-          <p style={{fontSize: '20px', textAlign: 'center'}}>회원님이 좋아할만한 선물</p>
+          <p style={{fontSize: '20px', textAlign: 'center', fontFamily: 'Pretendard-Medium'}}>회원님이 좋아할만한 선물</p>
         </div>
             <Footer/>
         </div>

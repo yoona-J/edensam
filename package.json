@@ -31,7 +31,9 @@
     "react-day-picker": "^8.9.1",
     "react-dropzone": "^14.2.3",
     "react-redux": "^5.0.7",
+    "react-slick": "^0.29.0",
     "saslprep": "^1.0.3",
+    "slick-carousel": "^1.8.1",
     "supports-color": "^7.1.0",
     "swiper": "^7.2.0"
   },

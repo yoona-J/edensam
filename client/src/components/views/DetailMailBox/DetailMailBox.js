@@ -11,7 +11,7 @@ function DetailMailBox() {
         fontFamily: 'NeoDunggeunmo'
       }}
     >
-      <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
+      <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
         편지함 제목
       </div>
         <div style={{ marginTop: '26px', position: 'relative'}}>

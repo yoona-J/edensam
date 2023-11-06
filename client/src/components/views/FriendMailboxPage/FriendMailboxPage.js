@@ -1,10 +1,14 @@
 import React from 'react'
 
-function FriendMailboxPage() {
+function FriendMailboxPage(props) {
+
+  console.log('pp', document.location.href)
+
+
+
+
   return (
-    <div>
-      
-    </div>
+    <div>FriendMailboxPage</div>
   )
 }
 

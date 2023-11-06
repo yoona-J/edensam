@@ -3,6 +3,8 @@ import { Form, Input, Checkbox, Button } from 'antd';
 import { registerUser } from '../../../_actions/user_actions';
 import { useDispatch } from 'react-redux';
 
+import './style.css'
+
 function RegisterPage(props) {
 
     const dispatch = useDispatch()
@@ -91,81 +93,92 @@ function RegisterPage(props) {
     }
 
     return (
-        <div style={{ width: '90%', margin: '3rem auto', fontFamily: 'NeoDunggeunmo' }}>
+        <div style={{ width: '90%', margin: '3rem auto', fontFamily: 'Pretendard-Medium' }}>
             <Form onSubmitCapture={submitHandler}>
                 <div style={{ paddingTop: '20px' }}>
-                    <p style={{fontSize: '15px', paddingLeft: '20px'}}>아이디/비밀번호</p>
-                    <Input placeholder='아이디' onChange={idChangeHandler} value={ID} style={{
+                    <p style={{fontSize: '20px'}}>아이디/비밀번호</p>
+                    <Input placeholder='아이디를 입력해주세요' onChange={idChangeHandler} value={ID} style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
                             }} />
-                    <Input placeholder='비밀번호' onChange={passwordChangeHandler} value={Password} type='password' style={{
+                    <Input placeholder='비밀번호를 입력해주세요' onChange={passwordChangeHandler} value={Password} type='password' style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
                             }} />
-                    <Input placeholder='비밀번호 확인' onChange={passwordconfirmChangeHandler} value={PasswordConfirm} type='password' style={{
+                    <Input placeholder='비밀번호를 다시 입력해주세요' onChange={passwordconfirmChangeHandler} value={PasswordConfirm} type='password' style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />
                 </div>
                 
                 <div style={{ paddingTop: '20px' }}>
-                    <p style={{fontSize: '15px', paddingLeft: '20px'}}>개인정보 입력</p>
-                    <Input placeholder='이름' onChange={nameChangeHandler} value={Name} style={{
+                    <p style={{fontSize: '20px' }}>개인정보 입력</p>
+                    <Input placeholder='이름을 입력해주세요' onChange={nameChangeHandler} value={Name} style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
                             }} />
-                    <Input placeholder='생년월일' onChange={birthChangeHandler} value={Birth} type='number' style={{
+                    <Input placeholder='생년월일을 입력해주세요(6자리)' onChange={birthChangeHandler} value={Birth} type='number' style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />
                 </div>
 
                 <div style={{ paddingTop: '20px' }}>
-                    <p style={{fontSize: '15px', paddingLeft: '20px'}}>휴대전화</p>
-                    <Input placeholder='전화번호 입력' onChange={numberChangeHandler} value={Number} type='number' style={{
+                    <p style={{ fontSize: '20px' }}>휴대전화</p>
+                    <div style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#D9D9D9',
+                                background: '#F2F2F2',
+                                border: '0',
+                                textIndent: '15px',
+                                marginBottom: '13px'
+                    }}>
+                        <p style={{ paddingTop: '10px' }}>대한민국 +82</p>
+                            </div>
+                    <Input placeholder='전화번호를 입력해주세요' onChange={numberChangeHandler} value={Number} type='number' style={{
+                                width: '100%',
+                                height: '40px',
+                                borderRadius: '20px',
+                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />
                 </div>
 
                 <div style={{ paddingTop: '20px' }}>
-                    <p style={{fontSize: '15px', textAlign: 'center', padding: '30px'}}>관심 선물을 골라주세요!</p>
-                    <Checkbox.Group onChange={favoriteChangeHandler} style={{ display: 'flex', width: '230px', justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap', margin: '0 auto'}}>
-                        <Checkbox value={1} style={{marginBottom: '20px'}}>화장품/향수</Checkbox>
-                        <Checkbox value={2}>가전/디지털</Checkbox>
-                        <Checkbox value={3} style={{marginBottom: '20px'}}>식품</Checkbox>
-                        <Checkbox value={4}>배달선물</Checkbox>
-                        <Checkbox value={5}>완구/취미</Checkbox>
-                        <Checkbox value={6} style={{marginBottom: '20px'}}>건강</Checkbox>
-                        <Checkbox value={7}>생활용품</Checkbox>
+                    <p style={{fontSize: '20px', marginBottom: '26px' }}>관심 선물을 골라주세요!</p>
+                    <Checkbox.Group onChange={favoriteChangeHandler} style={{ display: 'flex', flexDirection: 'column', margin: '0 auto', fontSize: '15px'}}>
+                        <Checkbox value={1} style={{marginBottom: '36px'}}>화장품/향수</Checkbox>
+                        <Checkbox value={2} style={{marginBottom: '36px'}}>가전/디지털</Checkbox>
+                        <Checkbox value={3} style={{marginBottom: '36px'}}>식품</Checkbox>
+                        <Checkbox value={4} style={{marginBottom: '36px'}}>배달선물</Checkbox>
+                        <Checkbox value={5} style={{marginBottom: '36px'}}>완구/취미</Checkbox>
+                        <Checkbox value={6} style={{marginBottom: '36px'}}>건강</Checkbox>
+                        <Checkbox value={7} style={{marginBottom: '36px'}}>생활용품</Checkbox>
                         <Checkbox value={8}>패션/의류</Checkbox>
                     </Checkbox.Group>
                 </div>
@@ -175,9 +188,9 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#A3D6CC',
+                                background: '#B4E8E6',
                                 border: '0',
-                                marginTop: '20px'
+                                marginTop: '60px'
                             }}
                             htmlType='submit'>
                             확인

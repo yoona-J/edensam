@@ -1,6 +1,10 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import MailboxImg1 from './img/MailboxImg1.png'
 import MailboxImg2 from './img/MailboxImg2.png'
 import MailboxImg3 from './img/MailboxImg3.png'
@@ -20,24 +24,88 @@ function MyMailboxPage(props) {
       Axios.post('/api/mailbox/getMailbox', { params: { 'userId': props.user.userData }})
       .then(response => {
         console.log('response', response.data)
-        setRes(response)
+        setRes(response.data)
         })
     }
   }, [props.user.userData])
 
+  console.log(Res)
+
+  const mailboxCards = Res.map((mailbox, index) => {
+
+    if (mailbox.mailboxStyle === '1') {
+      return <div>
+        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+          <div key={index} style={{ position: 'relative' }}>
+            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px' }}></img>
+            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
+          </div>
+        </a>
+      </div>
+    } else if (mailbox.mailboxStyle === '2') { 
+      return <div>
+        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+          <div key={index} style={{ position: 'relative' }}>
+            <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px' }}></img>
+            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
+          </div>
+        </a>
+      </div>
+    } else if (mailbox.mailboxStyle === '3') { 
+      return <div>
+        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+          <div key={index} style={{ position: 'relative' }}>
+            <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px' }}></img>
+            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
+          </div>  
+        </a>
+      </div>
+    } else if (mailbox.mailboxStyle === '4') { 
+      return <div>
+        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+          <div key={index} style={{ position: 'relative' }}>
+            <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px' }}></img>
+            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
+          </div>
+        </a>
+      </div>
+    } else if (mailbox.mailboxStyle === '5') { 
+      return <div>
+        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+          <div key={index} style={{ position: 'relative' }}>
+            <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px' }}></img>
+            <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
+            <p style={{ position: 'absolute', top: '20%', left: '33%', fontSize: '15px' }}>OPEN: { mailbox.calendar[0].year }.{ mailbox.calendar[0].month }.{ mailbox.calendar[0].day }</p>
+          </div>
+        </a>
+      </div>
+    }
+  })
+
   const IsAvailable = () => {
+
+    const settings = {
+      dots: true,
+      arrow: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true
+    }
+
     return <div>
-      <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
+      <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
         {UserId.name}님의 편지함 목록
       </div>
-          <div style={{ position: 'relative' }}>
-            <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px' }}></img>
-            <p style={{ position: 'absolute', top: '12%', left: '35%', fontSize: '20px' }}>편지함 제목</p>
-            <p style={{ position: 'absolute', top: '23%', left: '33%', fontSize: '15px' }}>OPEN: 2023.10.24</p>
-          </div>
+      <Slider {...settings}>
+        {mailboxCards}
+      </Slider>
       <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly' }}>
         <a href={`/mailbox/${UserId._id}/delete`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>
-          <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
+          <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
             <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>삭제</p>
           </div>
         </a>
@@ -55,14 +123,14 @@ function MyMailboxPage(props) {
       <p style={{ marginBottom: '0px' }}>아직 우체통이 존재하지 않아요!</p>
       <p>우체통을 생성해주세요!</p>
       <a href={`/mailbox/${UserId._id}/create`} style={{ textDecorationLine: 'none', color: '#000' }}>
-        <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', paddingTop: '7px' }}>
+        <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', paddingTop: '7px' }}>
           생성하기
         </div>
       </a>
     </div> 
   }
 
-  if (Res.status === 200 && Res.data.length === 0) {
+  if (Res.length === 0) {
     return (
       <div
         style={{
@@ -75,7 +143,7 @@ function MyMailboxPage(props) {
         <IsUnavailable />
       </div>
     );
-  } else if (Res.status === 200 && Res.data.length >= 1) {
+  } else if (Res.length >= 1) {
     return (
       <div
         style={{

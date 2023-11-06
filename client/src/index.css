@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'NeoDunggeunmo', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  font-family: -apple-system, BlinkMacSystemFont, 'NeoDunggeunmo', "Pretendard-Regular", 'Pretendard-Medium', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'NeoDunggeunmo', "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'NeoDunggeunmo', "Pretendard-Regular", 'Pretendard-Medium', "Courier New", monospace;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'NeoDunggeunmo', "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+  font-family: -apple-system, BlinkMacSystemFont, 'NeoDunggeunmo', "Pretendard-Regular", 'Pretendard-Medium', "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   line-height: 1.5;
@@ -41,6 +41,20 @@ input.error {
 @font-face {
   font-family: 'NeoDunggeunmo';
   src: url('./font/neodgm.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('./font/Pretendard-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Medium';
+  src: url('./font/Pretendard-Medium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

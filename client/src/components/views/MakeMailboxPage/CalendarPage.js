@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import './style.css'
+
 function CalendarPage(props) {
     
     const Today = new Date();
@@ -58,7 +60,7 @@ function CalendarPage(props) {
           <p style={{ fontSize: '18px' }}>편지 받는 종료일을 선택하세요</p>
           <select value={CalendarForm.year} onChange={yearOnChange} style={{ width: '100%', height: '39px', background: '#F9DB99', borderRadius: '20px', border: '0', textAlign: 'center' }}>
               {Year.map(item => (
-                <option value={item} key={item} style={{weight: '50px'}}>
+                <option value={item} key={item}>
                     {item}
                 </option>
               ))}

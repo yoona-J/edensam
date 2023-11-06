@@ -49,7 +49,7 @@ function SearchFriendPage() {
                 width: '90%',
                 margin: '3rem auto',
               fontFamily: 'NeoDunggeunmo',
-              color: '#828282'
+              color: '#333333'
           }}
       >
 

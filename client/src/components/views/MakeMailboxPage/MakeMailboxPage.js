@@ -115,7 +115,7 @@ function MakeMailboxPage(props) {
         fontFamily: 'NeoDunggeunmo'
       }}
     >
-      <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px', fontWeight: 'bolder', margin: '0' }}>
+      <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px', fontWeight: 'bolder', margin: '0' }}>
         편지함 만들기
       </div>
       <Form onSubmitCapture={submitHandler}>
@@ -136,7 +136,7 @@ function MakeMailboxPage(props) {
                   width: '100%',
                   height: '40px',
                   borderRadius: '20px',
-                  background: '#A3D6CC',
+                  background: '#B4E8E6',
                   border: '0',
                   marginTop: '67px'
               }}
