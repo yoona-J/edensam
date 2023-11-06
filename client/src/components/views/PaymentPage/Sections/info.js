@@ -41,12 +41,12 @@ function info() {
       <br />
       <br />
       <br />
-      <div className="btn">
-        <a href="/passdone">입금완료</a>
-      </div>
-      <div className="pay">
-        <div>결제하기</div>
-        <a href="/address"></a>
+      <div
+      //   className="btn"
+      >
+        <a href="/paymentsuccess">
+          <div className="btn">입금완료</div>
+        </a>
       </div>
     </div>
   );

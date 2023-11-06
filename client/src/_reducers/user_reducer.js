@@ -20,10 +20,10 @@ export default function (state = {}, action) {
     case ADD_TO_CART_USER:
       return {
         ...state, 
-          userData: {
-          ...state.userData,
-          wishList: action.payload,
-        },
+          // userData: {
+          // ...state.userData,
+          // wishList: action.payload,
+        // },
       };
     case USER_MAILBOX:
       return {

@@ -1,6 +1,9 @@
 // import React from "react";
 // import "./MyWishlistPage.css";
 
+// import { id } from "date-fns/locale"
+// import ProductImage from "../ItemDetailPage/Sections/ProductImage"
+
 // function MyWishlistPage() {
 //   const dispatch = useDispatch();
 //   const [Total, setTotal] = useState(0);
@@ -92,3 +95,15 @@
 // export default MyWishlistPage;
 
 
+
+
+
+import React from 'react'
+
+function MyWishlistPage() {
+  return (
+    <div>MyWishlistPage</div>
+  )
+}
+
+export default MyWishlistPage

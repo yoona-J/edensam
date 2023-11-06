@@ -19,7 +19,8 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Upload } from "antd";
+// import { Button, Upload } from "antd";
+import { image } from "antd";
 import "./ItemDetailPage.css";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
@@ -54,7 +55,7 @@ function ItemDetailPage(props) {
       }}
     >
       {/* 상품 이미지 */}
-      <ProductImage detail={Upload} />
+      <ProductImage detail={Product} />
       <hr />
       <div className="box">
         {/* 상품 회사 */}
@@ -64,10 +65,8 @@ function ItemDetailPage(props) {
         {/* 상품 가격 */}
         <div className="price">{Product.how_much} 원</div>
         {/* 찜하기 버튼 */}
-        {/* <Button onClick={}>찜</Button> */}
-
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <ProductInfo addToCart={addToCartHandler} detail={Upload} />
+          <ProductInfo addToCart={addToCartHandler} detail={Product} />
         </div>
         {/* 결제 버튼 */}
         <div className="pay">
@@ -80,7 +79,8 @@ function ItemDetailPage(props) {
       {/* 상품 상세 정보 */}
       <hr />
       <div className="detail">상품 정보</div>
-      <ProductInfo detail={Upload} />
+      {/* <ProductInfo detail={Upload} /> */}
+      <image className="infoimg" src>{Product.item_info}</image>
     </div>
   );
 }

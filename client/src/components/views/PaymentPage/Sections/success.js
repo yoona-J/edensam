@@ -2,7 +2,7 @@ import React from "react";
 
 function done() {
   return (
-    <div
+    <div className="A"
       style={{
         width: "100%",
         margin: "3rem auto",
@@ -22,13 +22,13 @@ function done() {
       <br />
       <br />
       <br />
-          <br />
-          
-      <div className="btn">
-        <a href="/passdone">홈으로</a>
-      </div>
+      <br />
+      <a href="/main">
+        <div className="btn">홈으로</div>
+      </a>
     </div>
   );
 }
 
 export default done;
+

@@ -101,9 +101,6 @@ router.post("/addToCart", auth, (req, res) => {
           duplicate = true;
         }
       });
-      // if (duplicate) {
-
-      // }
 //상품이미 존재
       if (duplicate) {
         User.findOneAndUpdate(

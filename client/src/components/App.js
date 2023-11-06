@@ -22,8 +22,12 @@ import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
 //
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
 //무통장
-import passinfo from "./views/PaymentPage/withoutpassbook/info.js";
-import passdone from "./views/PaymentPage/withoutpassbook/done.js";
+import passinfo from "./views/PaymentPage/Sections/info.js";
+import PaymentSuccessPage from "./views/PaymentPage/Sections/success.js";
+import KGpay from "./views/PaymentPage/Sections/KGpay.js";
+
+import HistoryPage from "./views/HistoryPage/HistoryPage";
+
 //
 import AddressPage from "./views/AddressPage/AddressPage.js";
 //
@@ -120,8 +124,16 @@ function App() {
           {/* 무통장입금 */}
 
           <Route exact path="/passinfo" component={Auth(passinfo, true)} />
-          <Route exact path="/passdone" component={Auth(passdone, true)} />
+          {/* KGpay 결제창 */}
+          <Route exact path="/kgpay" component={Auth(KGpay, true)} />
+          {/* 결제 성공 페이지 */}
+          <Route
+            exact
+            path="/paymentsuccess"
+            component={Auth(PaymentSuccessPage, true)}
+          />
 
+          <Route exact path="/history" component={Auth(HistoryPage, true)} />
           <Route exact path="/address" component={Auth(AddressPage, true)} />
           {/* <Route
             exact path="/mywishlist"

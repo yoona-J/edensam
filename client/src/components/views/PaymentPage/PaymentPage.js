@@ -1,10 +1,9 @@
 import React from "react";
 import "./PaymentPage.css";
-import { Radio } from "antd";
+import { Button } from "antd";
 
-function PaymentPage() {
-  const [method, setMethod] = React.useState(["green"]);
-
+function PaymentPage({history}) {
+  
   return (
     <div className="A">
       <div className="title">주문/결제</div>
@@ -20,12 +19,14 @@ function PaymentPage() {
         </Radio.Group>{" "} */}
       <div className="passbox">
         <a href="/passinfo">
-          <p>
-            무통장
-            <br />
-            입금
-          </p>
+          <p>무통장 입금</p>
         </a>
+        <a href="/passinfo">
+          <p>일반 결제</p>
+        </a>
+      </div>
+      <div>
+        <Button onClick={() => history.push("/kgpay")}>어쩌고저쩌고</Button>
       </div>
       <br />
       <footer>
