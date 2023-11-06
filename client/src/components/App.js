@@ -21,6 +21,10 @@ import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js
 import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
 //
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
+//무통장
+import passinfo from "./views/PaymentPage/withoutpassbook/info.js";
+import passdone from "./views/PaymentPage/withoutpassbook/done.js";
+//
 import AddressPage from "./views/AddressPage/AddressPage.js";
 //
 import NavBar from "./views/NavBar/NavBar";
@@ -112,12 +116,17 @@ function App() {
           />
 
           <Route exact path="/payment" component={Auth(PaymentPage, true)} />
+
+          {/* 무통장입금 */}
+
+          <Route exact path="/passinfo" component={Auth(passinfo, true)} />
+          <Route exact path="/passdone" component={Auth(passdone, true)} />
+
           <Route exact path="/address" component={Auth(AddressPage, true)} />
-          <Routes
-            exact
-            path="/mywishlist"
+          {/* <Route
+            exact path="/mywishlist"
             component={Auth(MyWishlistPage, true)}
-          />
+          /> */}
 
           <Route
             exact
