@@ -28,7 +28,7 @@ function MakeMailboxPage(props) {
   const [IsClicked, setIsClicked] = useState('1')
   const [Title, setTitle] = useState('')
 
-  const ImageHandelClick = (event) => {
+  const ImageHandleClick = (event) => {
     // console.log(event.target.value)
     setIsClicked(event.target.value)
   }
@@ -121,11 +121,11 @@ function MakeMailboxPage(props) {
       <Form onSubmitCapture={submitHandler}>
         {MailboxImg()}
         <div style={{ width: '50%', display: 'inline-flex', justifyContent: 'space-evenly', marginLeft: '25%' }}>
-          <Button onClick={ImageHandelClick} value={1} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#C6A8CE', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={2} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#EE8577', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={3} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#8BCDBF', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={4} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#CBE0A2', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={5} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#FAD993', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={1} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#C6A8CE', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={2} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#EE8577', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={3} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#8BCDBF', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={4} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#CBE0A2', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={5} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#FAD993', border: '0px' }} />
         </div>
         <p style={{ marginTop: '46px', fontSize: '18px' }}>편지함 제목을 입력하세요</p>
         <Input placeholder='편지함의 제목을 입력하세요' onChange={TitleChangeHandler} value={Title} style={{ width: '100%', height: '39px', backgroundColor: '#F9DB99', borderRadius: '20px', border: '0', textAlign: 'center' }} />

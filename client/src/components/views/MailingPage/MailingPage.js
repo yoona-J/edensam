@@ -5,8 +5,10 @@ import { useHistory } from "react-router-dom";
 
 function MailingPage(props) {
 
-  // console.log(props.match.params)
+    // console.log(props)
     const FriendId = props.match.params.FriendId
+    const FriendMailboxId = props.match.params.MailboxId
+
     const history = useHistory();
 
     const [Writer, setWriter] = useState('')
@@ -22,12 +24,8 @@ function MailingPage(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        history.push({ pathname: `/mailbox/friend/${FriendId}/mailing/deco`, state: { writer: Writer, content: Content }})
+        history.push({ pathname: `/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing/deco`, state: { writer: Writer, content: Content }})
         }
-    
-    console.log('Writer', Writer)
-    
-    console.log('Content', Content)
 
     return (
         <div

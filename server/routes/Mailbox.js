@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { Mailbox } = require('../models/Mailbox')
 
+//=================================
+//           Mailbox
+//=================================
 
 router.post('/', (req, res) => {
     console.log(req.body)

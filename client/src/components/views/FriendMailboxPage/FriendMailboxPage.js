@@ -13,11 +13,12 @@ import MailboxImg5 from './img/MailboxImg5.png'
 
 function FriendMailboxPage(props) {
 
-  console.log('pppp', props.match.params)
+  // console.log('pppp', props.match.params)
 
   const [FriendId, setFriendId] = useState('')
   const [FriendResponse, setFriendResponse] = useState([])
   const [FriendName, setFriendName] = useState('')
+  const [FriendMailboxId, setFriendMailboxId] = useState('')
 
   useEffect(() => {
     // console.log(props.match.params)
@@ -29,6 +30,7 @@ function FriendMailboxPage(props) {
         // console.log('response', response.data)
         setFriendResponse(response.data)
         setFriendName(response.data[0].maker.name)
+        setFriendMailboxId(response.data[0]._id)
         })
     }
   }, [props.match.params])
@@ -37,7 +39,7 @@ function FriendMailboxPage(props) {
 
     if (mailbox.mailboxStyle === '1') {
       return <div>
-        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
             <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -47,7 +49,7 @@ function FriendMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '2') { 
       return <div>
-        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
             <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -57,7 +59,7 @@ function FriendMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '3') { 
       return <div>
-        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
             <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -67,7 +69,7 @@ function FriendMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '4') { 
       return <div>
-        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
             <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -77,7 +79,7 @@ function FriendMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '5') { 
       return <div>
-        <a href={`/mailbox/friend/${FriendId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px', borderRadius: '30px' }}></img>
             <p style={{ position: 'absolute', top: '7%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>

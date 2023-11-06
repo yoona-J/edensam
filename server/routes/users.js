@@ -15,8 +15,7 @@ router.get("/auth", auth, (req, res) => {
         birth: req.user.birth,
         name: req.user.name,
         number: req.user.number,
-        favorite: req.user.favorite,
-        mailbox: req.user.mailbox
+        favorite: req.user.favorite
     });
 });
 

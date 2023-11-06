@@ -24,6 +24,9 @@ import FriendMailboxPage from "./views/FriendMailboxPage/FriendMailboxPage.js";
 
 import MailingPage from "./views/MailingPage/MailingPage.js";
 import DecoratePage from './views/MailingPage/DecoratePage.js';
+import GiftProloguePage from './views/GiftProloguePage/GiftProloguePage.js';
+
+import MailingSuccessPage from './views/MailingSuccessPage/MailingSuccessPage.js';
 
 import RecommendListPage from "./views/RecommendListPage/RecommendListPage.js";
 import TopItemListPage from "./views/TopItemListPage/TopItemListPage.js";
@@ -85,14 +88,18 @@ function App() {
           
           {/* 친구 메일함 */}
           <Route exact path="/mailbox/friend/:FriendId" component={Auth(FriendMailboxPage, true)} />
-          <Route exact path="/mailbox/friend/:FriendId/mailing" component={Auth(MailingPage, true)} />
-          <Route exact path="/mailbox/friend/:FriendId/mailing/deco" component={Auth(DecoratePage, true)} />
+          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing" component={Auth(MailingPage, true)} />
+          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing/deco" component={Auth(DecoratePage, true)} />
+          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing/gift" component={Auth(GiftProloguePage, true)} />
+
+          {/* 메일 전송 완료 */}
+          <Route exact path="/mailing/success" component={Auth(MailingSuccessPage, true)} />
 
           {/* 내 위시리스트 */}
           <Route exact path="/wish/:UserId" component={Auth(MyWishlistPage, true)} />
 
           {/* 친구 위시리스트 */}
-          <Route exact path="/wish/friend" component={Auth(FriendWishlistPage, true)} />
+          <Route exact path="/wish/friend/:friendId" component={Auth(FriendWishlistPage, true)} />
 
           {/* 상품 페이지 */}
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
