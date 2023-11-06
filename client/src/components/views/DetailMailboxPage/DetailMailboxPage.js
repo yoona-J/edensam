@@ -4,7 +4,10 @@ import Mailbox1 from './img/Mailbox1.png'
 
 import MailIcon from './img/MailIcon.png'
 
-function DetailMailboxPage() {
+function DetailMailboxPage(props) {
+
+  console.log(props)
+
   return (
       <div
         style={{
@@ -17,7 +20,7 @@ function DetailMailboxPage() {
           </div>
       <img src={Mailbox1} style={{ borderRadius: '20px', width: '100%', marginTop: '24px' }}></img>
       
-      <div>
+      <div style={{ display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
             <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>
             <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>
             <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>

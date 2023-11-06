@@ -14,10 +14,24 @@ router.post('/', (req, res) => {
    
 })
 
+//내 우체통 정보 가져오기
 router.post('/getMailbox', (req, res) => {
     // console.log(req.body)
     const userId = req.body.params.userId._id
     Mailbox.find({ 'maker': userId})
+        .populate("maker")
+        .exec((err, mailbox) => {
+            if(err) return res.status(400).send(err)
+            return res.status(200).send(mailbox)
+        })
+})
+
+router.post('/friend/getMailbox', (req, res) => {
+    // console.log(req.body)
+    
+    //친구 우체통
+    const friendId = req.body.params.FriendId
+    Mailbox.find({ 'maker': friendId})
         .populate("maker")
         .exec((err, mailbox) => {
             if(err) return res.status(400).send(err)

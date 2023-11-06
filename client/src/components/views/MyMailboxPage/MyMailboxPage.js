@@ -35,7 +35,7 @@ function MyMailboxPage(props) {
 
     if (mailbox.mailboxStyle === '1') {
       return <div>
-        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg1} alt='MailboxImg1' style={{ width: '100%', marginTop: '26px' }}></img>
             <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -45,7 +45,7 @@ function MyMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '2') { 
       return <div>
-        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg2} alt='MailboxImg2' style={{ width: '100%', marginTop: '26px' }}></img>
             <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -55,7 +55,7 @@ function MyMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '3') { 
       return <div>
-        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg3} alt='MailboxImg3' style={{ width: '100%', marginTop: '26px' }}></img>
             <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -65,7 +65,7 @@ function MyMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '4') { 
       return <div>
-        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg4} alt='MailboxImg4' style={{ width: '100%', marginTop: '26px' }}></img>
             <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
@@ -75,7 +75,7 @@ function MyMailboxPage(props) {
       </div>
     } else if (mailbox.mailboxStyle === '5') { 
       return <div>
-        <a href={`/mailbox/${UserId._id}/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+        <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
             <img src={MailboxImg5} alt='MailboxImg5' style={{ width: '100%', marginTop: '26px' }}></img>
             <p style={{ position: 'absolute', top: '8%', left: '35%', fontSize: '20px' }}>{ mailbox.title }</p>
