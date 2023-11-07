@@ -18,6 +18,7 @@ import MyMailboxPage from "./views/MyMailboxPage/MyMailboxPage.js";
 import MakeMailboxPage from "./views/MakeMailboxPage/MakeMailboxPage.js";
 import DeleteMailboxPage from './views/DeleteMailboxPage/DeleteMailboxPage.js';
 import DetailMailboxPage from './views/DetailMailboxPage/DetailMailboxPage.js';
+import DetailMailPage from './views/DetailMailboxPage/DetailMailPage/DetailMailPage.js';
 
 import SearchFriendPage from "./views/SearchFriendPage/SearchFriendPage.js";
 import FriendMailboxPage from "./views/FriendMailboxPage/FriendMailboxPage.js";
@@ -82,6 +83,7 @@ function App() {
           <Route exact path="/mailbox/:UserId/create" component={Auth(MakeMailboxPage, true)} />
           <Route exact path="/mailbox/:UserId/delete" component={Auth(DeleteMailboxPage, true)} />
           <Route exact path="/mailbox/:UserId/detail/:MailboxId" component={Auth(DetailMailboxPage, true)} />
+          <Route exact path="/mailbox/:UserId/detail/:MailboxId/mail/:mailId" component={Auth(DetailMailPage, true)} />
 
           {/* 친구 검색 */}
           <Route exact path="/search" component={Auth(SearchFriendPage, true)} />

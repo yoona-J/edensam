@@ -18,4 +18,17 @@ router.post('/', (req, res) => {
    
 })
 
+//내 우체통 내 편지 정보 가져오기
+router.post('/getMail', (req, res) => {
+    console.log(req.body)
+    const userId = req.body.params.userId
+    const mailboxId = req.body.params.mailboxId
+    Mail.find({ 'mailboxId' : mailboxId })
+        .populate("mailboxId")
+        .exec((err, mail) => {
+            if(err) return res.status(400).send(err)
+            return res.status(200).send(mail)
+        })
+})
+
 module.exports = router;
