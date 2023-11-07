@@ -28,10 +28,8 @@
   line-height: 39px;
 }
 
-
-
 /* .checkbox { */
-  /* display: inline-flex;
+/* display: inline-flex;
   flex-direction: column;
 }
 .ant-radio-input {
@@ -41,21 +39,22 @@
   border-color: red !important ; */
 /* } */
 
-.box{
+.box {
   float: left;
-  margin: 0 15px;}
+  margin: 0 15px;
+}
 
-input {
+#checkbox {
   display: none;
 }
-label {
+#label {
   display: flex;
   width: 13px;
   height: 13px;
   border: 2px solid gray;
   cursor: pointer;
 }
-input:checked + label::after {
+#checkbox:checked + #label::after {
   content: "✔";
   width: 13px;
   height: 13px;
