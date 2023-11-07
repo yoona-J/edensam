@@ -45,16 +45,16 @@
   float: left;
   margin: 0 15px;}
 
-input {
+/* input {
   display: none;
-}
-label {
+} */
+/* label {
   display: flex;
   width: 13px;
   height: 13px;
   border: 2px solid gray;
   cursor: pointer;
-}
+} */
 input:checked + label::after {
   content: "✔";
   width: 13px;

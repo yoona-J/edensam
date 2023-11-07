@@ -46,11 +46,7 @@ import toss from "./views/PaymentPage/Sections/toss.js";
 import HistoryPage from "./views/HistoryPage/HistoryPage";
 import AddressPage from "./views/AddressPage/AddressPage.js";
 
-import NavBar from "./views/NavBar/NavBar";
-import ExitPage from "./views/ExitPage/ExitPage.js";
-import RetakePage from "./views/RetakePage/RetakePage.js";
-import LogoutPage from "./views/LogoutPage/LogoutPage";
-import MyGiftBox from "./views/MyGiftBox/MyGiftBox";
+import MyGiftBox from "./views/MyGiftBox/MyGiftBox.js";
 
 import AdminPage from "./views/UploadAdminPage/UploadAdminPage.js";
 
@@ -136,7 +132,7 @@ function App() {
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
           <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
           <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
-          <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} />
+          {/* <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} /> */}
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
 
           {/* 상품 업로드 - 어드민 페이지 */}
