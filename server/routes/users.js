@@ -16,7 +16,8 @@ router.get("/auth", auth, (req, res) => {
     name: req.user.name,
     number: req.user.number,
     favorite: req.user.favorite,
-    wishList: req.user.wishList
+    wishList: req.user.wishList,
+    history: req.user.history,
   });
 });
 
@@ -94,48 +95,84 @@ router.post("/search", (req, res) => {
 router.post("/addToCart", auth, (req, res) => {
   //유저 정보 가져오기
   // console.log(req.user._id)
-  User.findOne({ _id: req.user._id },
-    (err, userInfo) => {
-      let duplicate = false;
-      userInfo.wishList.forEach((item) => {
-        if (item.id === req.body.productId) {
-          duplicate = true;
-        }
-      });
-      //상품이미 존재
-      if (duplicate) {
-        User.findOneAndUpdate(
-          { _id: req.user._id, "wishList.id": req.body.productId },
-          { $inc: { "wishList.$.quantity": 1 } },
-          { new: true },
-          (err, userInfo) => {
-            if (err) return res.json({ success: false, err });
-            res.status(200).json(userInfo.wishList);
-          }
-        );
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
+    let duplicate = false;
+    userInfo.wishList.forEach((item) => {
+      if (item.id === req.body.productId) {
+        duplicate = true;
       }
-      //상품 존재x
-      else {
-        User.findOneAndUpdate(
-          { _id: req.user._id },
-          {
-            $push: {
-              wishList: {
-                id: req.body.productId,
-                quantity: 1,
-                date: Date.now(),
-              },
+    });
+    //상품이미 존재
+    if (duplicate) {
+      User.findOneAndUpdate(
+        { _id: req.user._id, "wishList.id": req.body.productId },
+        { $inc: { "wishList.$.quantity": 1 } },
+        { new: true },
+        (err, userInfo) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(userInfo.wishList);
+        }
+      );
+    }
+    //상품 존재x
+    else {
+      User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+          $push: {
+            wishList: {
+              id: req.body.productId,
+              quantity: 1,
+              date: Date.now(),
             },
           },
-          { new: true },
-          (err, userInfo) => {
-            if (err) return res.json({ success: false, err });
-            res.status(200).json(userInfo.wishList);
-          }
-        );
-      }
+        },
+        { new: true },
+        (err, userInfo) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(userInfo.wishList);
+        }
+      );
     }
-  );
+  });
+});
+
+
+// router.get("/userCartInfo", auth, (req, res) => {
+//   User.findOne({ _id: req.user._id }, (err, userInfo) => {
+//     let cart = userInfo.cart;
+//     let array = cart.map((item) => {
+//       return item.id;
+//     });
+
+//     Product.find({ _id: { $in: array } })
+//       .populate("writer")
+//       .exec((err, cartDetail) => {
+//         if (err) return res.status(400).send(err);
+//         return res.status(200).json({ success: true, cartDetail, cart });
+//       });
+//   });
+// });
+
+
+
+
+router.get("/userCartInfo", auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
+    let wish = userInfo.wishList;
+    let array = wishList.map((item) => {
+      return item.id;
+    });
+
+    Upload.find({ _id: { $in: array } })
+      // .populate("writer")
+      .exec((err, wishListtDetail) => {
+        if (err) return res.status(400).send(err);
+        return res
+          .status(200)
+          .json({ success: true, wishListDetail, wishList });
+      });
+  });
 });
 
 module.exports = router;

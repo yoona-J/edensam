@@ -48,11 +48,7 @@ function UserCardBlock(props) {
       </a>
     ));
 
-  return (
-    <div className="Card">
-      {renderItems()}
-    </div>
-  );
+  return <div className="Card">{renderItems()}</div>;
 }
 
 export default UserCardBlock;

@@ -25,7 +25,7 @@ export default function (state = {}, action) {
     case GET_WISH_ITEMS_USER:
       return {
         ...state,
-        CartDetail: action.payload,
+        wishListDetail: action.payload,
       };
     default:
       return state;
