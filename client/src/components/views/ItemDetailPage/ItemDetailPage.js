@@ -21,12 +21,17 @@ function ItemDetailPage(props) {
     <div
       style={{
         width: "100%",
-        marginTop: "100px",
+        marginTop: "30px",
         fontFamily: "Pretendard",
       }}
     >
       {/* 상품 이미지 */}
-      <ProductImage detail={Product} />
+      {/* <ProductImage detail={Product} /> */}
+      <img
+        className="infoimg"
+        alt="infoimg"
+        src={`http://localhost:5000/${Product.item_image}`}
+      />
       <hr />
       <div className="box">
         {/* 상품 회사 */}
@@ -36,21 +41,31 @@ function ItemDetailPage(props) {
         {/* 상품 가격 */}
         <div className="price">{Product.how_much} 원</div>
         {/* 찜하기 버튼 */}
-
-        <div
-          style={{ display: "flex", justifyContent: "center", float: "left" }}
-        >
+      </div>
+      <div
+        style={{
+          display: "flex",
+          // justifyContent: "center",
+          float: "left",
+          width: "100%",
+          justifyContent: "space-around",
+        }}
+      >
+        <div style={{ padding: " 7.5px 0" }}>
           <ProductInfo detail={Product} />
         </div>
+
         {/* 결제 버튼 */}
-        <div className="pay">
+        <div className="payment">
           <a href="/payment">
-            <div>구매하기</div>
+            <div className="paybtn">구매하기</div>
           </a>
           <br />
         </div>
       </div>
+
       {/* 상품 상세 정보 */}
+      <br />
       <hr />
       <div className="detail">상품 정보</div>
       <img

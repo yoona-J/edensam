@@ -5,7 +5,7 @@
   padding: 0 25px;
 }
 
-h2 {
+.wtitle {
   font-family: NeoDunggeunmo;
   clear: both;
   width: 100%;
@@ -18,30 +18,33 @@ h2 {
   border: none;
 }
 
-.Card {
-  display: grid;
+.Container {
   padding: "1%";
-  width: "45%";
-  height: "150px";
   margin: "1% 0% 1% 0%";
-  grid-template-columns: 49% 49%;
-  padding: 3% 0;
-  /* grid */
-  grid-auto-rows: 275px;
-  column-gap: 2%;
-  row-gap: 7.36px;
-  border: 1px black;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-
-.ant-card-meta-title {
+.witembox {
+  width: 180px;
+  height: 295px;
+  border-radius: 10px;
+  /* border: 1px solid lightgray; */
+  margin-bottom: 10px;
+}
+.winame {
   padding: 5px 0;
   text-align: left;
   font-size: 15px;
+  width: 166px;
+  margin-left: 7px;
 }
 
-.ant-card-meta-description {
+.wprice {
   color: rgb(64, 64, 64);
   vertical-align: bottom;
-  font-size: 15x;
+  font-size: 15px;
   text-align: right;
+  width: 166px;
+  margin-left: 7px;
 }

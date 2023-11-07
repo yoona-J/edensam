@@ -20,29 +20,19 @@ function FriendWishlistPage(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData]);
-    
-    
 
   return (
     <div className="A">
       <div style={{ textAlign: "center" }}>
-        <h2>my 위시리스트</h2>
+        <h2 className="wtitle">my 위시리스트</h2>
         {/* 상품값 */}
-        <div
-          style={{
-            margin: "10px",
-            border: "1px solid black",
-            borderRadius: "12px",
-          }}
-        >
-          <div>
-            <UserCardBlock
-              className="Card"
-              uploads={
-                props.user.wishListDetail && props.user.wishListDetail.upload
-              }
-            />
-          </div>
+
+        <div>
+          <UserCardBlock
+            uploads={
+              props.user.wishListDetail && props.user.wishListDetail.upload
+            }
+          />
         </div>
       </div>
     </div>

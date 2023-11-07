@@ -27,22 +27,14 @@ function MyWishlistPage(props) {
       <div style={{ textAlign: "center" }}>
         <h2 className="title">my 위시리스트</h2>
         {/* 상품값 */}
+
         <div
-          style={{
-            margin: "10px",
-            border: "1px solid black",
-            borderRadius: "12px",
-          }}
         >
-          <div>
-            <UserCardBlock
-              className="Card"
-              uploads={
-                props.user.wishListDetail && props.user.wishListDetail.upload
-              }
-              // removeItem={removeFromCart}
-            />
-          </div>
+          <UserCardBlock
+            uploads={
+              props.user.wishListDetail && props.user.wishListDetail.upload
+            }
+          />
         </div>
       </div>
     </div>
