@@ -42,15 +42,17 @@ function ProductInfo(props) {
 
   return (
     <div>
-      <div style={{
-        display: "flex",
-        // justifyContent: "center"
-      }}>
+      <div
+        style={{
+          display: "flex",
+          // justifyContent: "center"
+        }}
+      >
         <Button
           style={{
             backgroundColor: "#FFFFFF",
             border: "none",
-            // float: "left",
+            float: "left",
           }}
           onClick={clickHandler}
         >
@@ -59,7 +61,6 @@ function ProductInfo(props) {
             style={{
               width: "24px",
               height: "24px",
-              
             }}
             // onClick={wishcheck}
           />
