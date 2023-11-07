@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Col, Card, Row, Collapse } from "antd";
 import Meta from "antd/lib/card/Meta";
-import "../MyWishlistPage.css";
+import "../FriendWishlistPage.css";
 
 function UserCardBlock(props) {
   const renderCartImage = (item_image) => {

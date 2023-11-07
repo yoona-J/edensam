@@ -136,7 +136,7 @@ function App() {
           <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
           <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
           <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
-          <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} />
+          {/* <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} /> */}
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
 
           {/* 상품 업로드 - 어드민 페이지 */}

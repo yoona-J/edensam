@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MyWishlistPage.css";
+// import "./MyWishlistPage.css";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
