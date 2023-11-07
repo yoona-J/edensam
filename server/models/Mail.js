@@ -22,6 +22,9 @@ const mailSchema = mongoose.Schema({
     stickerIcon: {
         type: String
     },
+    giftAvailable: {
+        type: String
+    }
 }, {timestamps : true})
 
 const Mail = mongoose.model('Mail', mailSchema);

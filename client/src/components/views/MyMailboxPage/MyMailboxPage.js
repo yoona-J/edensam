@@ -15,6 +15,7 @@ function MyMailboxPage(props) {
 
   const [UserId, setUserId] = useState('')
   const [Res, setRes] = useState([])
+  const [date, setdate] = useState('')
 
   useEffect(() => {
     console.log(props.user.userData)
@@ -25,11 +26,10 @@ function MyMailboxPage(props) {
       .then(response => {
         console.log('response', response.data)
         setRes(response.data)
-        })
+      })
+      
     }
   }, [props.user.userData])
-
-  console.log(Res)
 
   const mailboxCards = Res.map((mailbox, index) => {
 

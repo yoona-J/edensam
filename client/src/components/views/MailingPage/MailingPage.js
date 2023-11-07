@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Form, Button, Input } from 'antd';
+import TextArea from 'antd/lib/input/TextArea'
 import { useHistory } from "react-router-dom";
 
 function MailingPage(props) {
@@ -47,7 +48,8 @@ function MailingPage(props) {
                         textIndent: '15px',
                         fontSize: '15px'
                     }}></Input>
-                <Input
+                <TextArea
+                    type='textarea'
                     placeholder='편지 내용'
                     onChange={ contentChangeHandler }
                     value={Content}
@@ -56,11 +58,14 @@ function MailingPage(props) {
                         height: '506px',
                         borderRadius: '30px',
                         border: '3px solid #828282',
-                        textIndent: '15px',
                         overflow: 'scroll',
                         marginTop: '14px',
-                        fontSize: '15px'
-                    }}></Input>
+                        fontSize: '15px',
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-all',
+                        paddingTop: '28px',
+                        paddingLeft: '15px'
+                    }}></TextArea>
                     <Button
                         style={{
                             width: '100%',

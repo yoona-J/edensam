@@ -42,7 +42,8 @@ function GiftProloguePage(props) {
             friendId: FriendId,
             mailboxId: FriendMailboxId,
             envelopeImg: EnvelopeImg,
-            stickerIcon: StickerIcon
+            stickerIcon: StickerIcon,
+            giftAvailable: false
         }
 
         console.log(body)

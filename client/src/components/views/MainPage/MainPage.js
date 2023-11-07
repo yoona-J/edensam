@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Footer from "../Footer/Footer";
 
 import MainPageImg from "./img/MainPageImg.png";
@@ -11,53 +11,21 @@ import MyMailboxIcon from "./img/MyMailboxIcon.png";
 import NewItem from "./Sections/NewItem";
 
 function MainPage(props) {
-  const [UserId, setUserId] = useState("");
+    const [UserId, setUserId] = useState("");
 
-  useEffect(() => {
-    console.log(props.user.userData);
-    if (props.user.userData !== undefined) {
-      setUserId(props.user.userData);
-    } else {
-      console.log("nothing");
-    }
-  }, [props.user.userData]);
+    useEffect(() => {
+        console.log(props.user.userData);
+        if (props.user.userData !== undefined) {
+            setUserId(props.user.userData);
+        } else {
+            console.log("nothing");
+        }
+    }, [props.user.userData]);
 
-  console.log("uu", UserId._id);
+    console.log("uu", UserId._id);
 
-  return (
-    <div
-      style={{
-        width: "100%",
-        margin: "3rem auto",
-        fontFamily: "NeoDunggeunmo",
-      }}
-    >
-      <a href="/search">
-        <img
-          src={MainPageImg}
-          alt="MainPageImg"
-          style={{
-            width: "90%",
-            marginLeft: "20px",
-          }}
-        ></img>
-      </a>
-      <a
-        href="/gift/detail"
-        style={{ textDecorationLine: "none", color: "#000" }}
-      >
+    return (
         <div
-          style={{
-            backgroundColor: "#D9D9D9",
-            width: "100%",
-            height: "50px",
-            marginTop: "10px",
-            display: "inline-flex",
-          }}
-        >
-          <img
-            src={NotificationIcon}
-            alt="NotificationIcon"
             style={{
               width: "30px",
               margin: "10px",
@@ -74,43 +42,6 @@ function MainPage(props) {
           </p>
         </div>
       </a>
-      {/* <div
-        style={{
-          width: "100%",
-          backgroundColor: "#FFF1EF",
-          height: "250px",
-          marginTop: "26px",
-          display: "flex",
-          alignContent: "space-evenly",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
-        }}
-      >
-        <a
-          href={`/gift/${UserId._id}`}
-          style={{ textDecorationLine: "none", color: "#000" }}
-        >
-          <div
-            style={{
-              width: "171px",
-              height: "86px",
-              backgroundColor: "#FAD993",
-              borderRadius: "20px",
-              display: "inline-flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              boxShadow: "0px 4px 4px 0px #C4C4C4",
-            }}
-          >
-            <img
-              src={GiftBoxIcon}
-              alt="GiftBoxIcon"
-              style={{ width: "50px" }}
-            ></img>
-            <p style={{ fontSize: "20px" }}>선물함가기</p>
-          </div>
-        </a>
-        </div> */}
       <div
         style={{
           width: "100%",
@@ -231,7 +162,7 @@ function MainPage(props) {
             fontFamily: "Pretendard-Medium",
           }}
         >
-          따끈따끈한 신상
+          회원님을 위한 인기 상품
         </p>
       </div>
       <div>
