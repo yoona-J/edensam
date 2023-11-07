@@ -18,11 +18,13 @@ function DetailMailboxPage(props) {
 
   useEffect(() => {
     if (props.user.userData !== undefined) {
+      console.log(props)
       setUserData(props.user.userData)
       setMailboxId(props.match.params.MailboxId)
 
       Axios.post('/api/mail/getMail', { params: { 'userId': props.user.userData._id, 'mailboxId' : props.match.params.MailboxId }})
-      .then(response => {
+        .then(response => {
+        console.log(response)
         setMailResponse(response.data)
         setMailboxResponse(response.data[0].mailboxId)
         })
@@ -59,7 +61,7 @@ function DetailMailboxPage(props) {
     return <div>
       <a href={`/mailbox/${UserData._id}/detail/${MailboxId}/mail/${mail._id}`}>
         <div key={index}>
-          <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>
+          <img src={MailIcon} style={{ width: '105px', marginTop: '26px', marginRight: '24px' }}></img>
         </div>
       </a>
     </div>

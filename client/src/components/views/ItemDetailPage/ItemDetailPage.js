@@ -22,6 +22,7 @@ function ItemDetailPage(props) {
       style={{
         width: "100%",
         marginTop: "100px",
+        fontFamily: 'Pretendard'
       }}
     >
       {/* 상품 이미지 */}
