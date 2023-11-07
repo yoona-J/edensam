@@ -1,0 +1,32 @@
+.btn {
+  width: 100%;
+  height: 39px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 39px;
+  background-color: #b4e8e6;
+  color: #333333;
+  font-family: NeoDunggeunmo;
+}
+/* // style={{
+        //   width: "100%",
+        //   height: "39px",
+        //   borderRadius: "20px",
+        //   textAlign: "center",
+        //   lineHeight: "39px",
+        //   backgroundColor: "#b4e8e6",
+        //   color: "#333333",
+        //   fontFamily: "NeoDunggeunmo",
+        //   lineHeight: "39px",
+        //   fontSize: "19px",
+        // }} */
+.passbox {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  background-color: #b4e8e6;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+
+}

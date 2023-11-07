@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 import { isBrowser } from "react-device-detect";
@@ -30,14 +30,29 @@ import GiftProloguePage from './views/GiftProloguePage/GiftProloguePage.js';
 import MailingSuccessPage from './views/MailingSuccessPage/MailingSuccessPage.js';
 
 import RecommendListPage from "./views/RecommendListPage/RecommendListPage.js";
-import TopItemListPage from "./views/TopItemListPage/TopItemListPage.js";
+
+import ItemListPage from "./views/ItemListPage/ItemListPage.js";
+import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
 import MyWishlistPage from "./views/MyWishlistPage/MyWishlistPage.js";
 import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js";
-import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
-import PaymentPage from "./views/PaymentPage/PaymentPage.js";
-import MyGiftBox from './views/MyGiftBox/MyGiftBox';
 
-import AdminPage from './views/UploadAdminPage/UploadAdminPage.js'
+import PaymentPage from "./views/PaymentPage/PaymentPage.js";
+//무통장
+import passinfo from "./views/PaymentPage/Sections/info.js";
+import PaymentSuccessPage from "./views/PaymentPage/Sections/success.js";
+import KGpay from "./views/PaymentPage/Sections/KGpay.js";
+import toss from "./views/PaymentPage/Sections/toss.js";
+
+import HistoryPage from "./views/HistoryPage/HistoryPage";
+import AddressPage from "./views/AddressPage/AddressPage.js";
+
+import NavBar from "./views/NavBar/NavBar";
+import ExitPage from "./views/ExitPage/ExitPage.js";
+import RetakePage from "./views/RetakePage/RetakePage.js";
+import LogoutPage from "./views/LogoutPage/LogoutPage";
+import MyGiftBox from "./views/MyGiftBox/MyGiftBox";
+
+import AdminPage from "./views/UploadAdminPage/UploadAdminPage.js";
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -62,9 +77,9 @@ function App() {
     );
   }
   return (
-    <Suspense fallback={(<div>Loading...</div>)}>
+    <Suspense fallback={<div>Loading...</div>}>
       <NavBar />
-      <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)'}}>
+      <div style={{ paddingTop: "69px", minHeight: "calc(100vh - 80px)" }}>
         <Switch>
           {/* 로그인 */}
           <Route exact path="/" component={Auth(LandingPage, null)} />
@@ -77,6 +92,20 @@ function App() {
 
           {/* 메인 페이지 */}
           <Route exact path="/main" component={Auth(MainPage, true)} />
+
+          <Route exact path="/payment" component={Auth(PaymentPage, true)} />
+
+          {/* 무통장입금 */}
+
+          <Route exact path="/passinfo" component={Auth(passinfo, true)} />
+          {/* KGpay 결제창 */}
+          <Route exact path="/kgpay" component={Auth(KGpay, true)} />
+          <Route exact path="/toss" component={Auth(toss, true)} />
+          {/* 결제 성공 페이지 */}
+          <Route exact path="/paymentsuccess" component={Auth(PaymentSuccessPage, true)} />
+
+          <Route exact path="/history" component={Auth(HistoryPage, true)} />
+          <Route exact path="/address" component={Auth(AddressPage, true)} />
 
           {/* 내 편지함 */}
           <Route exact path="/mailbox/:UserId" component={Auth(MyMailboxPage, true)} />
