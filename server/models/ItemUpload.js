@@ -25,6 +25,19 @@ const itemUploadSchema = mongoose.Schema({
     },
 })
 
+// itemUploadSchema.index(
+//   {
+//     item_title: "text",
+//     item_info: "text",
+//   },
+//   {
+//     weights: {
+//       name: 5,
+//       info: 1,
+//     },
+//   }
+// );
+
 const ItemUpload = mongoose.model('Upload', itemUploadSchema);
 
 module.exports = { ItemUpload }

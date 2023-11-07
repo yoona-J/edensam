@@ -1,0 +1,47 @@
+.A {
+  font-family: Pretendard;
+  width: 100%;
+  margin: 3rem auto;
+  padding: 0 25px;
+}
+
+h2 {
+  font-family: NeoDunggeunmo;
+  clear: both;
+  width: 100%;
+  height: 39px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #b4e8e6;
+  color: #333333;
+  line-height: 39px;
+  border: none;
+}
+
+.Card {
+  display: grid;
+  padding: "1%";
+  width: "45%";
+  height: "150px";
+  margin: "1% 0% 1% 0%";
+  grid-template-columns: 49% 49%;
+  padding: 3% 0;
+  /* grid */
+  grid-auto-rows: 275px;
+  column-gap: 2%;
+  row-gap: 7.36px;
+  border: 1px black;
+}
+
+.ant-card-meta-title {
+  padding: 5px 0;
+  text-align: left;
+  font-size: 15px;
+}
+
+.ant-card-meta-description {
+  color: rgb(64, 64, 64);
+  vertical-align: bottom;
+  font-size: 15x;
+  text-align: right;
+}
