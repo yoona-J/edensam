@@ -101,7 +101,7 @@ router.post("/addToCart", auth, (req, res) => {
     if (duplicate) {
       User.findOneAndUpdate(
         { _id: req.user._id, "wishList.id": req.body.productId },
-        { $inc: { "wishList.$.quantity": 1 } },
+        { $inc: { "wishList.$.quantity": 0 } },
         { new: true },
         (err, userInfo) => {
           if (err) return res.json({ success: false, err });

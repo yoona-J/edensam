@@ -7,10 +7,10 @@ function AddressPage() {
   const [address, setAddress] = useState("");
   //위에거는 주소 찾기에 쓴 거
   //우편번호 기본주소 상세주소 수령인이름 핸드폰 번호 요청사항
-  const [Postnum, setPostnum] = useState("");
-  const [Detail, setDetail] = useState("");
-  const [Name, setName] = useState("");
-  const [PNum, setPNum] = useState("");
+  // const [Postnum, setPostnum] = useState("");
+  // const [Detail, setDetail] = useState("");
+  // const [Name, setName] = useState("");
+  // const [PNum, setPNum] = useState("");
 
   // const TitleChangeHandler = (event) => {
   //   setTitle(event.target.value);

@@ -24,7 +24,7 @@ function MyWishlistPage(props) {
   return (
     <div className="A">
       <div style={{ textAlign: "center" }}>
-        <h2>my 위시리스트</h2>
+        <h2 className="title">my 위시리스트</h2>
         {/* 상품값 */}
         <div
           style={{

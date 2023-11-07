@@ -40,7 +40,7 @@ function PaymentPage({ history }) {
       </div> */}
       <div class="box">
         <input id="checkbox" type="checkbox" />
-        <label htmlFor="checkbox"></label>
+        <label id="label" htmlFor="checkbox"></label>
       </div>
       <div>무통장입금</div>
       {/* <div>

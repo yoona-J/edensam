@@ -6,28 +6,27 @@ import { isBrowser } from "react-device-detect";
 // pages for this product
 import NavBar from "./views/NavBar/NavBar";
 
-
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
-import ExitPage from './views/ExitPage/ExitPage.js';
-import LogoutPage from './views/LogoutPage/LogoutPage';
+import ExitPage from "./views/ExitPage/ExitPage.js";
+import LogoutPage from "./views/LogoutPage/LogoutPage";
 
 import MainPage from "./views/MainPage/MainPage.js";
 
 import MyMailboxPage from "./views/MyMailboxPage/MyMailboxPage.js";
 import MakeMailboxPage from "./views/MakeMailboxPage/MakeMailboxPage.js";
-import DeleteMailboxPage from './views/DeleteMailboxPage/DeleteMailboxPage.js';
-import DetailMailboxPage from './views/DetailMailboxPage/DetailMailboxPage.js';
-import DetailMailPage from './views/DetailMailboxPage/DetailMailPage/DetailMailPage.js';
+import DeleteMailboxPage from "./views/DeleteMailboxPage/DeleteMailboxPage.js";
+import DetailMailboxPage from "./views/DetailMailboxPage/DetailMailboxPage.js";
+import DetailMailPage from "./views/DetailMailboxPage/DetailMailPage/DetailMailPage.js";
 
 import SearchFriendPage from "./views/SearchFriendPage/SearchFriendPage.js";
 import FriendMailboxPage from "./views/FriendMailboxPage/FriendMailboxPage.js";
 
 import MailingPage from "./views/MailingPage/MailingPage.js";
-import DecoratePage from './views/MailingPage/DecoratePage.js';
-import GiftProloguePage from './views/GiftProloguePage/GiftProloguePage.js';
+import DecoratePage from "./views/MailingPage/DecoratePage.js";
+import GiftProloguePage from "./views/GiftProloguePage/GiftProloguePage.js";
 
-import MailingSuccessPage from './views/MailingSuccessPage/MailingSuccessPage.js';
+import MailingSuccessPage from "./views/MailingSuccessPage/MailingSuccessPage.js";
 
 import RecommendListPage from "./views/RecommendListPage/RecommendListPage.js";
 
@@ -46,11 +45,7 @@ import toss from "./views/PaymentPage/Sections/toss.js";
 import HistoryPage from "./views/HistoryPage/HistoryPage";
 import AddressPage from "./views/AddressPage/AddressPage.js";
 
-// import NavBar from "./views/NavBar/NavBar";
-// import ExitPage from "./views/ExitPage/ExitPage.js";
-import RetakePage from "./views/RetakePage/RetakePage.js";
-// import LogoutPage from "./views/LogoutPage/LogoutPage";
-import MyGiftBox from "./views/MyGiftBox/MyGiftBox";
+import MyGiftBox from "./views/MyGiftBox/MyGiftBox.js";
 
 import AdminPage from "./views/UploadAdminPage/UploadAdminPage.js";
 
@@ -102,42 +97,106 @@ function App() {
           <Route exact path="/kgpay" component={Auth(KGpay, true)} />
           <Route exact path="/toss" component={Auth(toss, true)} />
           {/* 결제 성공 페이지 */}
-          <Route exact path="/paymentsuccess" component={Auth(PaymentSuccessPage, true)} />
+          <Route
+            exact
+            path="/paymentsuccess"
+            component={Auth(PaymentSuccessPage, true)}
+          />
 
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
           <Route exact path="/address" component={Auth(AddressPage, true)} />
 
           {/* 내 편지함 */}
-          <Route exact path="/mailbox/:UserId" component={Auth(MyMailboxPage, true)} />
-          <Route exact path="/mailbox/:UserId/create" component={Auth(MakeMailboxPage, true)} />
-          <Route exact path="/mailbox/:UserId/delete" component={Auth(DeleteMailboxPage, true)} />
-          <Route exact path="/mailbox/:UserId/detail/:MailboxId" component={Auth(DetailMailboxPage, true)} />
-          <Route exact path="/mailbox/:UserId/detail/:MailboxId/mail/:mailId" component={Auth(DetailMailPage, true)} />
+          <Route
+            exact
+            path="/mailbox/:UserId"
+            component={Auth(MyMailboxPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/:UserId/create"
+            component={Auth(MakeMailboxPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/:UserId/delete"
+            component={Auth(DeleteMailboxPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/:UserId/detail/:MailboxId"
+            component={Auth(DetailMailboxPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/:UserId/detail/:MailboxId/mail/:mailId"
+            component={Auth(DetailMailPage, true)}
+          />
 
           {/* 친구 검색 */}
-          <Route exact path="/search" component={Auth(SearchFriendPage, true)} />
-          
+          <Route
+            exact
+            path="/search"
+            component={Auth(SearchFriendPage, true)}
+          />
+
           {/* 친구 메일함 */}
-          <Route exact path="/mailbox/friend/:FriendId" component={Auth(FriendMailboxPage, true)} />
-          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing" component={Auth(MailingPage, true)} />
-          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing/deco" component={Auth(DecoratePage, true)} />
-          <Route exact path="/mailbox/friend/:FriendId/:MailboxId/mailing/gift" component={Auth(GiftProloguePage, true)} />
+          <Route
+            exact
+            path="/mailbox/friend/:FriendId"
+            component={Auth(FriendMailboxPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/friend/:FriendId/:MailboxId/mailing"
+            component={Auth(MailingPage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/friend/:FriendId/:MailboxId/mailing/deco"
+            component={Auth(DecoratePage, true)}
+          />
+          <Route
+            exact
+            path="/mailbox/friend/:FriendId/:MailboxId/mailing/gift"
+            component={Auth(GiftProloguePage, true)}
+          />
 
           {/* 메일 전송 완료 */}
-          <Route exact path="/mailing/success" component={Auth(MailingSuccessPage, true)} />
+          <Route
+            exact
+            path="/mailing/success"
+            component={Auth(MailingSuccessPage, true)}
+          />
 
           {/* 내 위시리스트 */}
-          <Route exact path="/wish/:UserId" component={Auth(MyWishlistPage, true)} />
+          <Route
+            exact
+            path="/wish/:UserId"
+            component={Auth(MyWishlistPage, true)}
+          />
 
           {/* 친구 위시리스트 */}
-          <Route exact path="/wish/friend/:friendId" component={Auth(FriendWishlistPage, true)} />
+          <Route
+            exact
+            path="/wish/friend/:friendId"
+            component={Auth(FriendWishlistPage, true)}
+          />
 
           {/* 상품 페이지 */}
-          <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
-          <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
-          <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
-          {/* <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} /> */}
+          <Route
+            exact
+            path="/gift/recommend"
+            component={Auth(RecommendListPage, true)}
+          />
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
+
+          <Route exact path="/product" component={Auth(ItemListPage, true)} />
+          <Route
+            exact
+            path="/product/:productId"
+            component={Auth(ItemDetailPage, true)}
+          />
 
           {/* 상품 업로드 - 어드민 페이지 */}
           <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />
