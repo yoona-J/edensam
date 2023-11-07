@@ -23,33 +23,50 @@ function ItemListPage() {
     console.log("upload", upload.item_image);
 
     return (
+      // <a href={`/product/${upload._id}`}>
+      //   <div className="momCard">
+      //     <Col
+      //       key={index}
+      //     >
+      //       <Card
+      //         hoverable={true}
+      //         cover={
+      //           <a href={`/product/${upload._id}`}>
+      //             <img
+      //               src={`http://localhost:5000/${upload.item_image[0]}`}
+      //               style={{
+      //                 height: "166px",
+      //                 width: "166px",
+      //                 borderInline: "19px",
+      //               }}
+      //             />
+      //           </a>
+      //         }
+      //       >
+      //         <Meta
+      //           style={{ padding: "2px 10px" }}
+      //           title={upload.item_title}
+      //           description={`${upload.how_much}원`}
+      //         />
+      //       </Card>
+      //     </Col>
+      //   </div>
+      // </a>
+
       <a href={`/product/${upload._id}`}>
-        <div className="momCard">
-          <Col
-            key={index}
-          >
-            <Card
-              hoverable={true}
-              cover={
-                <a href={`/product/${upload._id}`}>
-                  <img
-                    src={`http://localhost:5000/${upload.item_image[0]}`}
-                    style={{
-                      height: "166px",
-                      width: "166px",
-                      borderInline: "19px",
-                    }}
-                  />
-                </a>
-              }
-            >
-              <Meta
-                style={{ padding: "2px 10px" }}
-                title={upload.item_title}
-                description={`${upload.how_much}원`}
-              />
-            </Card>
-          </Col>
+        <div className="itembox">
+          <img
+            src={`http://localhost:5000/${upload.item_image[0]}`}
+            style={{
+              height: "166px",
+              width: "166px",
+              borderInline: "19px",
+              margin: "7px",
+            }}
+          />
+
+          <div className="iname">{upload.item_title}</div>
+          <div className="price">{`${upload.how_much}원`}</div>
         </div>
       </a>
     );
@@ -74,13 +91,12 @@ function ItemListPage() {
 
         {/* cards */}
         <div
-          style={{
-            margin: "10px",
-            border: "1px solid black",
-            borderRadius: "12px",
-          }}
         >
-          <div className="Card">{renderCards}</div>
+          <div
+          className="Container"
+          >
+            {renderCards}
+          </div>
         </div>
       </div>
     </div>
