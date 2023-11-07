@@ -9,7 +9,6 @@ import WishListIcon from "./img/WishListIcon.png";
 import MyMailboxIcon from "./img/MyMailboxIcon.png";
 
 import NewItem from "./Sections/NewItem";
-import likeItems from "./Sections/likeItem";
 
 function MainPage(props) {
   const [UserId, setUserId] = useState("");
