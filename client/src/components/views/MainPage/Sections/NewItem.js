@@ -24,7 +24,7 @@
 import React from "react";
 
 function NewItem() {
-  return <div>NewItem</div>;
+  return <div>NewItems</div>;
 }
 
 export default NewItem;
