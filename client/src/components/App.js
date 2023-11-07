@@ -46,10 +46,10 @@ import toss from "./views/PaymentPage/Sections/toss.js";
 import HistoryPage from "./views/HistoryPage/HistoryPage";
 import AddressPage from "./views/AddressPage/AddressPage.js";
 
-import NavBar from "./views/NavBar/NavBar";
-import ExitPage from "./views/ExitPage/ExitPage.js";
+// import NavBar from "./views/NavBar/NavBar";
+// import ExitPage from "./views/ExitPage/ExitPage.js";
 import RetakePage from "./views/RetakePage/RetakePage.js";
-import LogoutPage from "./views/LogoutPage/LogoutPage";
+// import LogoutPage from "./views/LogoutPage/LogoutPage";
 import MyGiftBox from "./views/MyGiftBox/MyGiftBox";
 
 import AdminPage from "./views/UploadAdminPage/UploadAdminPage.js";
