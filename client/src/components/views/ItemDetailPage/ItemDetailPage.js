@@ -51,7 +51,7 @@ function ItemDetailPage(props) {
           justifyContent: "space-around",
         }}
       >
-        <div style={{ padding: " 7.5px 0" }}>
+        <div style={{ paddingBottom: "15px" }}>
           <ProductInfo detail={Product} />
         </div>
 
