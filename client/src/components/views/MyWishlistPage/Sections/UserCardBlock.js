@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Col, Card, Row, Collapse } from "antd";
+import { Col, Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "../MyWishlistPage.css";
 

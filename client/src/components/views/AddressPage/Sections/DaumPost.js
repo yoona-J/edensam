@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DaumPostcode from "react-daum-postcode";
 
 const DaumPost = (props) => {
-  const address = props.address;
   const setAddress = props.setAddress;
 
   const onCompletePost = (data) => {
@@ -15,11 +14,6 @@ const DaumPost = (props) => {
     document.querySelector("#zipcode").value = data.zonecode;
     document.querySelector("#address").value = data.address;
   };
-
-  // function(data) {
-  //          document.querySelector("#zipcode").value = data.zonecode;
-  //          document.querySelector("#address").value =  data.address
-  //       }
 
   const postCodeStyle = {
     display: "block",

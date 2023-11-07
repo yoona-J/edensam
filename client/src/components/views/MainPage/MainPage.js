@@ -78,7 +78,7 @@ function MainPage(props) {
               <p style={{fontSize: '20px'}}>우편함가기</p>
             </div>
           </a>
-          <a href='/prduct' style={{ textDecorationLine: 'none', color: '#000' }}>
+          <a href='/product' style={{ textDecorationLine: 'none', color: '#000' }}>
             <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
               <img src={Top100Icon} alt='Top100Icon' style={{ width: '50px'}}></img>
               <p style={{fontSize: '20px'}}>선물하기</p>

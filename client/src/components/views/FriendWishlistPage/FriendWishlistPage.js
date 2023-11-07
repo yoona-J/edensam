@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import "./MyWishlistPage.css";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
@@ -19,6 +18,7 @@ function FriendWishlistPage(props) {
         dispatch(getWishItems(wishItems, props.user.userData.wishList));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData]);
     
     
@@ -41,7 +41,6 @@ function FriendWishlistPage(props) {
               uploads={
                 props.user.wishListDetail && props.user.wishListDetail.upload
               }
-              // removeItem={removeFromCart}
             />
           </div>
         </div>

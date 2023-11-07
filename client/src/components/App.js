@@ -6,7 +6,6 @@ import { isBrowser } from "react-device-detect";
 // pages for this product
 import NavBar from "./views/NavBar/NavBar";
 
-
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import ExitPage from './views/ExitPage/ExitPage.js';
@@ -129,11 +128,11 @@ function App() {
           <Route exact path="/wish/friend/:friendId" component={Auth(FriendWishlistPage, true)} />
 
           {/* 상품 페이지 */}
-          <Route exact path="/gift/detail" component={Auth(ItemDetailPage, true)} />
-          <Route exact path="/gift/payment" component={Auth(PaymentPage, true)} />
           <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
-          {/* <Route exact path="/gift/top" component={Auth(TopItemListPage, true)} /> */}
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
+
+          <Route exact path="/product" component={Auth(ItemListPage, true)} />
+          <Route exact path="/product/:productId" component={Auth(ItemDetailPage, true)} />
 
           {/* 상품 업로드 - 어드민 페이지 */}
           <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />

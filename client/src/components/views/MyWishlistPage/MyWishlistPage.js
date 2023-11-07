@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./MyWishlistPage.css";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
@@ -19,6 +19,7 @@ function MyWishlistPage(props) {
         dispatch(getWishItems(wishItems, props.user.userData.wishList));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData]);
 
   return (

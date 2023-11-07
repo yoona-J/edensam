@@ -1,31 +1,8 @@
-// import React, { useEffect } from 'react'
-// import axios from 'axios'
-// function ItemDetailPage() {
-
-//     const productId = props.match.params.productId
-
-//     useEffect(() => {
-
-//         axios.get(`/api/admin/upload/product/products_by_id?id=${productId}&type=single`);
-
-//     }, [])
-
-//   return (
-//     <div>ItemDetailPage</div>
-//   )
-// }
-
-// export default ItemDetailPage
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Button, Upload } from "antd";
-import { image } from "antd";
 import "./ItemDetailPage.css";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../_actions/user_actions";
 
 function ItemDetailPage(props) {
   const productId = props.match.params.productId;
@@ -37,6 +14,7 @@ function ItemDetailPage(props) {
       .then((response) => {
         setProduct(response.data.upload[0]);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -68,20 +46,17 @@ function ItemDetailPage(props) {
           <a href="/payment">
             <div>구매하기</div>
           </a>
-          {/* <button className="paybtn">구매하기</button> */}
         <br/>
         </div>
       </div>
       {/* 상품 상세 정보 */}
       <hr />
       <div className="detail">상품 정보</div>
-      {/* <ProductInfo detail={Upload} /> */}
-      <a>
         <img
           className="infoimg"
+          alt="infoimg"
           src={`http://localhost:5000/${Product.item_info}`}
         />
-      </a>
     </div>
   );
 }

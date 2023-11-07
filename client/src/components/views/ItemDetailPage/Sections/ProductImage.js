@@ -14,7 +14,7 @@ function ProductImage(props) {
           // thumbnail: `http://localhost:5000/${Upload.item_image}`,
 
           original: `http://localhost:5000/${item}`,
-          thumbnail: `http://localhost:5000/${item}`,
+          // thumbnail: `http://localhost:5000/${item}`,
         });
       });
       setImages(item_image);
