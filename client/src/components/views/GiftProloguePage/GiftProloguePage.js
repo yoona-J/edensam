@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 
 import GiftPrologueImg from './img/GiftPrologueImg.png'
 import Axios from 'axios';
@@ -10,7 +9,6 @@ function GiftProloguePage(props) {
     console.log(props)
     
     const history = useHistory();
-    const dispatch = useDispatch()
 
     const [FriendId, setFriendId] = useState('')
     const [FriendMailboxId, setFriendMailboxId] = useState('')

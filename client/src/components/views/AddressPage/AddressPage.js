@@ -7,21 +7,11 @@ function AddressPage() {
   const [address, setAddress] = useState("");
   //위에거는 주소 찾기에 쓴 거
   //우편번호 기본주소 상세주소 수령인이름 핸드폰 번호 요청사항
-  // const [Postnum, setPostnum] = useState("");
-  // const [Detail, setDetail] = useState("");
-  // const [Name, setName] = useState("");
-  // const [PNum, setPNum] = useState("");
-
-  // const TitleChangeHandler = (event) => {
-  //   setTitle(event.target.value);
-  // };
 
   return (
     <div className="A">
       <div className="title">배송지 입력</div>
       <br />
-      {/* 우편번호칸 */}
-      {/* <div className="postnum">우편번호</div> */}
 
       <input
         type="text"
@@ -32,7 +22,6 @@ function AddressPage() {
         }}
         readOnly="readonly"
         placeholder="우편번호"
-        // style={{ width: "250px" }}
       ></input>
       {/* 주소 찾기 */}
       <div
@@ -46,7 +35,6 @@ function AddressPage() {
       {popup && <DaumPost address={address} setAddress={setAddress}></DaumPost>}
       {/* 큰 주소 */}
       <br />
-      {/* <div className="blank">주소지를 입력해주세요</div> */}
       <input
         id="address"
         readOnly="readonly"

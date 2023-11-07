@@ -109,103 +109,43 @@ function MainPage(props) {
             <p style={{ fontSize: "20px" }}>선물함가기</p>
           </div>
         </a>
-        <a
-          href={`/mailbox/${UserId._id}`}
-          style={{ textDecorationLine: "none", color: "#000" }}
-        >
-          <div
-            style={{
-              width: "171px",
-              height: "86px",
-              backgroundColor: "#FAD993",
-              borderRadius: "20px",
-              display: "inline-flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              boxShadow: "0px 4px 4px 0px #C4C4C4",
-            }}
-          >
-            <img
-              src={MyMailboxIcon}
-              alt="MailboxIcon"
-              style={{ width: "50px" }}
-            ></img>
-            <p style={{ fontSize: "20px" }}>우편함가기</p>
-          </div>
-        </a>
-        <a href="/prduct" style={{ textDecorationLine: "none", color: "#000" }}>
-          <div
-            style={{
-              width: "171px",
-              height: "86px",
-              backgroundColor: "#FAD993",
-              borderRadius: "20px",
-              display: "inline-flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              boxShadow: "0px 4px 4px 0px #C4C4C4",
-            }}
-          >
-            <img
-              src={Top100Icon}
-              alt="Top100Icon"
-              style={{ width: "50px" }}
-            ></img>
-            <p style={{ fontSize: "20px" }}>선물하기</p>
-          </div>
-        </a>
-        <a
-          href={`/wish/${UserId._id}`}
-          style={{ textDecorationLine: "none", color: "#000" }}
-        >
-          <div
-            style={{
-              width: "171px",
-              height: "86px",
-              backgroundColor: "#FAD993",
-              borderRadius: "20px",
-              display: "inline-flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              boxShadow: "0px 4px 4px 0px #C4C4C4",
-            }}
-          >
-            <img
-              src={WishListIcon}
-              alt="WishListIcon"
-              style={{ width: "50px" }}
-            ></img>
-            <p style={{ fontSize: "20px", textAlign: "center" }}>위시리스트</p>
-          </div>
-        </a>
-      </div>
-      <div>
-        <p
-          style={{
-            fontSize: "20px",
-            textAlign: "center",
-            fontFamily: "Pretendard-Medium",
-          }}
-        >
-          회원님을 위한 인기 신상
-        </p>
-        <div>{NewItem}</div>
-      </div>
-      <hr />
-      <div>
-        <p
-          style={{
-            fontSize: "20px",
-            textAlign: "center",
-            fontFamily: "Pretendard-Medium",
-          }}
-        >
-          회원님이 좋아할만한 선물
-        </p>
-      </div>
-      <Footer />
-    </div>
-  );
+        <div
+          style={{ width: '100%', backgroundColor: '#FFF1EF', height: '250px', marginTop: '26px', display: 'flex', alignContent: 'space-evenly', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+          <a href={`/gift/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={GiftBoxIcon} alt='GiftBoxIcon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>선물함가기</p>
+            </div>
+          </a>
+          <a href={`/mailbox/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={MyMailboxIcon} alt='MailboxIcon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>우편함가기</p>
+            </div>
+          </a>
+          <a href='/product' style={{ textDecorationLine: 'none', color: '#000' }}>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={Top100Icon} alt='Top100Icon' style={{ width: '50px'}}></img>
+              <p style={{fontSize: '20px'}}>선물하기</p>
+            </div>
+          </a>
+          <a href={`/wish/${UserId._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+            <div style={{ width: '171px', height: '86px', backgroundColor: '#FAD993', borderRadius: '20px', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+              <img src={WishListIcon} alt='WishListIcon' style={{ width: '50px'}}></img>
+              <p style={{ fontSize: '20px', textAlign: 'center' }}>위시리스트</p>
+            </div>
+          </a>
+        </div>
+        <div>
+          <p style={{fontSize: '20px', textAlign: 'center', fontFamily: 'Pretendard-Medium'}}>회원님을 위한 인기 신상</p>
+        </div>
+        <hr />
+        <div>
+          <p style={{fontSize: '20px', textAlign: 'center', fontFamily: 'Pretendard-Medium'}}>회원님이 좋아할만한 선물</p>
+        </div>
+            <Footer/>
+        </div>
+    )
 }
 
 export default MainPage;

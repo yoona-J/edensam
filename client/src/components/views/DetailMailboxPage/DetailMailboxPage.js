@@ -16,25 +16,21 @@ function DetailMailboxPage(props) {
   const [MailResponse, setMailResponse] = useState([])
   const [MailboxResponse, setMailboxResponse] = useState([])
 
-  // console.log(props)
-
   useEffect(() => {
-    // console.log('>>', props.match.params.MailboxId)
     if (props.user.userData !== undefined) {
       setUserData(props.user.userData)
       setMailboxId(props.match.params.MailboxId)
 
       Axios.post('/api/mail/getMail', { params: { 'userId': props.user.userData._id, 'mailboxId' : props.match.params.MailboxId }})
       .then(response => {
-        // console.log('response', response.data)
         setMailResponse(response.data)
         setMailboxResponse(response.data[0].mailboxId)
         })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData])
 
   const mailboxDesign = () => { 
-    // console.log('MailResponse[0].mailboxId.mailboxStyle', MailboxResponse)
       if (MailboxResponse.mailboxStyle === '1') {
         return <div>
           <img src={Mailbox1} alt='Mailbox1' style={{ borderRadius: '20px', width: '100%', marginTop: '24px' }}></img>

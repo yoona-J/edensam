@@ -184,19 +184,11 @@ function App() {
           />
 
           {/* 상품 페이지 */}
-          <Route
-            exact
-            path="/gift/recommend"
-            component={Auth(RecommendListPage, true)}
-          />
+          <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
 
           <Route exact path="/product" component={Auth(ItemListPage, true)} />
-          <Route
-            exact
-            path="/product/:productId"
-            component={Auth(ItemDetailPage, true)}
-          />
+          <Route exact path="/product/:productId" component={Auth(ItemDetailPage, true)} />
 
           {/* 상품 업로드 - 어드민 페이지 */}
           <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />
