@@ -22,6 +22,7 @@ function ItemDetailPage(props) {
       style={{
         width: "100%",
         marginTop: "100px",
+        fontFamily: "Pretendard",
       }}
     >
       {/* 상품 이미지 */}
@@ -46,17 +47,17 @@ function ItemDetailPage(props) {
           <a href="/payment">
             <div>구매하기</div>
           </a>
-        <br/>
+          <br />
         </div>
       </div>
       {/* 상품 상세 정보 */}
       <hr />
       <div className="detail">상품 정보</div>
-        <img
-          className="infoimg"
-          alt="infoimg"
-          src={`http://localhost:5000/${Product.item_info}`}
-        />
+      <img
+        className="infoimg"
+        alt="infoimg"
+        src={`http://localhost:5000/${Product.item_info}`}
+      />
     </div>
   );
 }
