@@ -26,16 +26,20 @@ function FriendMailboxPage(props) {
 
       Axios.post('/api/mailbox/friend/getMailbox', { params: props.match.params })
       .then(response => {
-        // console.log('response', response.data)
-        setFriendResponse(response.data)
-        setFriendName(response.data[0].maker.name)
-        })
+        console.log('response', response.data)
+        if (response.data.length === 0) {
+          setFriendResponse(response.data)
+        } else if (response.data) {
+          setFriendResponse(response.data)
+          setFriendName(response.data[0].maker.name)
+        }
+      })
     }
   }, [props.match.params])
 
-  const mailboxCards = FriendResponse.map((mailbox, index) => {
+  // setFriendName(FriendResponse[0].maker.name)
 
-    
+  const mailboxCards = FriendResponse.map((mailbox, index) => {
 
     if (mailbox.mailboxStyle === '1') {
       return <div>
