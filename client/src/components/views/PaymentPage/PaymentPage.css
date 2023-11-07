@@ -10,6 +10,7 @@
   font-weight: bold;
   margin-top: 28px;
   margin-bottom: 15px;
+  text-align: center;
 }
 .title2 {
   font-size: 19px;
@@ -19,7 +20,7 @@
 }
 .pay {
   height: 39px;
-  width: 364px;
+  width: 100%;
   border-radius: 20px;
   background-color: #b4e8e6;
   border: none;
@@ -27,29 +28,39 @@
   line-height: 39px;
 }
 
-/* input[id="cb1"] + label {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #bcbcbc;
-  cursor: pointer;
-}
-input[id="cb1"]:checked + label {
-  background-color: #EE7759;
-}
-input[id="cb1"] {
-  display: none;
-} */
 
-.boxbox {
-}
-.checkbox {
-  display: inline-flex;
+
+/* .checkbox { */
+  /* display: inline-flex;
   flex-direction: column;
 }
 .ant-radio-input {
   margin-bottom: 17px;
 }
 .ant-radio .ant-radio-checked .ant-radio-inner {
-  border-color: red !important ;
+  border-color: red !important ; */
+/* } */
+
+.box{
+  float: left;
+  margin: 0 15px;}
+
+input {
+  display: none;
+}
+label {
+  display: flex;
+  width: 13px;
+  height: 13px;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+input:checked + label::after {
+  content: "✔";
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  text-align: center;
+  background-color: #ee7759;
+  border-color: #ee7759;
 }

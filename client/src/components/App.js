@@ -25,6 +25,7 @@ import PaymentPage from "./views/PaymentPage/PaymentPage.js";
 import passinfo from "./views/PaymentPage/Sections/info.js";
 import PaymentSuccessPage from "./views/PaymentPage/Sections/success.js";
 import KGpay from "./views/PaymentPage/Sections/KGpay.js";
+import toss from "./views/PaymentPage/Sections/toss.js";
 
 import HistoryPage from "./views/HistoryPage/HistoryPage";
 
@@ -126,6 +127,7 @@ function App() {
           <Route exact path="/passinfo" component={Auth(passinfo, true)} />
           {/* KGpay 결제창 */}
           <Route exact path="/kgpay" component={Auth(KGpay, true)} />
+          <Route exact path="/toss" component={Auth(toss, true)} />
           {/* 결제 성공 페이지 */}
           <Route
             exact

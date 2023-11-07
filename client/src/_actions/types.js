@@ -3,3 +3,4 @@ export const REGISTER_USER = 'register_user';
 export const AUTH_USER = 'auth_user';
 export const LOGOUT_USER = 'logout_user';
 export const ADD_TO_CART_USER = "add_to_cart_user";
+export const GET_WISH_ITEMS_USER = "get_wish_items_user";

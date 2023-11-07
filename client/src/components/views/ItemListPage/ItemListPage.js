@@ -47,7 +47,7 @@ function ItemListPage() {
                   src={`http://localhost:3000/uploads/${upload.item_image}`}
                 /> */}
                   <img
-                    src={`${upload.item_image[0]}`}
+                    src={`http://localhost:5000/${upload.item_image[0]}`}
                     style={{
                       height: "166px",
                       width: "166px",

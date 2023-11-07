@@ -94,13 +94,20 @@ router.get("/product", (req, res) => {
 
 router.get("/products_by_id", (req, res) => {
   let type = req.query.type
-  let productId = req.query.id
+  let productIds = req.query.id
 
-  ItemUpload.find({ _id: productId })
-    .exec((err, upload) => {
-      if (err) return res.status(400).send(err)
-      return res.status(200).send({success:true, upload})
-  })
+  if (type === "array") {
+    let ids = req.query.id.split(',')
+    productIds = ids.map(item => {
+      return item
+    })
+  }
+
+  ItemUpload.find({ _id: { $in: productIds } }).exec((err, upload) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, upload });
+  });
+
 
 });
 

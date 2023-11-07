@@ -1,109 +1,154 @@
-// import React from "react";
-// import "./MyWishlistPage.css";
+import React, { useState, useEffect } from "react";
+import "./MyWishlistPage.css";
+import { useDispatch } from "react-redux";
+// import { id } from "date-fns/locale";
+// import ProductImage from "../ItemDetailPage/Sections/ProductImage";
+import { getWishItems } from "../../../_actions/user_actions";
+import UserCardBlock from "./Sections/UserCardBlock";
 
-// import { id } from "date-fns/locale"
-// import ProductImage from "../ItemDetailPage/Sections/ProductImage"
+function MyWishlistPage(props) {
+  const dispatch = useDispatch();
+  const [Total, setTotal] = useState(0);
+  const [ShowTotal, setShowTotal] = useState(false);
+  const [ShowSuccess, setShowSuccess] = useState(false);
 
-// function MyWishlistPage() {
-//   const dispatch = useDispatch();
-//   const [Total, setTotal] = useState(0);
-//   const [ShowTotal, setShowTotal] = useState(false);
-//   const [ShowSuccess, setShowSuccess] = useState(false);
+  // useEffect(() => {
+  //   let wishListItems = [];
+  //   //상품 들어있는지 확인
+  //   if (props.user.userData && props.user.userData.wishList) {
 
-//   useEffect(() => {
-//     let cartItems = [];
-//     if (props.user.userData && props.user.userData.cart) {
-//       if (props.user.userData.cart.length > 0) {
-//         props.user.userData.cart.forEach((item) => {
-//           cartItems.push(item.id);
-//         });
-//         dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
-//           (response) => {
-//             if (response.payload.length > 0) {
-//               calculateTotal(response.payload);
-//             }
-//           }
-//         );
-//       }
-//     }
-//   }, [props.user.userData]);
+  //     if (props.user.userData.wishList.length > 0) {
+  //       props.user.userData.wishList.forEach((item) => {
+  //         wishListItems.push(item.id);
+  //         console.log(props.user.userData.wishList);
+  //       });
 
-//   const calculateTotal = (cartDetail) => {
-//     let total = 0;
+  // dispatch(
+  //   getwishListItems(
+  //     wishListItems,
+  //           // props.user.userData.props.user.userData.wishList
+  //           props.user.userData.wishList
+  //         )
+  //         // .then((response) => {
+  //         // if (response.payload.length > 0) {
+  //         //   calculateTotal(response.payload);
+  //         // }
+  //         // }
+  //         // )
+  //       );
+  //     }
+  //   }
+  //   return () => {};
+  // }, [props.user.userData]);
 
-//     cartDetail.map((item) => {
-//       total += parseInt(item.price, 10) * item.quantity;
-//     });
+  useEffect(() => {
+    let wishItems = [];
+    //리덕스 User state안에 cart 안에 상품이 들어있는지 확인
+    if (props.user.userData && props.user.userData.wishList) {
+      if (props.user.userData.wishList.length > 0) {
+        props.user.userData.wishList.forEach((item) => {
+          wishItems.push(item.id);
+        });
+        dispatch(getWishItems(wishItems, props.user.userData.wishList));
+      }
+    }
+  }, [props.user.userData]);
 
-//     setTotal(total);
-//     setShowTotal(true);
-//   };
+  // const calculateTotal = (cartDetail) => {
+  //   let total = 0;
 
-//   const removeFromCart = (productId) => {
-//     dispatch(removeCartItem(productId)).then((response) => {
-//       if (response.payload.cartDetail.length <= 0) {
-//         setShowTotal(false);
-//       } else {
-//         calculateTotal(response.payload.cartDetail);
-//       }
-//     });
-//   };
+  //   cartDetail.map((item) => {
+  //     total += parseInt(item.price, 10) * item.quantity;
+  //   });
 
-//   const transactionSuccess = (data) => {
-//     dispatch(
-//       onSuccessBuy({
-//         cartDetail: props.user.cartDetail,
-//         paymentData: data,
-//       })
-//     ).then((response) => {
-//       if (response.payload.success) {
-//         setShowSuccess(true);
-//         setShowTotal(false);
-//       }
-//     });
-//   };
+  //   setTotal(total);
+  //   setShowTotal(true);
+  // };
 
-//   const transactionError = () => {
-//     console.log("Paypal error");
-//   };
+  // const removeFromCart = (productId) => {
+  //   dispatch(removeCartItem(productId)).then((response) => {
+  //     if (response.payload.cartDetail.length <= 0) {
+  //       setShowTotal(false);
+  //     } else {
+  //       calculateTotal(response.payload.cartDetail);
+  //     }
+  //   });
+  // };
 
-//   const transactionCanceled = () => {
-//     console.log("Transaction canceled");
-//   };
+  // const transactionSuccess = (data) => {
+  //   dispatch(
+  //     onSuccessBuy({
+  //       cartDetail: props.user.cartDetail,
+  //       paymentData: data,
+  //     })
+  //   ).then((response) => {
+  //     if (response.payload.success) {
+  //       setShowSuccess(true);
+  //       setShowTotal(false);
+  //     }
+  //   });
+  // };
 
-//   return (
-//     <div style={{ width: "85%", margin: "3rem auto" }}>
-//       <h1>My Cart</h1>
-//       <div>
-//         <UserCardBlock
-//           products={props.user.cartDetail}
-//           removeItem={removeFromCart}
-//         />
-//       </div>
-//     </div>
-//   );
-// }
+  // const transactionError = () => {
+  //   console.log("Paypal error");
+  // };
 
-// // return (
-// //   <div
-// //     className="A">
-// //     <div className="wishtitle">My 위시리스트</div>
+  // const transactionCanceled = () => {
+  //   console.log("Transaction canceled");
+  // };
 
-// //   </div>
-// // );
+  //   return (
+  //     <div style={{ width: "85%", margin: "3rem auto" }}>
+  //       <h1>My Cart</h1>
+  //       <div>
+  //         <UserCardBlock
+  //           products={props.user.cartDetail}
+  //           removeItem={removeFromCart}
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
-// export default MyWishlistPage;
+  // // return (
+  // //   <div
+  // //     className="A">
+  // //     <div className="wishtitle">My 위시리스트</div>
 
+  // //   </div>
+  // // );
 
-
-
-
-import React from 'react'
-
-function MyWishlistPage() {
   return (
-    <div>MyWishlistPage</div>
-  )
+    <div
+      style={{
+        width: "100%",
+        margin: "3rem auto",
+        fontFamily: "initial",
+        padding: "0 3%",
+      }}
+    >
+      <h2
+        style={{
+          fontFamily: "NeoDunggeunmo",
+          textAlign: "center",
+          height: "39px",
+          width: "100%",
+          borderRadius: "20px",
+          backgroundColor: "#b4e8e6",
+          border: "none",
+          lineheight: "39px",
+        }}
+      >
+        my 위시리스트
+      </h2>
+      {/* 상품값 */}
+
+      <UserCardBlock
+        products={props.user.wishListDetail && props.user.wishListDetail.upload}
+        // removeItem={removeFromCart}
+      />
+    </div>
+  );
 }
 
-export default MyWishlistPage
+export default MyWishlistPage;
