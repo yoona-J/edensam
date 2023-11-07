@@ -23,9 +23,13 @@ function MyWishlistPage(props) {
   }, [props.user.userData]);
 
   return (
-    <div className="A">
+    <div className="A"
+     style={{fontFamily: 'Pretendard',
+              width: '90%',
+              margin: '3rem auto',
+              padding: 0}}>
       <div style={{ textAlign: "center" }}>
-        <h2 className="title">my 위시리스트</h2>
+        <h2 className="title" style={{ padding: 0 }}>my 위시리스트</h2>
         {/* 상품값 */}
 
         <div

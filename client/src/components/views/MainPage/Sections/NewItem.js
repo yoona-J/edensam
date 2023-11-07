@@ -51,7 +51,7 @@ function NewItem(props) {
             fontFamily: "Pretendard-Medium",
           }}
         >
-          따끈따끈한 신상
+          회원님을 위한 인기 상품
         </p>
       </div>
       <div

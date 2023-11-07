@@ -15,7 +15,7 @@ function UserCardBlock(props) {
     props.uploads &&
     props.uploads.map((upload) => (
       <a href={`/product/${upload._id}`}>
-        <div className="witembox">
+        <div className="witembox" style={{boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
           <img
             src={`http://localhost:5000/${upload.item_image[0]}`}
             style={{

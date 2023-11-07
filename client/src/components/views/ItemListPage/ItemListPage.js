@@ -23,38 +23,8 @@ function ItemListPage() {
     console.log("upload", upload.item_image);
 
     return (
-      // <a href={`/product/${upload._id}`}>
-      //   <div className="momCard">
-      //     <Col
-      //       key={index}
-      //     >
-      //       <Card
-      //         hoverable={true}
-      //         cover={
-      //           <a href={`/product/${upload._id}`}>
-      //             <img
-      //               src={`http://localhost:5000/${upload.item_image[0]}`}
-      //               style={{
-      //                 height: "166px",
-      //                 width: "166px",
-      //                 borderInline: "19px",
-      //               }}
-      //             />
-      //           </a>
-      //         }
-      //       >
-      //         <Meta
-      //           style={{ padding: "2px 10px" }}
-      //           title={upload.item_title}
-      //           description={`${upload.how_much}원`}
-      //         />
-      //       </Card>
-      //     </Col>
-      //   </div>
-      // </a>
-
       <a href={`/product/${upload._id}`}>
-        <div className="itembox">
+        <div className="itembox" style={{boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
           <img
             src={`http://localhost:5000/${upload.item_image[0]}`}
             style={{

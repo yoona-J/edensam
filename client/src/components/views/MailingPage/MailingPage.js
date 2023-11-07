@@ -31,7 +31,7 @@ function MailingPage(props) {
     return (
         <div
             style={{
-                width: '90%',
+                width: '100%',
                 margin: '3rem auto',
                 fontFamily: 'NeoDunggeunmo'
             }}>
