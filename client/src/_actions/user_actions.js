@@ -7,7 +7,7 @@ import {
   ADD_TO_CART_USER,
   GET_WISH_ITEMS_USER,
 } from "./types";
-import { USER_SERVER } from "../components/Config.js";
+import { USER_SERVER } from "../components/Config.js";''
 
 export function registerUser(dataToSubmit) {
   console.log("user action res: ", dataToSubmit);

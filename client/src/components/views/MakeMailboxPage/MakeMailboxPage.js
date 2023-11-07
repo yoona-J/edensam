@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Form, Input } from 'antd';
-
-import { userMailbox } from '../../../_actions/user_actions';
-import { useDispatch  } from 'react-redux';
+import Axios from 'axios';
 
 import CalendarPage from './CalendarPage';
 
@@ -11,12 +9,9 @@ import Mailbox2 from './img/Mailbox2.png'
 import Mailbox3 from './img/Mailbox3.png'
 import Mailbox4 from './img/Mailbox4.png'
 import Mailbox5 from './img/Mailbox5.png'
-import Axios from 'axios';
 
 
 function MakeMailboxPage(props) {
-
-  const dispatch = useDispatch()
 
   const [UserId, setUserId] = useState('')
   const [CalendarForm, setCalendarForm] = useState({})
@@ -30,10 +25,10 @@ function MakeMailboxPage(props) {
     }
   }, [props.user.userData])
 
-  const [IsClicked, setIsClicked] = useState('')
+  const [IsClicked, setIsClicked] = useState('1')
   const [Title, setTitle] = useState('')
 
-  const ImageHandelClick = (event) => {
+  const ImageHandleClick = (event) => {
     // console.log(event.target.value)
     setIsClicked(event.target.value)
   }
@@ -89,6 +84,7 @@ function MakeMailboxPage(props) {
     }
 
     const body = {
+      maker: UserId._id,
       mailboxStyle: IsClicked,
       title: Title,
       calendar: CalendarForm
@@ -103,7 +99,7 @@ function MakeMailboxPage(props) {
             alert('우체통이 정상적으로 만들어졌습니다.')
             props
                 .history
-                .push(`/mailbox/${UserId}`)
+                .push(`/mailbox/${UserId._id}`)
         } else {
             alert('우체통이 만들어지지 않았습니다.')
         }
@@ -119,17 +115,17 @@ function MakeMailboxPage(props) {
         fontFamily: 'NeoDunggeunmo'
       }}
     >
-      <div style={{ width: '100%', height: '40px', backgroundColor: '#A3D6CC', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px', fontWeight: 'bolder', margin: '0' }}>
+      <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px', fontWeight: 'bolder', margin: '0' }}>
         편지함 만들기
       </div>
       <Form onSubmitCapture={submitHandler}>
         {MailboxImg()}
         <div style={{ width: '50%', display: 'inline-flex', justifyContent: 'space-evenly', marginLeft: '25%' }}>
-          <Button onClick={ImageHandelClick} value={1} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#C6A8CE', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={2} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#EE8577', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={3} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#8BCDBF', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={4} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#CBE0A2', border: '0px' }} />
-          <Button onClick={ImageHandelClick} value={5} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#FAD993', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={1} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#C6A8CE', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={2} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#EE8577', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={3} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#8BCDBF', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={4} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#CBE0A2', border: '0px' }} />
+          <Button onClick={ImageHandleClick} value={5} style={{ width: '20px', height: '20px', borderRadius: '100%', backgroundColor: '#FAD993', border: '0px' }} />
         </div>
         <p style={{ marginTop: '46px', fontSize: '18px' }}>편지함 제목을 입력하세요</p>
         <Input placeholder='편지함의 제목을 입력하세요' onChange={TitleChangeHandler} value={Title} style={{ width: '100%', height: '39px', backgroundColor: '#F9DB99', borderRadius: '20px', border: '0', textAlign: 'center' }} />
@@ -140,7 +136,7 @@ function MakeMailboxPage(props) {
                   width: '100%',
                   height: '40px',
                   borderRadius: '20px',
-                  background: '#A3D6CC',
+                  background: '#B4E8E6',
                   border: '0',
                   marginTop: '67px'
               }}

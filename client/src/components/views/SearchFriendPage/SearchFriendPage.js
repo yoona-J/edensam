@@ -21,13 +21,13 @@ function SearchFriendPage() {
             })
     }
 
-    const numberCards = Users.map((user, index) => {
+    const numberCards = Users.map((friend, index) => {
         // console.log('Users', user)
         return <div>
-            <a href={`/mailbox/friend/${user._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
+            <a href={`/mailbox/friend/${friend._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
                 <div key={index} style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center', border: '2px solid #FFF', borderBottomColor: '#828282' }}>
-                    <p>{user.name}</p>
-                    <p>{user.number}</p>
+                    <p>{friend.name}</p>
+                    <p>{friend.number}</p>
                 </div>
             </a>
         </div>
@@ -49,7 +49,7 @@ function SearchFriendPage() {
                 width: '90%',
                 margin: '3rem auto',
               fontFamily: 'NeoDunggeunmo',
-              color: '#828282'
+              color: '#333333'
           }}
       >
 
