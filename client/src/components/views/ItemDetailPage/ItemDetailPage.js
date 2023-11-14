@@ -3,6 +3,8 @@ import axios from "axios";
 import "./ItemDetailPage.css";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
+import { useHistory } from "react-router-dom";
+import { Button } from "antd";
 
 function ItemDetailPage(props) {
   const productId = props.match.params.productId;
@@ -16,6 +18,32 @@ function ItemDetailPage(props) {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+
+
+   console.log(props);
+
+   const history = useHistory();
+
+   const [Mailing, setMailing] = useState([]);
+
+   useEffect(() => {
+     if (props) {
+       setMailing(props.location.state);
+     }
+   }, [props]);
+  
+    const getProductHandler = (event) => {
+      event.preventDefault();
+      history.push({
+        pathname: `/payment`,
+        state: {
+          mailing: Mailing,
+        },
+      });
+  }; 
+  
 
   return (
     <div
@@ -57,9 +85,9 @@ function ItemDetailPage(props) {
 
         {/* 결제 버튼 */}
         <div className="payment">
-          <a href="/payment">
-            <div className="paybtn">구매하기</div>
-          </a>
+          <Button className="paybtn" onClick={getProductHandler}>
+            구매하기
+          </Button>
           <br />
         </div>
       </div>

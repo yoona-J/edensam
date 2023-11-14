@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PaymentPage.css";
 import { Button } from "antd";
-import checkbox from "./Sections/checkbox";
-import { Checkbox } from "antd";
+import { useHistory } from "react-router-dom";
 
-function PaymentPage({ history }) {
-  // const onChange = (e) => {
-  //   console.log(`checked = ${e.target.checked}`);
-  // };
+function PaymentPage() {
+  const history = useHistory();
+
+  const [FriendId, setFriendId] = useState("");
+  const [FriendMailboxId, setFriendMailboxId] = useState("");
+  const [EnvelopeImg, setEnvelopeImg] = useState("");
+  const [StickerIcon, setStickerIcon] = useState("");
+  const [Writer, setWriter] = useState("");
+  const [content, setcontent] = useState("");
+  const [ProductId, setproductId] = useState("");
+
+  const getGiftHandler = (event) => {
+    event.preventDefault();
+    history.push({
+      pathname: `/passinfo/ ${ProductId}/ ${FriendId} `,
+      state: {
+        friendId: FriendId,
+        mailboxId: FriendMailboxId,
+        envelopeImg: EnvelopeImg,
+        stickerIcon: StickerIcon,
+        writer: Writer,
+        content: content,
+        productId: ProductId,
+      },
+    });
+  };
 
   return (
     <div className="A">
@@ -16,29 +37,7 @@ function PaymentPage({ history }) {
       <div></div>
       <div className="title2">결제 방식을 선택해주세요</div>
       <br />
-      {/* <Radio.Group className="checkbox">
-          <Radio value={1}>무통장입금</Radio>
-          <hr />
-          <Radio value={2}>일반 결제</Radio>
-        </Radio.Group>{" "} */}
-      {/* <div className="passbox">
-        <a href="/passinfo">
-          <p>무통장 입금</p>
-        </a>
-        <br />
-
-        <div
-          style={{
-            margin: "auto",
-            position: "relative",
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-          }}
-          dangerouslySetInnerHTML={tosspay()}
-        />
-      </div> */}
-      <div class="box">
+      <div className="box">
         <input id="checkbox" type="checkbox" />
         <label id="label" htmlFor="checkbox"></label>
       </div>
@@ -51,8 +50,9 @@ function PaymentPage({ history }) {
 
       <br />
       <div className="pay">
-        <div>결제하기</div>
-        <a href="/address"></a>
+        <Button className="paybtn" onClick={getGiftHandler}>
+          결제하기
+        </Button>
       </div>
     </div>
   );
