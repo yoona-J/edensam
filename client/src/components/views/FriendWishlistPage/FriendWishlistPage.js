@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-// import { getWishItems } from "../../../_actions/user_actions";
-// import UserCardBlock from "./Sections/UserCardBlock";
 import "./FriendWishlistPage.css";
 import Axios from "axios";
-// import Axios from "axios";
 
 import { useHistory } from "react-router-dom";
-// import { response } from "express";
 
-function FriendWishlistPage(props) {
+function FriendWishlistPage (props) {
+
+  const history = useHistory();
+
   const [FriendId, setFriendId] = useState("");
   const [MailingList, setMailingList] = useState([]);
   const [FriendWish, setFriendWish] = useState([]);
   const [Products, setProducts] = useState([]);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    console.log("pppp", props);
+    // console.log("pppp", props);
     setFriendId(props.location.state.friendId);
     setMailingList(props.location.state);
     if (props.location.state.friendId) {
@@ -42,19 +38,34 @@ function FriendWishlistPage(props) {
     }
 
     Axios.post("/api/admin/upload/wishItem", body).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setProducts(response.data.upload);
     });
   }, [FriendWish])
   
 
-  console.log('Products', Products)
+  // console.log('MailingList', MailingList)
+
 
   const renderCards = Products.map((product, index) => {
-    console.log(product)
+    // console.log(product)
 
-    return <div>
-            <a href={`/product/${product._id}`}>
+    const clickHandler = () => {
+      // event.preventDefault();
+      history.push({
+        pathname: `/product/${product._id}`,
+        state: {
+          friendId: MailingList.friendId,
+          mailboxId: MailingList.mailboxId,
+          envelopeImg: MailingList.envelopeImg,
+          stickerIcon: MailingList.stickerIcon,
+          writer: MailingList.writer,
+          content: MailingList.content,
+        },
+      });
+    };
+
+    return <div onClick={clickHandler} key={index}>
               <div className="witembox">
                 <img
                   src={`http://localhost:5000/${product.item_image[0]}`}
@@ -69,7 +80,6 @@ function FriendWishlistPage(props) {
                 <div className="winame">{product.item_title}</div>
                 <div className="wprice">{product.how_much}원</div>
               </div>
-            </a>
           </div>
   })
 
