@@ -166,4 +166,37 @@ router.post("/successBuy", auth, (req, res) => {
   });
 });
 
+//히스토리 저장
+router.post("/addToHistory", auth, (req, res) => {
+  //유저 정보 가져오기
+  // console.log(req.user._id)
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
+    let duplicate = false;
+    userInfo.history.forEach((item) => {
+      if (item.id === req.body.productId) {
+        duplicate = true;
+      }
+    });
+    //저장
+    User.findOneAndUpdate(
+      { _id: req.user._id },
+      {
+        $push: {
+          history: {
+            id: req.body.productId,
+            friendId:req.body.friendId,
+            date: Date.now(),
+          },
+        },
+      },
+      { new: true },
+      (err, userInfo) => {
+        if (err) return res.json({ success: false, err });
+        res.status(200).json(userInfo.history);
+      }
+    );
+    console.log(req.body);
+  });
+});
+
 module.exports = router;

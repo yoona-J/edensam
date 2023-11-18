@@ -20,17 +20,22 @@ function ItemDetailPage(props) {
   }, []);
 
 
-
-
-   console.log(props);
-
    const history = useHistory();
 
-   const [Mailing, setMailing] = useState([]);
+  const [Mailing, setMailing] = useState([]);
+  const [ProductId, setProductId] = useState([])
+
+  
+  const [FriendId, setFriendId] = useState("");
+  const [MailingList, setMailingList] = useState([]);
+  const [FriendWish, setFriendWish] = useState([]);
+  const [Products, setProducts] = useState([]);
+
 
    useEffect(() => {
      if (props) {
        setMailing(props.location.state);
+       setProductId(props.match.params.productId);
      }
    }, [props]);
   
@@ -40,10 +45,11 @@ function ItemDetailPage(props) {
         pathname: `/payment`,
         state: {
           mailing: Mailing,
+          ProductId: productId,
         },
       });
   }; 
-  
+  console.log(props)
 
   return (
     <div

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./PaymentPage.css";
 import { Button } from "antd";
 import { useHistory } from "react-router-dom";
 
-function PaymentPage() {
+function PaymentPage(props) {
   const history = useHistory();
 
   const [FriendId, setFriendId] = useState("");
@@ -14,10 +14,26 @@ function PaymentPage() {
   const [content, setcontent] = useState("");
   const [ProductId, setproductId] = useState("");
 
+  // const [MailingList, setMailingList] = useState([]);
+  const [Mailing, setMailing] = useState([]);
+
+  useEffect(() => {
+    if (props) {
+      setWriter(props.location.state.mailing.writer)
+      setcontent(props.location.state.mailing.content)
+      setFriendId(props.location.state.mailing.friendId)
+      setFriendMailboxId(props.location.state.mailing.mailboxId)
+      setEnvelopeImg(props.location.state.mailing.envelopeImg)
+      setStickerIcon(props.location.state.mailing.stickerIcon)
+      setproductId(props.location.state.ProductId)
+    }
+
+  }, [props])
+
   const getGiftHandler = (event) => {
     event.preventDefault();
     history.push({
-      pathname: `/passinfo/ ${ProductId}/ ${FriendId} `,
+      pathname: `/passinfo`,
       state: {
         friendId: FriendId,
         mailboxId: FriendMailboxId,
@@ -29,6 +45,7 @@ function PaymentPage() {
       },
     });
   };
+  console.log(props);
 
   return (
     <div className="A">

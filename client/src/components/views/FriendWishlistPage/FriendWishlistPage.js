@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./FriendWishlistPage.css";
 import Axios from "axios";
-
+import "./FriendWishlistPage.css";
 import { useHistory } from "react-router-dom";
 
-function FriendWishlistPage (props) {
-
+function FriendWishlistPage(props) {
   const history = useHistory();
 
   const [FriendId, setFriendId] = useState("");
@@ -34,21 +33,20 @@ function FriendWishlistPage (props) {
 
   useEffect(() => {
     const body = {
-      item: FriendWish
-    }
+      item: FriendWish,
+    };
 
     Axios.post("/api/admin/upload/wishItem", body).then((response) => {
       // console.log(response.data);
       setProducts(response.data.upload);
     });
-  }, [FriendWish])
-  
+  }, [FriendWish]);
 
   // console.log('MailingList', MailingList)
 
-
   const renderCards = Products.map((product, index) => {
     // console.log(product)
+    
 
     const clickHandler = () => {
       // event.preventDefault();
@@ -64,33 +62,36 @@ function FriendWishlistPage (props) {
         },
       });
     };
+    console.log(props);
 
-    return <div onClick={clickHandler} key={index}>
-              <div className="witembox">
-                <img
-                  src={`http://localhost:5000/${product.item_image[0]}`}
-                  style={{
-                    height: "166px",
-                    width: "166px",
-                    borderInline: "19px",
-                    margin: "7px",
-                    borderRadius: "10px",
-                  }}
-                />
-                <div className="winame">{product.item_title}</div>
-                <div className="wprice">{product.how_much}원</div>
-              </div>
-          </div>
-  })
+    return (
+      <div onClick={clickHandler} key={index}>
+        <div className="witembox">
+          <img
+            src={`http://localhost:5000/${product.item_image[0]}`}
+            style={{
+              height: "166px",
+              width: "166px",
+              borderInline: "19px",
+              margin: "7px",
+              borderRadius: "10px",
+            }}
+          />
+          <div className="winame">{product.item_title}</div>
+          <div className="wprice">{product.how_much}원</div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="A">
-        <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center" }}>
         <h2 className="wtitle">my 위시리스트</h2>
         {renderCards}
       </div>
     </div>
-  )
+  );
 }
 
 export default FriendWishlistPage;

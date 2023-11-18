@@ -5,18 +5,18 @@ import { useHistory } from "react-router-dom";
 function MailingSuccessPage() {
   const history = useHistory();
 
-  const timeout = () => {
-    setTimeout(() => {
-      history.push("/main");
-    }, 2000);
-  };
+  // const timeout = () => {
+  //   setTimeout(() => {
+  //     history.push("/main");
+  //   }, 2000);
+  // };
 
-  useEffect(() => {
-    timeout();
-    return () => {
-      clearTimeout(timeout);
-    };
-  });
+  // useEffect(() => {
+  //   timeout();
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // });
 
   return (
     <div

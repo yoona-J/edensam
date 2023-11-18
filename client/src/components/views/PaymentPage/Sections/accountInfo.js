@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./paystyle.css";
 import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 import Axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToHistory } from "../../../../_actions/user_actions";
 
 function Accountinfo(props) {
-  const history = useHistory();
+  // const history = useHistory();
 
   const [FriendId, setFriendId] = useState("");
   const [FriendMailboxId, setFriendMailboxId] = useState("");
@@ -15,50 +17,59 @@ function Accountinfo(props) {
   const [content, setcontent] = useState("");
   const [ProductId, setproductId] = useState("");
 
-  const getGiftHandler = (event) => {
-    event.preventDefault();
-    history.push({
-      pathname: `/mailing/success/`,
-      state: {
-        friendId: FriendId,
-        mailboxId: FriendMailboxId,
-        envelopeImg: EnvelopeImg,
-        stickerIcon: StickerIcon,
-        writer: Writer,
-        content: content,
-        productId: ProductId,
-      },
-      // state: {
-      //   mailing: Mailing,
-      //   friendId: FriendId,
-      //   envelopeImg: ImageClicked,
-      //   stickerIcon: IconClicked,
-      // },
-    });
-    console.log(getGiftHandler);
-  };
+
+  useEffect(() => {
+    if (props) {
+      setWriter(props.location.state.writer);
+      setcontent(props.location.state.content);
+      setFriendId(props.location.state.friendId);
+      setFriendMailboxId(props.location.state.mailboxId);
+      setEnvelopeImg(props.location.state.envelopeImg);
+      setStickerIcon(props.location.state.stickerIcon);
+      setproductId(props.location.state.ProductId);
+    }
+  }, [props]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    //mail에 저장
     const body = {
+      writer: Writer,
+      content: content,
       friendId: FriendId,
-      productId: ProductId,
-      date: Date.now()
+      mailboxId: FriendMailboxId,
+      envelopeImg: EnvelopeImg,
+      stickerIcon: StickerIcon,
+      giftAvailable: ProductId,
     };
 
     console.log(body);
 
-    Axios.post("/api/user", body).then((response) => {
-      props.history.push("/mailing/success");
-      // if (response.status === 200) {
-      //   // alert('편지가 정상적으로 저장되었습니다.')
-      //   props.history.push("/mailing/success");
-      // } else {
-      //   alert("편지가 저장되지 않았습니다.");
-      // }
+    Axios.post("/api/mail", body).then((response) => {
+      if (response.status === 200) {
+        // alert('편지가 정상적으로 저장되었습니다.')
+        props.history.push("/mailing/success");
+      } else {
+        alert("편지가 저장되지 않았습니다.");
+      }
     });
   };
+
+  const dispatch = useDispatch();
+  const [isClicked, setIsClicked] = useState(false);
+  //save db user.history
+  const clickHandler = () => {
+    dispatch(addToHistory(props.location.state.productId));
+    dispatch(addToHistory(props.location.state.friendId));
+    console.log("click=", props.location.state.productId);
+
+    if (props.location.state.productId.length >= 1) {
+      alert("구매 기록이 저장되었습니다.");
+      setIsClicked(!isClicked);
+    }
+  };
+
+  console.log(props);
 
   return (
     <div
@@ -108,7 +119,7 @@ function Accountinfo(props) {
           border: "0",
           marginTop: "60px",
         }}
-        onClick={submitHandler}
+        onClick={clickHandler}
       >
         입금완료
       </Button>
