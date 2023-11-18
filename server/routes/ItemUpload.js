@@ -112,9 +112,14 @@ router.get("/products_by_id", (req, res) => {
 router.post("/wishItem", (req, res) => {
   // console.log(req.body.item);
   const items = req.body.item;
-  // console.log(items);
 
-  ItemUpload.find({ _id: items }).exec((err, upload) => {
+  const Items = items.map((item) => {
+    return item.id
+  })
+
+  // console.log(Items)
+
+  ItemUpload.find({ _id: Items }).exec((err, upload) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, upload });
   });

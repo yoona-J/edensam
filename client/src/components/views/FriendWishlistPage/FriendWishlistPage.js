@@ -37,202 +37,50 @@ function FriendWishlistPage(props) {
   }, [props]);
 
   useEffect(() => {
-    if (FriendWish) {
-      FriendWish.map((wish) => {
-        const body = {
-          item: wish.id,
-        };
-
-        Axios.post("/api/admin/upload/wishItem", body).then((response) => {
-          // console.log(response.data);
-          setProducts(response.data.upload[0]);
-        });
-      });
+    const body = {
+      item: FriendWish
     }
-  }, [FriendWish]);
 
-  // console.log(Products);
+    Axios.post("/api/admin/upload/wishItem", body).then((response) => {
+      console.log(response.data);
+      setProducts(response.data.upload);
+    });
+  }, [FriendWish])
+  
 
-  // const WishItems =
-  //   Products &&
-  //   Products.map((product) => {
-  //     return (
-  //       <div>
-  //         <a href={`/product/${product._id}`}>
-  //           <div className="witembox">
-  //             <img
-  //               src={`http://localhost:5000/${product.item_image[0]}`}
-  //               style={{
-  //                 height: "166px",
-  //                 width: "166px",
-  //                 borderInline: "19px",
-  //                 margin: "7px",
-  //                 borderRadius: "10px",
-  //               }}
-  //             />
+  console.log('Products', Products)
 
-  //             <div className="winame">{product.item_title}</div>
-  //             <div className="wprice">{product.how_much}원</div>
-  //           </div>
-  //         </a>
-  //       </div>
-  //     );
-  //   });
+  const renderCards = Products.map((product, index) => {
+    console.log(product)
 
-  // const WishItems = () => {
-  //   if (Products !== undefined) {
-  //     return (
-  //       <div>
-  //         <a href={`/product/${Products._id}`}>
-  //           <div className="witembox">
-  //             <img
-  //               src={`http://localhost:5000/${Products.item_image[0]}`}
-  //               style={{
-  //                 height: "166px",
-  //                 width: "166px",
-  //                 borderInline: "19px",
-  //                 margin: "7px",
-  //                 borderRadius: "10px",
-  //               }}
-  //             />
-
-  //             <div className="winame">{Products.item_title}</div>
-  //             <div className="wprice">{Products.how_much}원</div>
-  //           </div>
-  //         </a>
-  //       </div>
-  //     );
-  //   }
-  // };
-
-  // const WishItems = FriendWish.map((wish, index) => {
-  //   const body = {
-  //     item: wish.id,
-  //   };
-
-  //   Axios.post("/api/admin/upload/wishItem", body).then((response) => {
-  //     // console.log(response.data.upload[0]);
-  //     // setProducts(response.data.upload[0]);
-  //   });
-
-  // return (
-  //   <div>
-  //     <a href={`/product/${response.data.upload[0]._id}`}>
-  //       <div className="witembox">
-  //         <img
-  //           src={`http://localhost:5000/${response.data.upload[0].item_image[0]}`}
-  //           style={{
-  //             height: "166px",
-  //             width: "166px",
-  //             borderInline: "19px",
-  //             margin: "7px",
-  //             borderRadius: "10px",
-  //           }}
-  //         />
-
-  //         <div className="winame">{response.data.upload[0].item_title}</div>
-  //         <div className="wprice">{`${response.data.upload[0].how_much}원`}</div>
-  //       </div>
-  //     </a>
-  //   </div>
-  // );
-  // });
-
-  // const renderItems = FriendWish.map((upload, index) => {
-  //   return (
-  //     <div>
-  //       <a href={`/product/${upload._id}`}>
-  //         <div className="witembox">
-  //           <img
-  //             src={`http://localhost:5000/${upload.item_image[0]}`}
-  //             style={{
-  //               height: "166px",
-  //               width: "166px",
-  //               borderInline: "19px",
-  //               margin: "7px",
-  //               borderRadius: "10px",
-  //             }}
-  //           />
-
-  //           <div className="winame">{upload.item_title}</div>
-  //           <div className="wprice">{`${upload.how_much}원`}</div>
-  //         </div>
-  //       </a>
-  //     </div>
-  //   );
-  // });
-
-  //history
-
-  // const history = useHistory();
-
-  // const [Mailing, setMailing] = useState([]);
-  // const [ProductId, setProductId] = useState("");
-
-  // useEffect(() => {
-  //   if (props) {
-  //     setMailing(props.location.state);
-  //     setProductId(props.location.state.productId);
-  //   }
-  // }, [props]);
-
-  // const getProductHandler = (event) => {
-  //   event.preventDefault();
-  //   history.push({
-  //     pathname: `/product/${ProductId}`,
-  //     state: {
-  //       mailing: Mailing,
-  //       // productId: ProductId,
-  //     },
-  //   });
-  // };
-
-  //card
-
-  //   return (
-  //     <div className="A">
-  //       <div style={{ textAlign: "center" }}>
-  //         <h2 className="wtitle">my 위시리스트</h2>
-  //         {/* 상품값 */}
-
-  //         {/* <div>{WishItems()}</div> */}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  const test = () => {
-    if (Products) {
-      Products.map((product) => {
-        return (
-          <div className="A">
-            <div style={{ textAlign: "center" }}>
-              <h2 className="wtitle">my 위시리스트</h2>
-              <div>
-                <a href={`/product/${product._id}`}>
-                  <div className="witembox">
-                    <img
-                      src={`http://localhost:5000/${product.item_image[0]}`}
-                      style={{
-                        height: "166px",
-                        width: "166px",
-                        borderInline: "19px",
-                        margin: "7px",
-                        borderRadius: "10px",
-                      }}
-                    />
-                    <div className="winame">{product.item_title}</div>
-                    <div className="wprice">{product.how_much}원</div>
-                  </div>
-                </a>
+    return <div>
+            <a href={`/product/${product._id}`}>
+              <div className="witembox">
+                <img
+                  src={`http://localhost:5000/${product.item_image[0]}`}
+                  style={{
+                    height: "166px",
+                    width: "166px",
+                    borderInline: "19px",
+                    margin: "7px",
+                    borderRadius: "10px",
+                  }}
+                />
+                <div className="winame">{product.item_title}</div>
+                <div className="wprice">{product.how_much}원</div>
               </div>
-            </div>
+            </a>
           </div>
-        );
-      });
-    }
-  };
-  return <div>{test()}</div>;
+  })
+
+  return (
+    <div className="A">
+        <div style={{ textAlign: "center" }}>
+        <h2 className="wtitle">my 위시리스트</h2>
+        {renderCards}
+      </div>
+    </div>
+  )
 }
 
 export default FriendWishlistPage;
