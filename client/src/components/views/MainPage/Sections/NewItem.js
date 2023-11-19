@@ -28,11 +28,13 @@ function NewItem(props) {
             style={{
               height: "100px",
               width: "100x",
-              borderInline: "19px",
+              borderRadius: '19px'
             }}
           />
-
-          <div style={{ width: "100px", textAlign: "left" }}>
+          <div style={{ width: "100px", textAlign: "left", fontFamily: "Pretendard-Medium" }}>
+            {upload.item_maker}
+          </div>
+          <div style={{ width: "100px", textAlign: "left", fontFamily: "Pretendard-Regular" }}>
             {upload.item_title}
           </div>
           {/* <div style={{width:"100px",textAlign:"right"}}>{`${upload.how_much}원`}</div> */}
@@ -61,11 +63,11 @@ function NewItem(props) {
           flexWrap: "wrap",
         }}
       >
-        <div>{renderCards[7]}</div>
-        <div>{renderCards[13]}</div>
-        <div>{renderCards[18]}</div>
+        <div>{renderCards[27]}</div>
+        <div>{renderCards[16]}</div>
+        <div>{renderCards[17]}</div>
       </div>
-      <hr />
+      <div style={{ width: '100%', height: '12px', backgroundColor: '#F2F2F2', marginTop: '16px' }} />
       <div>
         <p
           style={{
@@ -84,7 +86,7 @@ function NewItem(props) {
           flexWrap: "wrap",
         }}
       >
-        <div>{renderCards[12]}</div>
+        <div>{renderCards[20]}</div>
         <div>{renderCards[14]}</div>
         <div>{renderCards[15]}</div>
       </div>

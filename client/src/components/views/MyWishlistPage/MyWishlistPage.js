@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import "./MyWishlistPage.css";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
 import "./MyWishlistPage.css";
+
+import WishlistIcon from './img/WishlistIcon.png'
+import PlusIcon from './img/PlusIcon.png'
 
 function MyWishlistPage(props) {
   const dispatch = useDispatch();
@@ -23,23 +25,23 @@ function MyWishlistPage(props) {
   }, [props.user.userData]);
 
   return (
-    <div className="A"
-     style={{fontFamily: 'Pretendard',
+    <div className="A" style={{fontFamily: "NeoDunggeunmo",
               width: '90%',
               margin: '3rem auto',
               padding: 0}}>
-      <div style={{ textAlign: "center" }}>
-        <h2 className="title" style={{ padding: 0 }}>my 위시리스트</h2>
-        {/* 상품값 */}
-
-        <div
-        >
+      <div style={{ width: '100%', display: 'inline-flex', marginBottom: '36px'}}>
+        <img src={WishlistIcon} alt="WishlistIcon" style={{ width: '20px', height: '20px', margin: '6px 8px 0px 0px'}} />
+        <p style={{ fontSize: '20px', margin: 0 }}>MY 위시리스트</p>
+        <a>
+          <img src={PlusIcon} alt="PlusIcon" style={{ width: '20px', height: '20px', margin: '6px 0px 0px 186px' }} />
+        </a>
+      </div>
+        <div style={{ fontFamily: "Pretendard-Regular" }}>
           <UserCardBlock
             uploads={
               props.user.wishListDetail && props.user.wishListDetail.upload
             }
           />
-        </div>
       </div>
     </div>
   );

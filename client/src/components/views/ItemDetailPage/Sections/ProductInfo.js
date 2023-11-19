@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "antd";
 import { addToCart } from "../../../../_actions/user_actions";
-// import empty_heart from "./img/empty_heart.png";
+
+import ClickedWishButton from './img/ClickedWishButton.png'
+import WishButton from './img/WishButton.png'
 
 function ProductInfo(props) {
   const dispatch = useDispatch();
@@ -29,14 +31,11 @@ function ProductInfo(props) {
       >
         <Button
           style={{
-            fontFamily: "NeoDunggeunmo",
             backgroundColor: "#FFFFFF",
             border: "none",
             float: "left",
             padding: "0",
-            fontSize: "26px",
-            height: "24px",
-            width: "24px",
+            fontSize: "39px",
           }}
           onClick={clickHandler}
         >

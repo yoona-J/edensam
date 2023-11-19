@@ -4,6 +4,8 @@ import LandingImg from "./img/LandingImg.png";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_actions";
 
+import './LandingPage.css'
+
 function LandingPage(props) {
   const dispatch = useDispatch();
 
@@ -55,7 +57,7 @@ function LandingPage(props) {
           borderRadius: "30px",
         }}
       />
-      <Form onSubmitCapture={submitHandler}>
+      <Form onSubmitCapture={submitHandler} className="landing-input">
         <div>
           <Input
             placeholder="아이디"
@@ -65,7 +67,6 @@ function LandingPage(props) {
               width: "100%",
               height: "40px",
               borderRadius: "20px",
-              background: "#D9D9D9",
               border: "0",
               marginTop: "20px",
               textIndent: "15px",
@@ -81,7 +82,6 @@ function LandingPage(props) {
               width: "100%",
               height: "40px",
               borderRadius: "20px",
-              background: "#D9D9D9",
               border: "0",
               marginTop: "20px",
               textIndent: "15px",

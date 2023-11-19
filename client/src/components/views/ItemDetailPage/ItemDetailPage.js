@@ -22,7 +22,7 @@ function ItemDetailPage(props) {
       style={{
         width: "100%",
         marginTop: "30px",
-        fontFamily: "Pretendard",
+        fontFamily: "Pretendard-Regular",
       }}
     >
       {/* 상품 이미지 */}
@@ -32,7 +32,6 @@ function ItemDetailPage(props) {
         alt="infoimg"
         src={`http://localhost:5000/${Product.item_image}`}
       />
-      <hr />
       <div className="box">
         {/* 상품 회사 */}
         <div className="company">{Product.item_maker}</div>

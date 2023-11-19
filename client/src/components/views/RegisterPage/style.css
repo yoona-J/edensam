@@ -1,3 +1,12 @@
-.ant-checkbox-input {
-    margin-right: 16px;
+.register-input input.ant-input {
+    background-color: #F2F2F2;
+}
+
+.register-input input.ant-input:focus {
+    outline: 2px solid #0CAAB8;
+    background-color: #EFFCFB;
+}
+
+.register-input input.ant-checkbox-input {
+    margin-right: 37px;
 }
