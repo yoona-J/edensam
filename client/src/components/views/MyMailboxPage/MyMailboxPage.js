@@ -34,16 +34,17 @@ function MyMailboxPage(props) {
   const mailboxCards = Res.map((mailbox, index) => {
 
     var y = mailbox.calendar[0].year
-    var m = mailbox.calendar[0].month - 1
+    var m = mailbox.calendar[0].month
     var d = mailbox.calendar[0].day
 
     const date = y + '-' + m + '-' + d
     const day = new Date
-    const today = `${day.getFullYear()}-${day.getMonth()}-0${day.getDate()}`
+    const today = `${day.getFullYear()}-${day.getMonth()+1}-${day.getDate()}`
 
-    console.log(date, today)  
+    console.log(date <= today)
+    console.log(date === today)
 
-    if (date === today && mailbox.mailboxStyle === '1') {
+    if (date === today && mailbox.mailboxStyle === '1' || date <= today && mailbox.mailboxStyle === '1') {
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
@@ -53,7 +54,7 @@ function MyMailboxPage(props) {
           </div>
         </a>
       </div>
-    } else if (date === today && mailbox.mailboxStyle === '2') { 
+    } else if (date === today && mailbox.mailboxStyle === '2' || date <= today && mailbox.mailboxStyle === '2') { 
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
@@ -63,7 +64,7 @@ function MyMailboxPage(props) {
           </div>
         </a>
       </div>
-    } else if (date === today && mailbox.mailboxStyle === '3') { 
+    } else if (date === today && mailbox.mailboxStyle === '3' || date <= today && mailbox.mailboxStyle === '3') { 
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
@@ -73,7 +74,7 @@ function MyMailboxPage(props) {
           </div>  
         </a>
       </div>
-    } else if (date === today && mailbox.mailboxStyle === '4') { 
+    } else if (date === today && mailbox.mailboxStyle === '4' || date <= today && mailbox.mailboxStyle === '4') { 
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
@@ -83,7 +84,7 @@ function MyMailboxPage(props) {
           </div>
         </a>
       </div>
-    } else if (date === today && mailbox.mailboxStyle === '5') { 
+    } else if (date === today && mailbox.mailboxStyle === '5' || date <= today && mailbox.mailboxStyle === '5') { 
       return <div>
         <a href={`/mailbox/${UserId._id}/detail/${mailbox._id}`} style={{ textDecorationLine: 'none', color: '#000' }}>
           <div key={index} style={{ position: 'relative' }}>
@@ -167,7 +168,7 @@ function MyMailboxPage(props) {
       <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly' }}>
         <a href={`/mailbox/${UserId._id}/delete`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>
           <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
-            <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>삭제</p>
+            <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>공유</p>
           </div>
         </a>
         <a href={`/mailbox/${UserId._id}/create`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>

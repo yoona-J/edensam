@@ -85,7 +85,7 @@ function MainPage(props) {
                                     margin: 0
                                 }}>이든샘 선물하기</p>
                         </div>
-                        <img src={RightButton} alt="RightButton" style={{ width: '22px' }}>
+                        <img src={RightButton} alt="RightButton" style={{ width: '12px', height: '21px' }}>
                         </img>
                     </div>
                 </div>
