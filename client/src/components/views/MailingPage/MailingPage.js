@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 function MailingPage(props) {
 
-    console.log(props)
+    // console.log(props)
     const FriendId = props.match.params.FriendId
     const FriendMailboxId = props.match.params.MailboxId
 
