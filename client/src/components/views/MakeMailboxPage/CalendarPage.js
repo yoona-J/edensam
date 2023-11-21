@@ -81,7 +81,17 @@ function CalendarPage(props) {
                 Day.push(d);
             }
         }
-    } else if (CalendarForm.year === Today.getFullYear() + 1 && CalendarForm.month <= Today.getMonth() + 1) {
+    } else if (CalendarForm.year === Today.getFullYear() + 1 && CalendarForm.month < Today.getMonth() + 1) {
+        for (let d = 1; d <= date; d += 1) {
+            if (d < 10) {
+                // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
+                Day.push("0" + d);
+            } else {
+                Day.push(d);
+            }
+        }
+    }
+    else if (CalendarForm.year === Today.getFullYear() + 1 && CalendarForm.month === Today.getMonth() + 1) {
         // console.log(CalendarForm.year === Today.getFullYear() + 1, CalendarForm.month <= Today.getMonth() + 1)
         // console.log(CalendarForm.month)
         // console.log(Today.getMonth() + 1)

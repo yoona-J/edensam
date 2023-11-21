@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
@@ -9,6 +9,8 @@ import PlusIcon from './img/PlusIcon.png'
 
 function MyWishlistPage(props) {
   const dispatch = useDispatch();
+
+  const [UserId, setUserId] = useState('')
 
   useEffect(() => {
     let wishItems = [];
@@ -21,6 +23,10 @@ function MyWishlistPage(props) {
         dispatch(getWishItems(wishItems, props.user.userData.wishList));
       }
     }
+    if (props.user.userData) {
+      console.log(props.user.userData)
+      setUserId(props.user.userData._id)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData]);
 
@@ -32,7 +38,7 @@ function MyWishlistPage(props) {
       <div style={{ width: '100%', display: 'inline-flex', marginBottom: '36px'}}>
         <img src={WishlistIcon} alt="WishlistIcon" style={{ width: '20px', height: '20px', margin: '6px 8px 0px 0px'}} />
         <p style={{ fontSize: '20px', margin: 0 }}>MY 위시리스트</p>
-        <a>
+        <a href={`/category/${UserId}`}>
           <img src={PlusIcon} alt="PlusIcon" style={{ width: '20px', height: '20px', margin: '6px 0px 0px 186px' }} />
         </a>
       </div>

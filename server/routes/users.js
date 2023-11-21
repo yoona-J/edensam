@@ -57,17 +57,33 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/logout", auth, (req, res) => {
-  User.findOneAndUpdate(
-    { _id: req.user._id },
-    { token: "", tokenExp: "" },
-    (err, doc) => {
-      if (err) return res.json({ success: false, err });
-      return res.status(200).send({
-        success: true,
-      });
-    }
-  );
+  // User.findOneAndUpdate(
+  //   { _id: req.user._id },
+  //   { token: "", tokenExp: "" },
+  //   (err, doc) => {
+  //     if (err) return res.json({ success: false, err });
+  //     return res.status(200).send({
+  //       success: true,
+  //     });
+  //   }
+  // );
 });
+
+router.post("/changeFavorite", (req, res) => {
+  console.log(req.body)
+  // const userId = req.body.ID
+  // const Favorite = req.body.favorite
+  User.findOneAndUpdate(
+    { _id: req.body.ID },
+    { $set: { favorite: req.body.favorite } },
+    { new: true }
+  )
+    .exec((err, user) => {
+      console.log('user', user)
+        if (err) return res.status(400).json({ success: false, err });
+        return res.status(200).json({ success: true, user });
+      });
+})
 
 router.post("/search", (req, res) => {
   let term = req.body.searchTerm;

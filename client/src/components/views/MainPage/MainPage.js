@@ -226,7 +226,7 @@ function MainPage(props) {
                             style={{
                                 fontSize: '15px',
                                 textAlign: 'center'
-                            }}>편지함</p>
+                            }}>내 우체통</p>
                     </div>
                 </a>
             </div>

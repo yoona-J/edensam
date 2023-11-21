@@ -18,7 +18,7 @@ function NewItem(props) {
   }, []);
 
   const renderCards = Products.map((upload, index) => {
-    console.log(upload);
+    // console.log(upload);
 
     return (
       <a href={`/product/${upload._id}`}>
