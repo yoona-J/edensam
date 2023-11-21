@@ -69,6 +69,16 @@ router.get("/logout", auth, (req, res) => {
   // );
 });
 
+router.post('/exit', (req, res) => {
+  console.log(req.body)
+  const userId = req.body.userId
+  User.findOneAndDelete({ '_id': userId })
+    .exec((err, user) => {
+        if(err) return res.status(400).send(err)
+        return res.status(200).send(user)
+    })
+})
+
 router.post("/changeFavorite", (req, res) => {
   console.log(req.body)
   // const userId = req.body.ID
