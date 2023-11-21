@@ -33,8 +33,8 @@ router.post("/getMail", (req, res) => {
 });
 
 router.post("/getMailHistory", (req, res) => {
-  // console.log(req.body)
-  const userId = req.body.params.userId._id;
+  console.log(req.body)
+  const userId = req.body.params.userId
   Mail.find({ writerid: userId })
     .populate("writerid")
     .exec((err, mail) => {

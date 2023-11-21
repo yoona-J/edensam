@@ -109,20 +109,19 @@ router.get("/products_by_id", (req, res) => {
   });
 });
 
-router.get("/history_by_id", (req, res) => {
-  console.log("req", req.body);
-  const giftAvailable = req.body.giftAvailable;
-  ItemUpload.find({ _id: giftAvailable })
-    .populate("giftAvailable")
-    .exec((err, mail) => {
-      if (err) return res.status(400).send(err);
-      return res.status(200).send(mail);
-    });
+router.post("/history_by_id", (req, res) => {
+  // console.log("req", req.body);
+  const giftAvailables = req.body.giftAvailable;
+  const GiftAvailable = giftAvailables.map((gift) => {
+    return gift.giftAvailable
+  })
 
-  // ItemUpload.find({ _id: { $in: productIds } }).exec((err, upload) => {
-  //   if (err) return res.status(400).send(err);
-  //   return res.status(200).json({ success: true, upload });
-  // });
+  // console.log(GiftAvailable)
+  ItemUpload.find({ _id: GiftAvailable })
+    .exec((err, item) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(item);
+    });
 });
 
 router.post("/wishItem", (req, res) => {

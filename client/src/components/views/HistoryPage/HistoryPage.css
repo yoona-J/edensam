@@ -21,7 +21,8 @@
 .Container {
   padding: "1%";
   margin: "1% 0% 1% 0%";
-  display: flex;
+  /* grid */
+  display: inline-flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -29,7 +30,7 @@
   width: 180px;
   height: 295px;
   border-radius: 10px;
-  /* border: 1px solid lightgray; */
+  border: 1px solid lightgray;
   margin-bottom: 10px;
 }
 .winame {
