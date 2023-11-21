@@ -3,7 +3,7 @@ import { Form, Input, Checkbox, Button } from 'antd';
 import { registerUser } from '../../../_actions/user_actions';
 import { useDispatch } from 'react-redux';
 
-import './style.css'
+import './RegisterPage.css'
 
 function RegisterPage(props) {
 
