@@ -18,13 +18,29 @@ function ItemListPage() {
       }
     });
   }, []);
+  console.log("pp", Products);
+  const [category, setcategory] = useState("");
+  const [itemcate, setitemcate] = useState(second);
+  const handleClickButton = (e) => {
+    const { name } = e.target;
+    setcategory(name);
+  };
+
+  const ProductCategory = ({ categoryId, products }) => {
+    return <></>;
+  };
 
   const renderCards = Products.map((upload, index) => {
-    console.log("upload", upload.item_image);
+    console.log("upload", upload);
+    console.log("cate", upload.item_category);
+    setitemcate(upload.item_category);
 
     return (
       <a href={`/product/${upload._id}`}>
-        <div className="itembox" style={{boxShadow: '0px 4px 4px 0px #C4C4C4'}}>
+        <div
+          className="itembox"
+          style={{ boxShadow: "0px 4px 4px 0px #C4C4C4" }}
+        >
           <img
             src={`http://localhost:5000/${upload.item_image[0]}`}
             style={{
@@ -41,6 +57,8 @@ function ItemListPage() {
       </a>
     );
   });
+
+  //카테고리
 
   return (
     <div
@@ -60,13 +78,8 @@ function ItemListPage() {
         </h2>
 
         {/* cards */}
-        <div
-        >
-          <div
-          className="Container"
-          >
-            {renderCards}
-          </div>
+        <div>
+          <div className="Container">{renderCards}</div>
         </div>
       </div>
     </div>

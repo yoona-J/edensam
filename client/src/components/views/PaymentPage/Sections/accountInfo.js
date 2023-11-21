@@ -16,17 +16,19 @@ function Accountinfo(props) {
   const [Writer, setWriter] = useState("");
   const [content, setcontent] = useState("");
   const [ProductId, setproductId] = useState("");
-
+  const [writerid, setWriterid] = useState("");
 
   useEffect(() => {
     if (props) {
+      setWriterid(props.user.userData._id);
       setWriter(props.location.state.writer);
       setcontent(props.location.state.content);
       setFriendId(props.location.state.friendId);
       setFriendMailboxId(props.location.state.mailboxId);
       setEnvelopeImg(props.location.state.envelopeImg);
       setStickerIcon(props.location.state.stickerIcon);
-      setproductId(props.location.state.ProductId);
+      setproductId(props.location.state.productId);
+      setWriterid(props.user.userData._id);
     }
   }, [props]);
 
@@ -34,6 +36,7 @@ function Accountinfo(props) {
     event.preventDefault();
     //mail에 저장
     const body = {
+      writerid: writerid,
       writer: Writer,
       content: content,
       friendId: FriendId,
@@ -55,19 +58,19 @@ function Accountinfo(props) {
     });
   };
 
-  const dispatch = useDispatch();
-  const [isClicked, setIsClicked] = useState(false);
-  //save db user.history
-  const clickHandler = () => {
-    dispatch(addToHistory(props.location.state.productId));
-    dispatch(addToHistory(props.location.state.friendId));
-    console.log("click=", props.location.state.productId);
+  // const dispatch = useDispatch();
+  // const [isClicked, setIsClicked] = useState(false);
+  // //save db user.history
+  // const clickHandler = () => {
+  //   dispatch(addToHistory(props.location.state.productId));
+  //   dispatch(addToHistory(props.location.state.friendId));
+  //   console.log("click=", props.location.state.productId);
 
-    if (props.location.state.productId.length >= 1) {
-      alert("구매 기록이 저장되었습니다.");
-      setIsClicked(!isClicked);
-    }
-  };
+  //   if (props.location.state.productId.length >= 1) {
+  //     alert("구매 기록이 저장되었습니다.");
+  //     setIsClicked(!isClicked);
+  //   }
+  // };
 
   console.log(props);
 
@@ -119,7 +122,7 @@ function Accountinfo(props) {
           border: "0",
           marginTop: "60px",
         }}
-        onClick={clickHandler}
+        onClick={submitHandler}
       >
         입금완료
       </Button>

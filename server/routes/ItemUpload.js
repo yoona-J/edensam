@@ -109,20 +109,49 @@ router.get("/products_by_id", (req, res) => {
   });
 });
 
+router.get("/history_by_id", (req, res) => {
+  console.log("req", req.body);
+  const giftAvailable = req.body.giftAvailable;
+  ItemUpload.find({ _id: giftAvailable })
+    .populate("giftAvailable")
+    .exec((err, mail) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(mail);
+    });
+
+  // ItemUpload.find({ _id: { $in: productIds } }).exec((err, upload) => {
+  //   if (err) return res.status(400).send(err);
+  //   return res.status(200).json({ success: true, upload });
+  // });
+});
+
 router.post("/wishItem", (req, res) => {
-  // console.log(req.body.item);
+  console.log(req.body.item);
   const items = req.body.item;
 
   const Items = items.map((item) => {
-    return item.id
-  })
+    return item.id;
+  });
 
-  // console.log(Items)
+  console.log(Items);
 
   ItemUpload.find({ _id: Items }).exec((err, upload) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, upload });
   });
 });
+
+// router.post("/history", (req, res) => {
+//   console.log(req.body.item);
+//   const items = req.body.item;
+
+//   const Items = items.map((item) => {
+//     return item.id;
+//   });
+//   ItemUpload.find({ _id: Items }).exec((err, upload) => {
+//     if (err) return res.status(400).send(err);
+//     return res.status(200).json({ success: true, upload });
+//   });
+// });
 
 module.exports = router;
