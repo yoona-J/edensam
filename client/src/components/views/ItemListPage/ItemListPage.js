@@ -20,7 +20,7 @@ function ItemListPage() {
   }, []);
   console.log("pp", Products);
   const [category, setcategory] = useState("");
-  const [itemcate, setitemcate] = useState(second);
+  const [itemcate, setitemcate] = useState();
   const handleClickButton = (e) => {
     const { name } = e.target;
     setcategory(name);
