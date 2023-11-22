@@ -1,0 +1,94 @@
+.A {
+  font-family: Pretendard;
+  width: 90%;
+  margin: 3rem auto;
+  /* padding: 0 25px; */
+}
+
+.title {
+  font-family: NeoDunggeunmo;
+  clear: both;
+  width: 100%;
+  height: 39px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #b4e8e6;
+  color: #333333;
+  line-height: 39px;
+  border: none;
+}
+
+.Container {
+  padding: "1%";
+  margin: "1% 0% 1% 0%";
+  /* grid */
+  display: inline-flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.witembox {
+  width: 180px;
+  height: 295px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin-bottom: 10px;
+}
+.winame {
+  padding: 5px 0;
+  text-align: left;
+  font-size: 15px;
+  width: 166px;
+  margin-left: 7px;
+}
+
+.wprice {
+  color: rgb(64, 64, 64);
+  vertical-align: bottom;
+  font-size: 15px;
+  text-align: right;
+  width: 166px;
+  margin-left: 7px;
+}
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
+.momCard {
+  padding: "1%";
+  border: 1px;
+}
+
+.Container {
+  padding: "1%";
+  /* width: "180px";
+  height: "150px"; */
+  margin: "1% 0% 1% 0%";
+  /* grid */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.itembox {
+  width: 180px;
+  height: 295px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin-bottom: 10px;
+}
+.iname {
+  padding: 5px 0;
+  text-align: left;
+  font-size: 15px;
+  width: 166px;
+  margin-left: 7px;
+}
+
+.price {
+  color: rgb(64, 64, 64);
+  vertical-align: bottom;
+  font-size: 15px;
+  text-align: right;
+  width: 166px;
+  margin-left: 7px;
+}

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./AddressPage.css";
 import DaumPost from "./Sections/DaumPost";
 
-function AddressPage() {
+function AddressPage(props) {
   const [popup, setPopup] = useState(false);
   const [address, setAddress] = useState("");
   //위에거는 주소 찾기에 쓴 거
   //우편번호 기본주소 상세주소 수령인이름 핸드폰 번호 요청사항
+  const UserId = props.match.params.UserId;
+  const mailbox = props.match.params.MailboxId;
 
+  console.log(props);
   return (
     <div className="A">
       <div className="title">배송지 입력</div>
@@ -48,7 +51,10 @@ function AddressPage() {
       <input className="blank" placeholder="핸드폰 번호 입력"></input>
       {/* 요청사항 */}
       <input className="blank" placeholder="요청사항"></input>
-      <div className="donebtn">submit</div>
+
+      <a href={`/mailbox/${UserId}/detail/${mailbox}`}>
+        <div className="donebtn">submit</div>
+      </a>
     </div>
   );
 }

@@ -113,15 +113,14 @@ router.post("/history_by_id", (req, res) => {
   // console.log("req", req.body);
   const giftAvailables = req.body.giftAvailable;
   const GiftAvailable = giftAvailables.map((gift) => {
-    return gift.giftAvailable
-  })
+    return gift.giftAvailable;
+  });
 
   // console.log(GiftAvailable)
-  ItemUpload.find({ _id: GiftAvailable })
-    .exec((err, item) => {
-      if (err) return res.status(400).send(err);
-      return res.status(200).send(item);
-    });
+  ItemUpload.find({ _id: GiftAvailable }).exec((err, item) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).send(item);
+  });
 });
 
 router.post("/wishItem", (req, res) => {
@@ -152,5 +151,17 @@ router.post("/wishItem", (req, res) => {
 //     return res.status(200).json({ success: true, upload });
 //   });
 // });
+router.post("/mail_gift", (req, res) => {
+  // console.log("req", req.body);
+  const giftAvailables = req.body.giftAvailable;
+  const GiftAvailable = giftAvailables.map((gift) => {
+    return gift.giftAvailable;
+  });
 
+  // console.log(GiftAvailable)
+  ItemUpload.find({ _id: GiftAvailable }).exec((err, item) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).send(item);
+  });
+});
 module.exports = router;
