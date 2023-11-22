@@ -4,22 +4,22 @@ import axios from "axios";
 import "./HistoryPage.css";
 
 function HistoryPage(props) {
-  const [UserData, setUserData] = useState([])
+  const [UserData, setUserData] = useState([]);
   const [Res, setRes] = useState([]);
   //내가보낸 편지 찾아옴
   useEffect(() => {
     console.log("user", props.user.userData);
 
     if (props.user.userData) {
-      setUserData(props.user.userData)
+      setUserData(props.user.userData);
       axios
         .post("/api/mail/getMailHistory", {
           params: {
-            userId: props.user.userData._id
+            userId: props.user.userData._id,
           },
         })
         .then((response) => {
-          console.log(response.data)
+          console.log(response.data);
           setRes(response.data);
           // console.log("gift", response.data);
           // console.log("res", Res);
@@ -29,42 +29,43 @@ function HistoryPage(props) {
 
   //편지의 productid 랑 같은 값 upload에서 들고오기
   const [Gift, setGift] = useState([]);
-  console.log(Res)
+  console.log(Res);
   useEffect(() => {
-        if (Res) {
-          const body = {
-            giftAvailable: Res
-          }
+    if (Res) {
+      const body = {
+        giftAvailable: Res,
+      };
 
-          axios.post('/api/admin/upload/history_by_id', body)
-            .then((response) => {
-              console.log(response)
-              setGift(response.data)
-            })
-        }
-    }, [Res]);
+      axios.post("/api/admin/upload/history_by_id", body).then((response) => {
+        console.log(response);
+        setGift(response.data);
+      });
+    }
+  }, [Res]);
 
   const HistoryCard = Gift.map((gift, index) => {
-      console.log(gift)
-      return <div>
-                <a href={`/product/${gift._id}`}>
-                  <div className="witembox">
-                    <img
-                      src={`http://localhost:5000/${gift.item_image[0]}`}
-                      style={{
-                        height: "166px",
-                        width: "166px",
-                        borderInline: "19px",
-                        margin: "7px",
-                        borderRadius: "10px",
-                      }}
-                    />
-                    <div className="winame">{gift.item_title}</div>
-                    <div className="wprice">{gift.how_much}원</div>
-                  </div>
-                </a>
-              </div>
-    })
+    console.log(gift);
+    return (
+      <div>
+        <a href={`/product/${gift._id}`}>
+          <div className="witembox">
+            <img
+              src={`http://localhost:5000/${gift.item_image[0]}`}
+              style={{
+                height: "166px",
+                width: "166px",
+                borderInline: "19px",
+                margin: "7px",
+                borderRadius: "10px",
+              }}
+            />
+            <div className="winame">{gift.item_title}</div>
+            <div className="wprice">{gift.how_much}원</div>
+          </div>
+        </a>
+      </div>
+    );
+  });
 
   return (
     <div
@@ -78,9 +79,9 @@ function HistoryPage(props) {
     >
       <div style={{ textAlign: "center" }}>
         <h2 className="title" style={{ padding: 0 }}>
-          {UserData.name}님의 편지함 목록
+          {UserData.name}님이 보낸 선물 목록
         </h2>
-        {HistoryCard}
+        <div className="Container">{HistoryCard}</div>
       </div>
     </div>
   );
