@@ -29,6 +29,17 @@ router.post('/getMailbox', (req, res) => {
         })
 })
 
+//내 우체통 삭제하기
+router.post('/deleteMailbox', (req, res) => {
+    console.log(req.body)
+    const mailboxId = req.body.mailboxId
+    Mailbox.findOneAndDelete({ '_id': mailboxId })
+        .exec((err, mailbox) => {
+            if(err) return res.status(400).send(err)
+            return res.status(200).send(mailbox)
+        })
+})
+
 router.post('/friend/getMailbox', (req, res) => {
     // console.log(req.body)
     

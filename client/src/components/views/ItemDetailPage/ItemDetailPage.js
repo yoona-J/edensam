@@ -18,45 +18,43 @@ function ItemDetailPage(props) {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log("product", Product);
 
-
-   const history = useHistory();
+  const history = useHistory();
 
   const [Mailing, setMailing] = useState([]);
-  const [ProductId, setProductId] = useState([])
+  const [ProductId, setProductId] = useState([]);
 
-  
   const [FriendId, setFriendId] = useState("");
   const [MailingList, setMailingList] = useState([]);
   const [FriendWish, setFriendWish] = useState([]);
   const [Products, setProducts] = useState([]);
 
+  useEffect(() => {
+    if (props) {
+      setMailing(props.location.state);
+      setProductId(props.match.params.productId);
+    }
+  }, [props]);
 
-   useEffect(() => {
-     if (props) {
-       setMailing(props.location.state);
-       setProductId(props.match.params.productId);
-     }
-   }, [props]);
-  
-    const getProductHandler = (event) => {
-      event.preventDefault();
-      history.push({
-        pathname: `/payment`,
-        state: {
-          mailing: Mailing,
-          ProductId: productId,
-        },
-      });
-  }; 
-  console.log(props)
+  const getProductHandler = (event) => {
+    event.preventDefault();
+    history.push({
+      pathname: `/payment`,
+      state: {
+        mailing: Mailing,
+        ProductId: productId,
+      },
+    });
+  };
+  console.log(props);
 
   return (
     <div
       style={{
         width: "100%",
         marginTop: "30px",
-        fontFamily: "Pretendard",
+        fontFamily: "Pretendard-Regular",
       }}
     >
       {/* 상품 이미지 */}
@@ -66,7 +64,6 @@ function ItemDetailPage(props) {
         alt="infoimg"
         src={`http://localhost:5000/${Product.item_image}`}
       />
-      <hr />
       <div className="box">
         {/* 상품 회사 */}
         <div className="company">{Product.item_maker}</div>

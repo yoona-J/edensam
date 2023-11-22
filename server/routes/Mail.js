@@ -32,13 +32,35 @@ router.post("/getMail", (req, res) => {
     });
 });
 
+router.post("/getMailHistory", (req, res) => {
+  console.log(req.body)
+  const userId = req.body.params.userId
+  Mail.find({ writerid: userId })
+    .populate("writerid")
+    .exec((err, mail) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(mail);
+    });
+});
+
 router.post("/getFriendId", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const friendId = req.body.friendId;
   User.find({ _id: friendId }).exec((err, user) => {
     if (err) return res.status(400).send(err);
     return res.status(200).send(user);
   });
+});
+
+router.post("/getGiftInfo", (req, res) => {
+  // console.log(req.body)
+  const userId = req.body.params.userId._id;
+  Mail.find({ writerid: userId })
+    .populate("writerid")
+    .exec((err, mail) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(mail);
+    });
 });
 
 module.exports = router;

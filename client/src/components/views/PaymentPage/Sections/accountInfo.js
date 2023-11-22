@@ -16,9 +16,11 @@ function Accountinfo(props) {
   const [Writer, setWriter] = useState("");
   const [content, setcontent] = useState("");
   const [ProductId, setproductId] = useState("");
+  const [writerid, setWriterid] = useState("");
 
   useEffect(() => {
     if (props) {
+      setWriterid(props.user.userData._id);
       setWriter(props.location.state.writer);
       setcontent(props.location.state.content);
       setFriendId(props.location.state.friendId);
@@ -26,6 +28,7 @@ function Accountinfo(props) {
       setEnvelopeImg(props.location.state.envelopeImg);
       setStickerIcon(props.location.state.stickerIcon);
       setproductId(props.location.state.productId);
+      setWriterid(props.user.userData._id);
     }
   }, [props]);
 
@@ -35,6 +38,7 @@ function Accountinfo(props) {
     // event.preventDefault();
     //mail에 저장
     const body = {
+      writerid: writerid,
       writer: Writer,
       content: content,
       friendId: FriendId,
@@ -87,7 +91,7 @@ function Accountinfo(props) {
       <br />
       <br />
       <br />
-      입금은 열로 하세요~
+      아래 계좌번호로 입금하세요.
       <div
         style={{
           display: "inline-block",

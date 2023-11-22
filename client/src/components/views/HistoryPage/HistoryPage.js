@@ -1,26 +1,71 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 import "./HistoryPage.css";
-import { useDispatch } from "react-redux";
-import { getHistories } from "../../../_actions/user_actions";
-import UserCardBlock from "./Sections/UserCardBlock";
-// import "./MyWishlistPage.css";
 
 function HistoryPage(props) {
-  const dispatch = useDispatch();
-
+  const [UserData, setUserData] = useState([]);
+  const [Res, setRes] = useState([]);
+  //내가보낸 편지 찾아옴
   useEffect(() => {
-    let histories = [];
-    //리덕스 User state안에 cart 안에 상품이 들어있는지 확인
-    if (props.user.userData && props.user.userData.history) {
-      if (props.user.userData.history.length > 0) {
-        props.user.userData.history.forEach((item) => {
-          histories.push(item.id);
+    console.log("user", props.user.userData);
+
+    if (props.user.userData) {
+      setUserData(props.user.userData);
+      axios
+        .post("/api/mail/getMailHistory", {
+          params: {
+            userId: props.user.userData._id,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          setRes(response.data);
+          // console.log("gift", response.data);
+          // console.log("res", Res);
         });
-        dispatch(getHistories(histories, props.user.userData.history));
-      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData]);
+
+  //편지의 productid 랑 같은 값 upload에서 들고오기
+  const [Gift, setGift] = useState([]);
+  console.log(Res);
+  useEffect(() => {
+    if (Res) {
+      const body = {
+        giftAvailable: Res,
+      };
+
+      axios.post("/api/admin/upload/history_by_id", body).then((response) => {
+        console.log(response);
+        setGift(response.data);
+      });
+    }
+  }, [Res]);
+
+  const HistoryCard = Gift.map((gift, index) => {
+    console.log(gift);
+    return (
+      <div>
+        <a href={`/product/${gift._id}`}>
+          <div className="witembox">
+            <img
+              src={`http://localhost:5000/${gift.item_image[0]}`}
+              style={{
+                height: "166px",
+                width: "166px",
+                borderInline: "19px",
+                margin: "7px",
+                borderRadius: "10px",
+              }}
+            />
+            <div className="winame">{gift.item_title}</div>
+            <div className="wprice">{gift.how_much}원</div>
+          </div>
+        </a>
+      </div>
+    );
+  });
 
   return (
     <div
@@ -34,17 +79,9 @@ function HistoryPage(props) {
     >
       <div style={{ textAlign: "center" }}>
         <h2 className="title" style={{ padding: 0 }}>
-          주문내역
+          {UserData.name}님이 보낸 선물 목록
         </h2>
-        {/* 상품값 */}
-
-        <div>
-          <UserCardBlock
-            uploads={
-              props.user.historyDetail && props.user.historyDetail.upload
-            }
-          />
-        </div>
+        <div className="Container">{HistoryCard}</div>
       </div>
     </div>
   );

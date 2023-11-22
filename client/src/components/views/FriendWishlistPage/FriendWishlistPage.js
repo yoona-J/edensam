@@ -22,9 +22,9 @@ function FriendWishlistPage(props) {
       };
 
       Axios.post("/api/mail/getFriendId", body).then((response) => {
-        // console.log(response.data);
+        console.log("get", response.data);
         if (response.data.length > 0) {
-          // console.log(response.data[0].wishList);
+          console.log(response.data[0].wishList);
           setFriendWish(response.data[0].wishList);
         }
       });
@@ -37,7 +37,8 @@ function FriendWishlistPage(props) {
     };
 
     Axios.post("/api/admin/upload/wishItem", body).then((response) => {
-      // console.log(response.data);
+      console.log("data", response.data);
+      console.log("dataupload", response.data.upload);
       setProducts(response.data.upload);
     });
   }, [FriendWish]);
@@ -46,7 +47,6 @@ function FriendWishlistPage(props) {
 
   const renderCards = Products.map((product, index) => {
     // console.log(product)
-    
 
     const clickHandler = () => {
       // event.preventDefault();

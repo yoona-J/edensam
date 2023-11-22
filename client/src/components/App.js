@@ -33,6 +33,7 @@ import RecommendListPage from "./views/RecommendListPage/RecommendListPage.js";
 import ItemListPage from "./views/ItemListPage/ItemListPage.js";
 import ItemDetailPage from "./views/ItemDetailPage/ItemDetailPage.js";
 import MyWishlistPage from "./views/MyWishlistPage/MyWishlistPage.js";
+import FixCategoryPage from "./views/FixCategoryPage/FixCategoryPage.js";
 import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js";
 
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
@@ -120,7 +121,7 @@ function App() {
           />
           <Route
             exact
-            path="/mailbox/:UserId/delete"
+            path="/mailbox/:UserId/:MailboxId/delete"
             component={Auth(DeleteMailboxPage, true)}
           />
           <Route
@@ -175,6 +176,12 @@ function App() {
             exact
             path="/wish/:UserId"
             component={Auth(MyWishlistPage, true)}
+          />
+          {/* 상품 분야 수정 */}
+          <Route
+            exact
+            path="/category/:UserId"
+            component={Auth(FixCategoryPage, true)}
           />
 
           {/* 친구 위시리스트 */}

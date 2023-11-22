@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const mailSchema = mongoose.Schema(
@@ -10,6 +10,10 @@ const mailSchema = mongoose.Schema(
     mailboxId: {
       type: Schema.Types.ObjectId,
       ref: "Mailbox",
+    },
+    writerid: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
     writer: {
       type: String,
@@ -31,6 +35,6 @@ const mailSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Mail = mongoose.model('Mail', mailSchema);
+const Mail = mongoose.model("Mail", mailSchema);
 
-module.exports = { Mail }
+module.exports = { Mail };

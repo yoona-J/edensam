@@ -109,20 +109,48 @@ router.get("/products_by_id", (req, res) => {
   });
 });
 
+router.post("/history_by_id", (req, res) => {
+  // console.log("req", req.body);
+  const giftAvailables = req.body.giftAvailable;
+  const GiftAvailable = giftAvailables.map((gift) => {
+    return gift.giftAvailable
+  })
+
+  // console.log(GiftAvailable)
+  ItemUpload.find({ _id: GiftAvailable })
+    .exec((err, item) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(item);
+    });
+});
+
 router.post("/wishItem", (req, res) => {
-  // console.log(req.body.item);
+  console.log(req.body.item);
   const items = req.body.item;
 
   const Items = items.map((item) => {
-    return item.id
-  })
+    return item.id;
+  });
 
-  // console.log(Items)
+  console.log(Items);
 
   ItemUpload.find({ _id: Items }).exec((err, upload) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, upload });
   });
 });
+
+// router.post("/history", (req, res) => {
+//   console.log(req.body.item);
+//   const items = req.body.item;
+
+//   const Items = items.map((item) => {
+//     return item.id;
+//   });
+//   ItemUpload.find({ _id: Items }).exec((err, upload) => {
+//     if (err) return res.status(400).send(err);
+//     return res.status(200).json({ success: true, upload });
+//   });
+// });
 
 module.exports = router;
