@@ -23,9 +23,8 @@ router.post("/", (req, res) => {
 router.post("/getMail", (req, res) => {
   console.log(req.body);
   const userId = req.body.params.userId;
-  const mailboxId = req.body.params.mailboxId;
-  Mail.find({ mailboxId: mailboxId })
-    .populate("mailboxId")
+  const mailId = req.body.params.mailId;
+  Mail.find({ _id: mailId })
     .exec((err, mail) => {
       if (err) return res.status(400).send(err);
       return res.status(200).send(mail);

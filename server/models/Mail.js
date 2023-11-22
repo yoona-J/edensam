@@ -28,8 +28,7 @@ const mailSchema = mongoose.Schema(
       type: String,
     },
     giftAvailable: {
-      type: Schema.Types.ObjectId,
-      ref: "ItemUpload",
+      type: String
     },
   },
   { timestamps: true }

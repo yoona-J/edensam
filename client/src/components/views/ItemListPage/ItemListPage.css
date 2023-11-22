@@ -14,8 +14,8 @@ a {
   height: "150px"; */
   margin: "1% 0% 1% 0%";
   /* grid */
-  display: flex;
-  justify-content: space-around;
+  display: inline-flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .itembox {
