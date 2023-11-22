@@ -5,6 +5,8 @@ import {
   LOGOUT_USER,
   ADD_TO_CART_USER,
   GET_WISH_ITEMS_USER,
+  ADD_TO_HISTORY,
+  GET_HISTORIES,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
@@ -20,13 +22,25 @@ export default function (state = {}, action) {
     case ADD_TO_CART_USER:
       return {
         ...state,
-        userData: { ...state.userData, wishList: action.payload }
+        userData: { ...state.userData, wishList: action.payload },
       };
     case GET_WISH_ITEMS_USER:
       return {
         ...state,
         wishListDetail: action.payload,
       };
+
+    case ADD_TO_HISTORY:
+      return {
+        ...state,
+        userData: { ...state.userData, history: action.payload },
+      };
+    case GET_HISTORIES:
+      return {
+        ...state,
+        historyDetail: action.payload,
+      };
+
     default:
       return state;
   }

@@ -1,39 +1,94 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getWishItems } from "../../../_actions/user_actions";
-import UserCardBlock from "./Sections/UserCardBlock";
+import React, { useState, useEffect } from "react";
 import "./FriendWishlistPage.css";
+import Axios from "axios";
+import "./FriendWishlistPage.css";
+import { useHistory } from "react-router-dom";
 
 function FriendWishlistPage(props) {
-  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [FriendId, setFriendId] = useState("");
+  const [MailingList, setMailingList] = useState([]);
+  const [FriendWish, setFriendWish] = useState([]);
+  const [Products, setProducts] = useState([]);
 
   useEffect(() => {
-    let wishItems = [];
-    //리덕스 User state안에 cart 안에 상품이 들어있는지 확인
-    if (props.user.userData && props.user.userData.wishList) {
-      if (props.user.userData.wishList.length > 0) {
-        props.user.userData.wishList.forEach((item) => {
-          wishItems.push(item.id);
-        });
-        dispatch(getWishItems(wishItems, props.user.userData.wishList));
-      }
+    // console.log("pppp", props);
+    setFriendId(props.location.state.friendId);
+    setMailingList(props.location.state);
+    if (props.location.state.friendId) {
+      const body = {
+        friendId: FriendId,
+      };
+
+      Axios.post("/api/mail/getFriendId", body).then((response) => {
+        console.log("get", response.data);
+        if (response.data.length > 0) {
+          console.log(response.data[0].wishList);
+          setFriendWish(response.data[0].wishList);
+        }
+      });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.user.userData]);
+  }, [props]);
+
+  useEffect(() => {
+    const body = {
+      item: FriendWish,
+    };
+
+    Axios.post("/api/admin/upload/wishItem", body).then((response) => {
+      console.log("data", response.data);
+      console.log("dataupload", response.data.upload);
+      setProducts(response.data.upload);
+    });
+  }, [FriendWish]);
+
+  // console.log('MailingList', MailingList)
+
+  const renderCards = Products.map((product, index) => {
+    // console.log(product)
+
+    const clickHandler = () => {
+      // event.preventDefault();
+      history.push({
+        pathname: `/product/${product._id}`,
+        state: {
+          friendId: MailingList.friendId,
+          mailboxId: MailingList.mailboxId,
+          envelopeImg: MailingList.envelopeImg,
+          stickerIcon: MailingList.stickerIcon,
+          writer: MailingList.writer,
+          content: MailingList.content,
+        },
+      });
+    };
+    console.log(props);
+
+    return (
+      <div onClick={clickHandler} key={index}>
+        <div className="witembox">
+          <img
+            src={`http://localhost:5000/${product.item_image[0]}`}
+            style={{
+              height: "166px",
+              width: "166px",
+              borderInline: "19px",
+              margin: "7px",
+              borderRadius: "10px",
+            }}
+          />
+          <div className="winame">{product.item_title}</div>
+          <div className="wprice">{product.how_much}원</div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="A">
       <div style={{ textAlign: "center" }}>
         <h2 className="wtitle">my 위시리스트</h2>
-        {/* 상품값 */}
-
-        <div>
-          <UserCardBlock
-            uploads={
-              props.user.wishListDetail && props.user.wishListDetail.upload
-            }
-          />
-        </div>
+        {renderCards}
       </div>
     </div>
   );

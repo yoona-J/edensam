@@ -38,7 +38,8 @@ import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js
 
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
 //무통장
-import passinfo from "./views/PaymentPage/Sections/info.js";
+// import passinfo from "./views/PaymentPage/Sections/AccountInfo.js";
+import Accountinfo from "./views/PaymentPage/Sections/accountInfo.js"
 import PaymentSuccessPage from "./views/PaymentPage/Sections/success.js";
 import KGpay from "./views/PaymentPage/Sections/KGpay.js";
 import toss from "./views/PaymentPage/Sections/toss.js";
@@ -93,7 +94,7 @@ function App() {
 
           {/* 무통장입금 */}
 
-          <Route exact path="/passinfo" component={Auth(passinfo, true)} />
+          <Route exact path="/passinfo" component={Auth(Accountinfo, true)} />
           {/* KGpay 결제창 */}
           <Route exact path="/kgpay" component={Auth(KGpay, true)} />
           <Route exact path="/toss" component={Auth(toss, true)} />
@@ -190,12 +191,26 @@ function App() {
             component={Auth(FriendWishlistPage, true)}
           />
 
+          <Route
+            exact
+            path="/product/:productId/:friendId"
+            component={Auth(ItemDetailPage, true)}
+          />
+
           {/* 상품 페이지 */}
-          <Route exact path="/gift/recommend" component={Auth(RecommendListPage, true)} />
+          <Route
+            exact
+            path="/gift/recommend"
+            component={Auth(RecommendListPage, true)}
+          />
           <Route exact path="/gift/:UserId" component={Auth(MyGiftBox, true)} />
 
           <Route exact path="/product" component={Auth(ItemListPage, true)} />
-          <Route exact path="/product/:productId" component={Auth(ItemDetailPage, true)} />
+          <Route
+            exact
+            path="/product/:productId"
+            component={Auth(ItemDetailPage, true)}
+          />
 
           {/* 상품 업로드 - 어드민 페이지 */}
           <Route exact path="/admin/upload" component={Auth(AdminPage, null)} />
