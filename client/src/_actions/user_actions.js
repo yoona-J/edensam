@@ -6,6 +6,8 @@ import {
   LOGOUT_USER,
   ADD_TO_CART_USER,
   GET_WISH_ITEMS_USER,
+  ADD_TO_HISTORY,
+  GET_HISTORIES,
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
@@ -90,6 +92,48 @@ export function getWishItems(wishItems, userwish) {
 
   return {
     type: GET_WISH_ITEMS_USER,
+    payload: request,
+  };
+}
+
+
+export function addToHistory(id) {
+  console.log("is", id);
+  let body = {
+    productId: id,
+  };
+  const request = Axios.post(`${USER_SERVER}/addToHistory`, body).then(
+    (response) => response.data
+  );
+
+  return {
+    type: ADD_TO_HISTORY,
+    payload: request,
+  };
+}
+
+export function getHistories(Histories, userhistory) {
+  const request = Axios.get(
+    // eslint-disable-next-line no-restricted-globals
+    `/api/admin/upload/products_by_id?id=${Histories}&type=array`
+  ).then((response) => {
+    // CartItem들에 해당하는 정보들을
+    // Product Collection에서 가져온후에
+    // Quantity 정보를 넣어 준다.
+    console.log(response);
+    // userhistory.forEach((history) => {
+    //   response.data.upload.forEach((uploadDetail, index) => {
+    //     // if (history.id === uploadDetail._id) {
+    //     //   response.data.upload[index].quantity = history.quantity;
+    //     // }
+    //     console.log("Histories:", Histories);
+    //   });
+    // });
+    return response.data;
+  });
+
+  return {
+    type: GET_HISTORIES,
     payload: request,
   };
 }

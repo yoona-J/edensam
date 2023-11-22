@@ -25,7 +25,10 @@ function MailingPage(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        history.push({ pathname: `/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing/deco`, state: { writer: Writer, content: Content }})
+        history.push({
+            pathname: `/mailbox/friend/${FriendId}/${FriendMailboxId}/mailing/deco`,
+            state: { writer: Writer, content: Content }
+        })
         }
 
     return (

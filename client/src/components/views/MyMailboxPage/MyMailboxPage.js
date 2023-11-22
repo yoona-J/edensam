@@ -24,7 +24,8 @@ function MyMailboxPage(props) {
     if (props.user.userData !== undefined) {
       setUserId(props.user.userData)
 
-      Axios.post('/api/mailbox/getMailbox', { params: { 'userId': props.user.userData }})
+      Axios.post('/api/mailbox/getMailbox',
+        { params: { 'userId': props.user.userData } })
       .then(response => {
         console.log('response', response.data)
         setRes(response.data)

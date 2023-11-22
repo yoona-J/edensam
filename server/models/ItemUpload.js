@@ -23,6 +23,8 @@ const itemUploadSchema = mongoose.Schema({
     item_category: {
         type: String
     },
+    // 인기 상품은 그냥 위시 개수 많이 찍힌 만큼
+    // 추천 선물은 내가 선택한 카테고리에 맞는 선물
 })
 
 // itemUploadSchema.index(

@@ -1,39 +1,44 @@
 const categories = [
   {
     _id: 1,
-    name: "화장품/향수",
+    text: "화장품/향수",
+    name: "beauty",
   },
   {
     _id: 2,
-    name: "가전/디지털",
+    text: "가전/디지털",
+    name: "digital",
   },
   {
     _id: 3,
-    name: "식품",
+    text: "식품",
+    name: "food",
   },
   {
     _id: 4,
-    name: "배달선물",
+    text: "배달선물",
+    name: "delivery",
   },
   {
     _id: 5,
-    name: "완구/취미",
+    text: "완구/취미",
+    name: "toy",
   },
   {
     _id: 6,
-    name: "건강",
+    text: "건강",
+    name: "health",
   },
   {
     _id: 7,
-    name: "생활용품",
+    text: "생활용품",
+    name: "life",
   },
   {
     _id: 8,
-    name: "패션/의류",
+    text: "패션/의류",
+    name: "fashion",
   },
 ];
 
-
-export {
-    categories
-}
+export { categories };
