@@ -38,7 +38,7 @@ import FriendWishlistPage from "./views/FriendWishlistPage/FriendWishlistPage.js
 import PaymentPage from "./views/PaymentPage/PaymentPage.js";
 //무통장
 // import passinfo from "./views/PaymentPage/Sections/AccountInfo.js";
-import Accountinfo from "./views/PaymentPage/Sections/accountInfo.js"
+import Accountinfo from "./views/PaymentPage/Sections/accountInfo.js";
 import PaymentSuccessPage from "./views/PaymentPage/Sections/success.js";
 import KGpay from "./views/PaymentPage/Sections/KGpay.js";
 import toss from "./views/PaymentPage/Sections/toss.js";
@@ -105,7 +105,11 @@ function App() {
           />
 
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
-          <Route exact path="/address" component={Auth(AddressPage, true)} />
+          <Route
+            exact
+            path="/address/:UserId/detail/:MailboxId"
+            component={Auth(AddressPage, true)}
+          />
 
           {/* 내 편지함 */}
           <Route

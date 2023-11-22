@@ -33,8 +33,8 @@ router.post("/getMail", (req, res) => {
 });
 
 router.post("/getMailHistory", (req, res) => {
-  console.log(req.body)
-  const userId = req.body.params.userId
+  console.log(req.body);
+  const userId = req.body.params.userId;
   Mail.find({ writerid: userId })
     .populate("writerid")
     .exec((err, mail) => {
@@ -57,6 +57,17 @@ router.post("/getGiftInfo", (req, res) => {
   const userId = req.body.params.userId._id;
   Mail.find({ writerid: userId })
     .populate("writerid")
+    .exec((err, mail) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(mail);
+    });
+});
+
+router.post("/getMyGift", (req, res) => {
+  console.log(req.body);
+  const userId = req.body.params.userId._id;
+  Mail.find({ friendId: userId })
+    .populate("friendId")
     .exec((err, mail) => {
       if (err) return res.status(400).send(err);
       return res.status(200).send(mail);

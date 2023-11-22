@@ -79,7 +79,7 @@ function HistoryPage(props) {
     >
       <div style={{ textAlign: "center" }}>
         <h2 className="title" style={{ padding: 0 }}>
-          {UserData.name}님이 보낸 선물 목록
+          {UserData.name}님이 보낸 목록
         </h2>
         <div className="Container">{HistoryCard}</div>
       </div>
