@@ -35,7 +35,7 @@ function MyWishlistPage(props) {
               width: '90%',
               margin: '3rem auto',
               padding: 0}}>
-      <div style={{ width: '100%', display: 'inline-flex', marginBottom: '36px'}}>
+      <div style={{ width: '100%', display: 'inline-flex', marginBottom: '36px', marginTop: '35px'}}>
         <img src={WishlistIcon} alt="WishlistIcon" style={{ width: '20px', height: '20px', margin: '6px 8px 0px 0px'}} />
         <p style={{ fontSize: '20px', margin: 0 }}>MY 위시리스트</p>
         <a href={`/category/${UserId}`}>

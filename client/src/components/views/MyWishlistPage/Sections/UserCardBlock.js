@@ -1,6 +1,4 @@
 import React from "react";
-import { Col, Card } from "antd";
-import Meta from "antd/lib/card/Meta";
 import "../MyWishlistPage.css";
 
 function UserCardBlock(props) {
