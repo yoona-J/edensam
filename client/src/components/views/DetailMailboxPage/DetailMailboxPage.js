@@ -18,19 +18,39 @@ function DetailMailboxPage(props) {
 
   useEffect(() => {
     if (props.user.userData !== undefined) {
-      console.log(props)
+      console.log(props.user.userData)
       setUserData(props.user.userData)
       setMailboxId(props.match.params.MailboxId)
 
       Axios.post('/api/mail/getMail', { params: { 'userId': props.user.userData._id, 'mailboxId' : props.match.params.MailboxId }})
         .then(response => {
-        console.log(response)
-        setMailResponse(response.data)
-        setMailboxResponse(response.data[0].mailboxId)
+          console.log(response)
+          setMailResponse(response.data)
+          if (response.data.length > 0) {
+            setMailboxResponse(response.data[0].mailboxId)
+          }
         })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData])
+
+  const IsUnavailable = () => {
+
+    const CopyLink = () => {
+      navigator.clipboard.writeText(`http://localhost:3000/mailbox/friend/${UserData._id}`)
+      alert('링크가 복사되었어요!')
+    }
+
+    return <div style={{ width: '100%', height: '100%', fontSize: '20px', textAlign: 'center', display: 'flex', alignContent: 'center', flexDirection: 'column', marginTop: '300px' }}>
+      <p style={{ marginBottom: '0px' }}>아직 편지가 존재하지 않아요!</p>
+      <p>친구들에게 편지 작성을 요청해보세요!</p>
+      <button onClick={CopyLink} style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', paddingTop: '10px', fontSize: '15px', fontFamily: 'NeoDunggeunmo', border: 0 }}>
+        <div style={{ width: '100%', height: '40px' }}>
+          우체통 공유하기
+        </div>
+      </button>
+    </div> 
+  }
 
   const mailboxDesign = () => { 
       if (MailboxResponse.mailboxStyle === '1') {
@@ -67,26 +87,41 @@ function DetailMailboxPage(props) {
     </div>
   })
 
-  return (
+  // console.log(MailResponse.length === 0)
+  if (MailResponse.length === 0) {
+    return (
       <div
         style={{
-            width: '90%',
-            margin: '3rem auto',
-            fontFamily: 'NeoDunggeunmo'
-            }}>
-          <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
-             {MailboxResponse.title}
-          </div>
-          {/* 우체통 디자인 */}
-          {mailboxDesign()}
-      
-      <div style={{ display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-        {/* 편지 card */}
-        {mailCards}
+          width: '90%',
+          margin: '3rem auto',
+          fontFamily: 'NeoDunggeunmo'
+        }}
+      >
+        {/* 우체통 card */}
+        <IsUnavailable />
       </div>
+    )
+  } else {
+    return (
+        <div
+          style={{
+              width: '90%',
+              margin: '3rem auto',
+              fontFamily: 'NeoDunggeunmo'
+              }}>
+            <div style={{ width: '100%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', textAlign: 'center', fontSize: '20px', paddingTop: '7px' }}>
+              {MailboxResponse.title}
+            </div>
+            {/* 우체통 디자인 */}
+            {mailboxDesign()}
         
-    </div>
-  )
+        <div style={{ display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+          {/* 편지 card */}
+          {mailCards}
+        </div>
+      </div>
+    )
+  }
 }
 
 export default DetailMailboxPage

@@ -48,8 +48,8 @@ function DecoratePage(props) {
   };
 
   const IconHandleClick = (event) => {
-    setIconClicked(event.target.value);
-  };
+    console.log(event.target.value)
+    setIconClicked(event.target.value)
 
   const EnvelopeImg = () => {
     if (ImageClicked === "1") {

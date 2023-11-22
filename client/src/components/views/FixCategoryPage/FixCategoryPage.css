@@ -1,0 +1,12 @@
+.category-input input.ant-input {
+    background-color: #F2F2F2;
+}
+
+.category-input input.ant-input:focus {
+    outline: 2px solid #0CAAB8;
+    background-color: #EFFCFB;
+}
+
+.category-input input.ant-checkbox-input {
+    margin-right: 37px;
+}

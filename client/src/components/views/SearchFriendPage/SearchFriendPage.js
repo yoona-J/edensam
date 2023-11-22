@@ -3,6 +3,7 @@ import Axios from 'axios';
 
 import SearchFeature from './SearchFeature'
 
+
 function SearchFriendPage() {
 
     const [Users, setUsers] = useState([])
@@ -46,18 +47,18 @@ function SearchFriendPage() {
   return (
       <div
         style={{
-                width: '90%',
-                margin: '3rem auto',
-              fontFamily: 'NeoDunggeunmo',
-              color: '#333333'
+            width: '90%',
+            margin: '3rem auto',
+            fontFamily: 'NeoDunggeunmo',
+            color: '#0CAAB8'
           }}
       >
 
           <SearchFeature refreshFunction={updateSearchTerm} />
 
-          <p style={{ fontSize: '15px', textAlign: 'center', color: '#000', marginTop: '40px' }}>받는 사람</p>
+          <p style={{ fontSize: '20px', textAlign: 'center', color: '#000', marginTop: '40px' }}>받는 사람</p>
           
-          <div style={{ width: '100%', height: '530px', borderRadius: '20px', border: '5px solid', overflow: 'auto'}}>
+          <div style={{ width: '100%', height: '530px', borderRadius: '20px', border: '3px solid', overflow: 'auto'}}>
               {/* 검색된 전화 번호 card*/}
                 {numberCards}
           </div>
