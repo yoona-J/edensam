@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 function MailingPage(props) {
 
-    console.log(props)
+    // console.log(props)
     const FriendId = props.match.params.FriendId
     const FriendMailboxId = props.match.params.MailboxId
 
@@ -34,7 +34,7 @@ function MailingPage(props) {
     return (
         <div
             style={{
-                width: '100%',
+                width: '90%',
                 margin: '3rem auto',
                 fontFamily: 'NeoDunggeunmo'
             }}>
@@ -57,7 +57,7 @@ function MailingPage(props) {
                     onChange={ contentChangeHandler }
                     value={Content}
                     style={{
-                        width: '100%',
+                        width: '95%',
                         height: '506px',
                         borderRadius: '30px',
                         border: '3px solid #828282',

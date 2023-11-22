@@ -11,17 +11,19 @@ function DetailMailPage(props) {
 
   useEffect(() => {
     if (props.match.params) {
+      console.log(props.match.params)
+      setMailboxId(props.match.params.mailId)
       setMailboxId(props.match.params.MailboxId);
 
-      Axios.post("/api/mail/getMail", {
-        params: { mailboxId: props.match.params.MailboxId },
-      }).then((response) => {
-        console.log("pos", response);
-        setMail(response.data[0]);
-      });
+      Axios.post('/api/mail/getMail', { params: { 'mailId': props.match.params.mailId } })
+        .then(response => {
+          console.log(response)
+          setMail(response.data[0])
+        })
     }
   }, [props.match.params]);
-
+  
+  
   console.log("mm", Mail);
 
   const [Gift, setGift] = useState([]);

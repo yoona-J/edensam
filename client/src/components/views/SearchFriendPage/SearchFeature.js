@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Input } from 'antd';
 
+import './SearchFeature.css'
+
 function SearchFeature(props) {
 
     const [SearchTerm, setSearchTerm] = useState('')
@@ -14,14 +16,15 @@ function SearchFeature(props) {
   return (
       <div>
           <Input
-                placeholder='전화번호'
+                placeholder='전화번호로 친구를 찾아보세요'
                 value={SearchTerm}
-                onChange={ searchChangeHandler }
+              onChange={searchChangeHandler}
+              className='search-input'
                 style={{
                     width: '365px',
                     height: '40px',
                     borderRadius: '20px',
-                    paddingLeft: '10px'
+                    paddingLeft: '10px',
                 }}
           />
     </div>

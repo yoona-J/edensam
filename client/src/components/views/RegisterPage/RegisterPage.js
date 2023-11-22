@@ -3,7 +3,7 @@ import { Form, Input, Checkbox, Button } from 'antd';
 import { registerUser } from '../../../_actions/user_actions';
 import { useDispatch } from 'react-redux';
 
-import './style.css'
+import './RegisterPage.css'
 
 function RegisterPage(props) {
 
@@ -94,14 +94,13 @@ function RegisterPage(props) {
 
     return (
         <div style={{ width: '90%', margin: '3rem auto', fontFamily: 'Pretendard-Medium' }}>
-            <Form onSubmitCapture={submitHandler}>
+            <Form onSubmitCapture={submitHandler} className='register-input'>
                 <div style={{ paddingTop: '20px' }}>
                     <p style={{fontSize: '20px'}}>아이디/비밀번호</p>
                     <Input placeholder='아이디를 입력해주세요' onChange={idChangeHandler} value={ID} style={{
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
@@ -110,7 +109,6 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
@@ -119,7 +117,6 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />
@@ -131,7 +128,6 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px',
                                 marginBottom: '13px'
@@ -140,7 +136,6 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />
@@ -163,7 +158,6 @@ function RegisterPage(props) {
                                 width: '100%',
                                 height: '40px',
                                 borderRadius: '20px',
-                                background: '#F2F2F2',
                                 border: '0',
                                 textIndent: '15px'
                             }} />

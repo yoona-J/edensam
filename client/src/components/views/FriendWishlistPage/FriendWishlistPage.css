@@ -1,12 +1,11 @@
 .A {
-  font-family: Pretendard;
-  width: 100%;
+  font-family: Pretendard-Regular;
+  width: 90%;
   margin: 3rem auto;
-  padding: 0 25px;
+  /* padding: 0 25px; */
 }
 
-.wtitle {
-  font-family: NeoDunggeunmo;
+.title {
   clear: both;
   width: 100%;
   height: 39px;
@@ -19,12 +18,13 @@
 }
 
 .Container {
-  padding: "1%";
-  margin: "1% 0% 1% 0%";
+  /* padding: "1%";
+  margin: "1% 0% 1% 0%"; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .witembox {
   width: 180px;
   height: 295px;
@@ -32,12 +32,10 @@
   /* border: 1px solid lightgray; */
   margin-bottom: 10px;
 }
+
 .winame {
-  padding: 5px 0;
   text-align: left;
   font-size: 15px;
-  width: 166px;
-  margin-left: 7px;
 }
 
 .wprice {

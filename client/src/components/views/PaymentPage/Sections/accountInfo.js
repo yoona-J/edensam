@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 import Axios from "axios";
 import { useDispatch } from "react-redux";
-import { addToHistory } from "../../../../_actions/user_actions";
+// import { addToHistory } from "../../../../_actions/user_actions";
 
 function Accountinfo(props) {
   // const history = useHistory();
@@ -32,8 +32,10 @@ function Accountinfo(props) {
     }
   }, [props]);
 
+  console.log('ProductId', ProductId)
+
   const submitHandler = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     //mail에 저장
     const body = {
       writerid: writerid,
@@ -89,7 +91,7 @@ function Accountinfo(props) {
       <br />
       <br />
       <br />
-      입금은 열로 하세요~
+      아래 계좌번호로 입금하세요.
       <div
         style={{
           display: "inline-block",

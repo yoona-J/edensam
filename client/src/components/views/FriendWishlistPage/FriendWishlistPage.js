@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./FriendWishlistPage.css";
 import Axios from "axios";
-import "./FriendWishlistPage.css";
 import { useHistory } from "react-router-dom";
+
+import WishlistIcon from './img/WishlistIcon.png'
+import "./FriendWishlistPage.css";
 
 function FriendWishlistPage(props) {
   const history = useHistory();
@@ -11,9 +12,9 @@ function FriendWishlistPage(props) {
   const [MailingList, setMailingList] = useState([]);
   const [FriendWish, setFriendWish] = useState([]);
   const [Products, setProducts] = useState([]);
+  const [FriendName, setFriendName] = useState('')
 
   useEffect(() => {
-    // console.log("pppp", props);
     setFriendId(props.location.state.friendId);
     setMailingList(props.location.state);
     if (props.location.state.friendId) {
@@ -26,6 +27,7 @@ function FriendWishlistPage(props) {
         if (response.data.length > 0) {
           console.log(response.data[0].wishList);
           setFriendWish(response.data[0].wishList);
+          setFriendName(response.data[0].name)
         }
       });
     }
@@ -43,13 +45,9 @@ function FriendWishlistPage(props) {
     });
   }, [FriendWish]);
 
-  // console.log('MailingList', MailingList)
-
   const renderCards = Products.map((product, index) => {
-    // console.log(product)
 
     const clickHandler = () => {
-      // event.preventDefault();
       history.push({
         pathname: `/product/${product._id}`,
         state: {
@@ -65,29 +63,34 @@ function FriendWishlistPage(props) {
     console.log(props);
 
     return (
-      <div onClick={clickHandler} key={index}>
-        <div className="witembox">
+      <div onClick={clickHandler} key={index} >
+        <div>
           <img
             src={`http://localhost:5000/${product.item_image[0]}`}
             style={{
               height: "166px",
               width: "166px",
-              borderInline: "19px",
-              margin: "7px",
-              borderRadius: "10px",
+              marginBottom: "12px",
+              borderRadius :"19px"
             }}
           />
+
           <div className="winame">{product.item_title}</div>
-          <div className="wprice">{product.how_much}원</div>
         </div>
       </div>
     );
   });
 
   return (
-    <div className="A">
-      <div style={{ textAlign: "center" }}>
-        <h2 className="wtitle">my 위시리스트</h2>
+    <div className="A" style={{fontFamily: "NeoDunggeunmo",
+              width: '90%',
+              margin: '3rem auto',
+              padding: 0}}>
+      <div style={{ width: '100%', display: 'inline-flex', marginBottom: '36px', marginTop: '35px'}}>
+        <img src={WishlistIcon} alt="WishlistIcon" style={{ width: '20px', height: '20px', margin: '6px 8px 0px 0px'}} />
+        <p style={{ fontSize: '20px', margin: 0 }}>{FriendName}님의 위시리스트</p>
+      </div>
+      <div style={{ fontFamily: "Pretendard-Regular", width: '100%', display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
         {renderCards}
       </div>
     </div>
