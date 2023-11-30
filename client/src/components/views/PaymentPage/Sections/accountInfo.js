@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./paystyle.css";
-import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 import Axios from "axios";
-import { useDispatch } from "react-redux";
-// import { addToHistory } from "../../../../_actions/user_actions";
+
+import "./paystyle.css";
 
 function Accountinfo(props) {
   // const history = useHistory();
@@ -34,7 +32,7 @@ function Accountinfo(props) {
 
   console.log('ProductId', ProductId)
 
-  const submitHandler = (event) => {
+  const submitHandler = () => {
     // event.preventDefault();
     //mail에 저장
     const body = {
@@ -60,20 +58,6 @@ function Accountinfo(props) {
     });
   };
 
-  // const dispatch = useDispatch();
-  // const [isClicked, setIsClicked] = useState(false);
-  // //save db user.history
-  // const clickHandler = () => {
-  //   dispatch(addToHistory(props.location.state.productId));
-  //   dispatch(addToHistory(props.location.state.friendId));
-  //   console.log("click=", props.location.state.productId);
-
-  //   if (props.location.state.productId.length >= 1) {
-  //     alert("구매 기록이 저장되었습니다.");
-  //     setIsClicked(!isClicked);
-  //   }
-  // };
-
   console.log(props);
 
   return (
@@ -81,8 +65,7 @@ function Accountinfo(props) {
       style={{
         width: "100%",
         margin: "3rem auto",
-        fontFamily: "NeoDunggeunmo",
-        padding: "0 3%",
+        fontFamily: "NeoDunggeunmo",  
         textAlign: "center",
         fontSize: "20px",
       }}
@@ -117,7 +100,7 @@ function Accountinfo(props) {
       <br />
       <Button
         style={{
-          width: "100%",
+          width: "90%",
           height: "40px",
           borderRadius: "20px",
           background: "#B4E8E6",

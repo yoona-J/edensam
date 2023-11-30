@@ -87,9 +87,8 @@ function DetailMailPage(props) {
                 fontSize: '15px',
                 whiteSpace: 'pre-wrap',
                 wordBreak: 'break-all',
-                textIndent: '7px',
             }}>
-              <p> {Mail.content} </p>
+              <p style={{ paddingLeft: '15px' }}> {Mail.content} </p>
             </div>
             {/* 선물 */}
             {giftBox()}

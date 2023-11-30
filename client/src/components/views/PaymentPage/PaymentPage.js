@@ -1,9 +1,14 @@
-import React, { useState,useEffect } from "react";
-import "./PaymentPage.css";
-import { Button } from "antd";
+import React, { useState, useEffect } from "react";
+import Axios from 'axios'
+
+import { Checkbox } from "antd";
+
 import { useHistory } from "react-router-dom";
 
+import "./PaymentPage.css";
+
 function PaymentPage(props) {
+
   const history = useHistory();
 
   const [FriendId, setFriendId] = useState("");
@@ -11,24 +16,47 @@ function PaymentPage(props) {
   const [EnvelopeImg, setEnvelopeImg] = useState("");
   const [StickerIcon, setStickerIcon] = useState("");
   const [Writer, setWriter] = useState("");
-  const [content, setcontent] = useState("");
-  const [ProductId, setproductId] = useState("");
+  const [Content, setContent] = useState("");
+  const [ProductId, setProductId] = useState("");
 
-  // const [MailingList, setMailingList] = useState([]);
-  const [Mailing, setMailing] = useState([]);
+  const [Product, setProduct] = useState([])
+  const [Mailbox, setMailbox] = useState([])
+  const [FriendName, setFriendName] = useState('')
 
   useEffect(() => {
     if (props) {
       setWriter(props.location.state.mailing.writer)
-      setcontent(props.location.state.mailing.content)
+      setContent(props.location.state.mailing.content)
       setFriendId(props.location.state.mailing.friendId)
       setFriendMailboxId(props.location.state.mailing.mailboxId)
       setEnvelopeImg(props.location.state.mailing.envelopeImg)
       setStickerIcon(props.location.state.mailing.stickerIcon)
-      setproductId(props.location.state.ProductId)
+      setProductId(props.location.state.ProductId)
     }
 
+    if (ProductId) {
+      Axios.get(`/api/admin/upload/products_by_id?id=${ProductId}&type=single`)
+        .then((response) => {
+          // console.log(response.data.upload[0])
+          setProduct(response.data.upload[0])
+        })
+    }
+
+    if (FriendMailboxId) {
+      Axios.post(`/api/mailbox/friend/getMailbox`, { params: { 'FriendId': FriendId } })
+        .then((response) => {
+          // console.log(response.data[0])
+          setMailbox(response.data[0])
+          setFriendName(response.data[0].maker.name)
+        })
+    }
   }, [props])
+
+  // console.log(Mailbox)
+
+  const onChange = (event) => {
+    console.log(`${event.target.checked}`)
+  }
 
   const getGiftHandler = (event) => {
     event.preventDefault();
@@ -40,36 +68,43 @@ function PaymentPage(props) {
         envelopeImg: EnvelopeImg,
         stickerIcon: StickerIcon,
         writer: Writer,
-        content: content,
+        content: Content,
         productId: ProductId,
       },
     });
   };
-  console.log(props);
 
   return (
-    <div className="A">
-      <div className="title">주문/결제</div>
-      <hr />
-      <div></div>
-      <div className="title2">결제 방식을 선택해주세요</div>
-      <br />
-      <div className="box">
-        <input id="checkbox" type="checkbox" />
-        <label id="label" htmlFor="checkbox"></label>
+    <div style={{ width: '100%', fontFamily: 'Pretendard-Regular', margin: '3rem auto'}}>
+      <p style={{ textAlign: 'center', fontSize: '18px' }}>주문/결제</p>
+      <div style={{ width: '100%', height: '12px', backgroundColor: '#F2F2F2', border: 0 }} />
+      <div style={{ width: '90%', margin: '1rem auto' }}>
+        <p style={{ fontFamily: 'Pretendard-Medium', fontSize: '20px' }}>배송 편지함</p>
+        <p style={{ fontFamily: 'Pretendard-Medium', fontSize: '20px', marginBottom: '0px' }}>To.{FriendName}</p>
+        <p style={{ fontSize: '18px', marginTop: '8px', marginBottom: '0px' }}>{Mailbox.title}</p>
+        <p style={{ fontSize: '12px', marginTop: '19px', color: '#F46B72', marginBottom: '31px'}}>배송지 입력은 친구가 편지함 열람 후에 직접 입력합니다.</p>
       </div>
-      <div>무통장입금</div>
-      {/* <div>
-        <checkbox />
-        <Checkbox onChange={onChange} />
-        무통장입금
-      </div> */}
-
-      <br />
-      <div className="pay">
-        <Button className="paybtn" onClick={getGiftHandler}>
-          결제하기
-        </Button>
+      <div style={{ width: '100%', height: '12px', backgroundColor: '#F2F2F2', border: 0 }} />
+      <div style={{ width: '90%', margin: '1rem auto' }}>
+        <p style={{ fontFamily: 'Pretendard-Medium', fontSize: '20px' }}>주문 상품</p>
+        <div style={{ width: '100%', height: '150px', borderRadius: '20px', border: '2px solid #37B8B3', display: 'inline-flex' }}>
+          <img style={{ width: '121px', borderRadius: '19px', margin: '15px' }} alt='item_image' src={`http://localhost:5000/${Product.item_image}`}/>
+          <div style={{ height: '97px', margin: '32px 22px 0px 0px', display: 'flex', alignContent: 'space-between', flexWrap: 'wrap', flexDirection: 'row-reverse' }}>
+            <p style={{ fontSize: '15px', margin: 0 }}>{Product.item_title}</p>
+            <p style={{ fontFamily: 'Pretendard-Medium', fontSize: '15px', margin: 0 }}>{Product.how_much}원</p>
+          </div>
+        </div>
+      </div>
+      <div style={{ width: '100%', height: '12px', backgroundColor: '#F2F2F2', border: 0, marginTop: '30px' }} />
+      <div style={{ width: '90%', margin: '1rem auto' }}>
+        <p style={{ fontFamily: 'Pretendard-Medium', fontSize: '20px' }}>결제 방식</p>
+        <Checkbox className='payment-input' onChange={onChange}>무통장 입금</Checkbox>
+        <hr style={{ border: '1px solid #BDBDBD', marginTop: '17px' }} />
+      </div>
+      <div style={{ width: '90%', margin: '1rem auto' }}>
+        <button onClick={getGiftHandler} style={{ width: '100%', height: '39px', borderRadius: '5px', border: 0, backgroundColor: '#B4E8E6' }}>
+          <p style={{ margin: 0, fontFamily: 'Pretendard-Medium', fontSize: '15px' }}>{Product.how_much}원 결제하기</p>
+        </button>
       </div>
     </div>
   );
