@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 
+import { useHistory } from "react-router-dom";
+
 import Mailbox1 from './img/Mailbox1.png'
 import Mailbox2 from './img/Mailbox2.png'
 import Mailbox3 from './img/Mailbox3.png'
@@ -15,6 +17,9 @@ function DetailMailboxPage(props) {
   const [MailboxId, setMailboxId] = useState('')
   const [MailResponse, setMailResponse] = useState([])
   const [MailboxResponse, setMailboxResponse] = useState([])
+  const [GiftIsAvailable, setGiftIsAvailable] = useState('')
+
+  const history = useHistory();
 
   useEffect(() => {
     if (props.user.userData !== undefined) {
@@ -22,7 +27,7 @@ function DetailMailboxPage(props) {
       setUserData(props.user.userData)
       setMailboxId(props.match.params.MailboxId)
 
-      Axios.post('/api/mail/getMail', { params: { 'userId': props.user.userData._id, 'mailboxId' : props.match.params.MailboxId }})
+      Axios.post('/api/mail/getMails', { params: { 'userId': props.user.userData._id, 'mailboxId' : props.match.params.MailboxId }})
         .then(response => {
           console.log(response)
           setMailResponse(response.data)
@@ -33,7 +38,7 @@ function DetailMailboxPage(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.user.userData])
-
+  
   const IsUnavailable = () => {
 
     const CopyLink = () => {
@@ -77,11 +82,11 @@ function DetailMailboxPage(props) {
     }
 
   const mailCards = MailResponse.map((mail, index) => {
-    console.log(MailResponse)
+    // console.log(MailResponse)
     return <div>
       <a href={`/mailbox/${UserData._id}/detail/${MailboxId}/mail/${mail._id}`}>
         <div key={index}>
-          <img src={MailIcon} style={{ width: '105px', marginTop: '26px', marginRight: '24px' }}></img>
+          <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>
         </div>
       </a>
     </div>
@@ -115,13 +120,16 @@ function DetailMailboxPage(props) {
             {/* 우체통 디자인 */}
             {mailboxDesign()}
         
-        <div style={{ display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           {/* 편지 card */}
           {mailCards}
         </div>
       </div>
     )
   }
+  // else if (GiftIsAvailable === 'true') {
+  //   history.push(`/address/${UserData._id}/detail/${MailboxId}`)
+  // }
 }
 
 export default DetailMailboxPage

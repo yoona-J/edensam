@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Col, Card } from "antd";
-import Meta from "antd/lib/card/Meta";
 import "./ItemListPage.css";
-import CategoryBtn from "./Sections/category";
-import { categories } from "./Sections/Datas";
 
 function ItemListPage() {
   const [Products, setProducts] = useState([]);
-  const [cnum, setcnum] = useState("");
+  const [cnum, setcnum] = useState("0");
 
   useEffect(() => {
     axios.get("/api/admin/upload/product").then((response) => {
@@ -21,49 +17,90 @@ function ItemListPage() {
       }
     });
   }, []);
+
+  const categoryTitle = () => {
+    if (cnum === '0') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>전체 상품</p>
+      </div>
+    } else if (cnum === '1') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>화장품/향수</p>
+      </div>
+    } else if (cnum === '2') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>가전/디지털</p>
+      </div>
+    } else if (cnum === '3') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>식품</p>
+      </div>
+    } else if (cnum === '5') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>완구/취미</p>
+      </div>
+    } else if (cnum === '6') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>건강</p>
+      </div>
+    } else if (cnum === '7') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>생활 용품</p>
+      </div>
+    } else if (cnum === '8') {
+      return <div>
+        <p style={{fontSize: '20px', textAlign: 'center', color: '#000'}}>패션/의류</p>
+      </div>
+    }
+  }
+
   const renderCards = Products.map((upload, index) => {
     if (upload.item_category == cnum) {
       return (
         <a href={`/product/${upload._id}`}>
           <div
             className="itembox"
-            style={{ boxShadow: "0px 4px 4px 0px #C4C4C4" }}
+            key={index}
+            style={{ boxShadow: "0px 0px 2px 0px #C4C4C4", width: '160px', height: '290px', borderRadius: '10px', marginBottom: '16px', border: 0 }}
           >
             <img
               src={`http://localhost:5000/${upload.item_image[0]}`}
               style={{
-                height: "166px",
-                width: "166px",
-                borderInline: "19px",
-                margin: "7px",
+                height: "140px",
+                width: "140px",
+                borderRadius: "19px",
+                margin: "10px",
               }}
             />
-
-            <div className="iname">{upload.item_title}</div>
-            <div className="price">{`${upload.how_much}원`}</div>
+            <div style={{ width: '100%', height: '120px', display: 'flex', flexWrap: 'wrap', alignContent: 'space-around', marginLeft: '7px'}}>
+              <div style={{ width: '90%', textAlign: 'center', margin: 0 }}>{upload.item_title}</div>
+              <div style={{ width: '90%', height: '10px', textAlign: 'center' }}>{`${upload.how_much}원`}</div>
+            </div>
           </div>
         </a>
       );
     }
-    if (cnum == 0) {
+    if (cnum == '0') {
       return (
         <a href={`/product/${upload._id}`}>
           <div
             className="itembox"
-            style={{ boxShadow: "0px 4px 4px 0px #C4C4C4" }}
+            key={index}
+            style={{ boxShadow: "0px 0px 2px 0px #C4C4C4", width: '160px', height: '290px', borderRadius: '10px', marginBottom: '16px', border: 0 }}
           >
             <img
               src={`http://localhost:5000/${upload.item_image[0]}`}
               style={{
-                height: "166px",
-                width: "166px",
-                borderInline: "19px",
-                margin: "7px",
+                height: "140px",
+                width: "140px",
+                borderRadius: "19px",
+                margin: "10px",
               }}
             />
-
-            <div className="iname">{upload.item_title}</div>
-            <div className="price">{`${upload.how_much}원`}</div>
+            <div style={{ width: '100%', height: '120px', display: 'flex', flexWrap: 'wrap', alignContent: 'space-around', marginLeft: '7px'}}>
+              <div style={{ width: '90%', textAlign: 'center', margin: 0 }}>{upload.item_title}</div>
+              <div style={{ width: '90%', height: '10px', textAlign: 'center' }}>{`${upload.how_much}원`}</div>
+            </div>
           </div>
         </a>
       );
@@ -103,7 +140,7 @@ function ItemListPage() {
       style={{
         width: "100%",
         marginTop: "30px",
-        fontFamily: "Pretendard",
+        fontFamily: "Pretendard-Regular",
       }}
     >
       <div style={{ textAlign: "center" }}></div>
@@ -121,7 +158,8 @@ function ItemListPage() {
       </div>
 
       <div>
-        <div className="Container">{renderCards}</div>
+        <div>{categoryTitle()}</div>
+        <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-evenly', textAlign: 'center', flexWrap: 'wrap'}}>{renderCards}</div>
       </div>
     </div>
   );

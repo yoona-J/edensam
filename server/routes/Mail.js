@@ -20,9 +20,20 @@ router.post("/", (req, res) => {
 });
 
 //내 우체통 내 편지 정보 가져오기
-router.post("/getMail", (req, res) => {
-  console.log(req.body);
+router.post("/getMails", (req, res) => {
+  // console.log('getMails', req.body);
   const userId = req.body.params.userId;
+  const mailboxId = req.body.params.mailboxId;
+  Mail.find({ mailboxId: mailboxId })
+    .populate("mailboxId")
+    .exec((err, mail) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send(mail);
+    });
+});
+
+router.post("/getMail", (req, res) => {
+  // console.log('getMail', req.body);
   const mailId = req.body.params.mailId;
   Mail.find({ _id: mailId })
     .exec((err, mail) => {
@@ -32,7 +43,7 @@ router.post("/getMail", (req, res) => {
 });
 
 router.post("/getMailHistory", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const userId = req.body.params.userId;
   Mail.find({ writerid: userId })
     .populate("writerid")
@@ -63,7 +74,7 @@ router.post("/getGiftInfo", (req, res) => {
 });
 
 router.post("/getMyGift", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const userId = req.body.params.userId._id;
   Mail.find({ friendId: userId })
     .populate("friendId")

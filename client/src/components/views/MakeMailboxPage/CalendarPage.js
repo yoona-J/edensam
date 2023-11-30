@@ -29,16 +29,7 @@ function CalendarPage(props) {
         props.refreshFunction({ ...CalendarForm, day: event.target.value })
     }
 
-
-    // for (let d = 1; d <= 365; d++) {
-    //     Year.push(Today.getFullYear())
-    //     Month.push(Today.getFullYear())
-    //     Day.push(Today.getFullYear()+d)
-    // }
-
-    // console.log(Year, Month, Day)
-
-
+    // 년도 설정
     let Year = [];
     for (let y = Today.getFullYear(); y <= Today.getFullYear() + 1; y++) {
         Year.push(y);
@@ -46,13 +37,14 @@ function CalendarPage(props) {
     
     // console.log('Today.getFullYear() + 1', CalendarForm.year === Today.getFullYear()+1)
 
+    // 월 설정
     let Month = [];
     //date 객체에서 month는 0~11로 나타나므로 +1
     if (CalendarForm.year === Today.getFullYear()) {
         for (let m = Today.getMonth()+1; m <= 12; m++) {
             if (m < 10) {
                 // 날짜가 2자리로 나타나야 했기 때문에 1자리 월에 0을 붙혀준다
-                Month.push("0" + m);
+                Month.push(m);
             } else {
                 Month.push(m);
             }
@@ -62,13 +54,14 @@ function CalendarPage(props) {
         for (let m = 1; m <= Today.getMonth()+1; m += 1) {
             if (m < 10) {
                 // 날짜가 2자리로 나타나야 했기 때문에 1자리 월에 0을 붙혀준다
-                Month.push("0" + m);
+                Month.push(m);
             } else {
                 Month.push(m);
             }
         }
     }
     
+    // 일 설정
     let Day = [];
     let date = new Date(CalendarForm.year, CalendarForm.month, 0).getDate();
     //date 객체에서 date는 0~30 또는 0~29로 나타나므로 +1
@@ -76,7 +69,7 @@ function CalendarPage(props) {
         for (let d = Today.getDate(); d <= date; d += 1) {
             if (d < 10) {
                 // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
-                Day.push("0" + d);
+                Day.push(d);
             } else {
                 Day.push(d);
             }
@@ -85,7 +78,7 @@ function CalendarPage(props) {
         for (let d = 1; d <= date; d += 1) {
             if (d < 10) {
                 // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
-                Day.push("0" + d);
+                Day.push(d);
             } else {
                 Day.push(d);
             }
@@ -98,12 +91,14 @@ function CalendarPage(props) {
         for (let d = 1; d <= Today.getDate(); d += 1) {
             if (d < 10) {
                 // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
-                Day.push("0" + d);
+                Day.push(d);
             } else {
                 Day.push(d);
             }
         }
     }
+
+    console.log(CalendarForm)
 
   return (
       <div>

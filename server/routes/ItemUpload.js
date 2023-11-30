@@ -93,6 +93,8 @@ router.get("/product", (req, res) => {
 //  axios.get(`/api/admin/upload/product/products_by_id?id=${productId}&type=single`);
 
 router.get("/products_by_id", (req, res) => {
+
+  // console.log('req.query', req.query)
   let type = req.query.type;
   let productIds = req.query.id;
 
@@ -124,7 +126,7 @@ router.post("/history_by_id", (req, res) => {
 });
 
 router.post("/wishItem", (req, res) => {
-  console.log(req.body.item);
+  // console.log(req.body.item);
   const items = req.body.item;
 
   const Items = items.map((item) => {
@@ -139,18 +141,6 @@ router.post("/wishItem", (req, res) => {
   });
 });
 
-// router.post("/history", (req, res) => {
-//   console.log(req.body.item);
-//   const items = req.body.item;
-
-//   const Items = items.map((item) => {
-//     return item.id;
-//   });
-//   ItemUpload.find({ _id: Items }).exec((err, upload) => {
-//     if (err) return res.status(400).send(err);
-//     return res.status(200).json({ success: true, upload });
-//   });
-// });
 router.post("/mail_gift", (req, res) => {
   // console.log("req", req.body);
   const giftAvailables = req.body.giftAvailable;
