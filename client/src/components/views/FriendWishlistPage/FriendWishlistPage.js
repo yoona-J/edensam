@@ -3,7 +3,7 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import WishlistIcon from './img/WishlistIcon.png'
-import "./FriendWishlistPage.css";
+// import "./FriendWishlistPage.css";
 
 function FriendWishlistPage(props) {
   const history = useHistory();
@@ -64,7 +64,7 @@ function FriendWishlistPage(props) {
 
     return (
       <div onClick={clickHandler} key={index} >
-        <div>
+        <div style={{ width: '166px', height: '250px'}}>
           <img
             src={`http://localhost:5000/${product.item_image[0]}`}
             style={{
@@ -75,14 +75,14 @@ function FriendWishlistPage(props) {
             }}
           />
 
-          <div className="winame">{product.item_title}</div>
+          <div style={{ fontSize: '15px' }}>{product.item_title}</div>
         </div>
       </div>
     );
   });
 
   return (
-    <div className="A" style={{fontFamily: "NeoDunggeunmo",
+    <div style={{fontFamily: "NeoDunggeunmo",
               width: '90%',
               margin: '3rem auto',
               padding: 0}}>

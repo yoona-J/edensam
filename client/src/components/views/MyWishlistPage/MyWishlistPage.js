@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getWishItems } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
-import "./MyWishlistPage.css";
+// import "./MyWishlistPage.css";
 
 import WishlistIcon from './img/WishlistIcon.png'
 import PlusIcon from './img/PlusIcon.png'
@@ -31,7 +31,7 @@ function MyWishlistPage(props) {
   }, [props.user.userData]);
 
   return (
-    <div className="A" style={{fontFamily: "NeoDunggeunmo",
+    <div style={{fontFamily: "NeoDunggeunmo",
               width: '90%',
               margin: '3rem auto',
               padding: 0}}>

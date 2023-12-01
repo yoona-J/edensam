@@ -10,7 +10,7 @@ function ProductInfo(props) {
   const dispatch = useDispatch();
 
   // const [imageSrc, setImageSrc] = useState("./img/empty_heart.png");
-  const [isClicked, setIsClicked] = useState(false);
+  const [IsClicked, setIsClicked] = useState(false);
 
   const clickHandler = () => {
     dispatch(addToCart(props.detail._id));
@@ -18,7 +18,7 @@ function ProductInfo(props) {
 
     if (props.detail._id.length >= 1) {
       alert("위시리스트에 저장되었습니다.");
-      setIsClicked(!isClicked);
+      setIsClicked(true);
     }
   };
 
@@ -31,15 +31,16 @@ function ProductInfo(props) {
       >
         <Button
           style={{
-            backgroundColor: "#FFFFFF",
+            backgroundColor: 'rgba( 255, 255, 255, 0.1 )',
             border: "none",
             float: "left",
             padding: "0",
             fontSize: "39px",
+
           }}
           onClick={clickHandler}
         >
-          {isClicked ? "♥" : "♡"}
+          {IsClicked ? <img src={ ClickedWishButton } style={{ width: '39px' }} /> : <img src={ WishButton } style={{ width: '39px' }} />}
         </Button>
       </div>
     </div>

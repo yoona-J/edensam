@@ -9,7 +9,7 @@ import Mailbox3 from './img/Mailbox3.png'
 import Mailbox4 from './img/Mailbox4.png'
 import Mailbox5 from './img/Mailbox5.png'
 
-import MailIcon from './img/MailIcon.png'
+import EnvelopeDesign from './EnvelopeDesign.js'
 
 function DetailMailboxPage(props) {
 
@@ -81,17 +81,6 @@ function DetailMailboxPage(props) {
       }
     }
 
-  const mailCards = MailResponse.map((mail, index) => {
-    // console.log(MailResponse)
-    return <div>
-      <a href={`/mailbox/${UserData._id}/detail/${MailboxId}/mail/${mail._id}`}>
-        <div key={index}>
-          <img src={MailIcon} style={{ width: '105px', marginTop: '26px' }}></img>
-        </div>
-      </a>
-    </div>
-  })
-
   // console.log(MailResponse.length === 0)
   if (MailResponse.length === 0) {
     return (
@@ -120,16 +109,13 @@ function DetailMailboxPage(props) {
             {/* 우체통 디자인 */}
             {mailboxDesign()}
         
-        <div style={{ width: '100%', display: 'inline-flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        <div>
           {/* 편지 card */}
-          {mailCards}
+          <EnvelopeDesign MailResponse={MailResponse} UserData={UserData} MailboxId={MailboxId} />
         </div>
       </div>
     )
   }
-  // else if (GiftIsAvailable === 'true') {
-  //   history.push(`/address/${UserData._id}/detail/${MailboxId}`)
-  // }
 }
 
 export default DetailMailboxPage

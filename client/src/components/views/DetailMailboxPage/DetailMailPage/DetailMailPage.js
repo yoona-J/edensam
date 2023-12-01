@@ -33,7 +33,6 @@ function DetailMailPage(props) {
     }
   }, [ProductId])
   
-
   // console.log(Mail)
   // console.log(Product)
 
@@ -53,8 +52,8 @@ function DetailMailPage(props) {
           alignItems: 'center',
           fontFamily: 'Pretendard-Regular'
         }}>
-          <img src={`http://localhost:5000/${Product.item_image}`} alt='item_image' style={{ width: '121px', borderRadius: '19px', margin: '15px' }} />
-          <p style={{ fontSize: '15px', marginRight: '15px'}}>{ Product.item_title }</p>
+            <img src={`http://localhost:5000/${Product.item_image}`} alt='item_image' style={{ width: '121px', borderRadius: '19px', margin: '15px' }} />
+            <p style={{ fontSize: '15px', marginRight: '15px'}}>{ Product.item_title }</p>
           </div>
       </div>
     }

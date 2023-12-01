@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./ItemDetailPage.css";
-import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
 import { useHistory } from "react-router-dom";
 import { Button } from "antd";
+
+import "./ItemDetailPage.css";
 
 function ItemDetailPage(props) {
   const productId = props.match.params.productId;
@@ -57,50 +57,37 @@ function ItemDetailPage(props) {
         fontFamily: "Pretendard-Regular",
       }}
     >
-      {/* 상품 이미지 */}
-      {/* <ProductImage detail={Product} /> */}
       <img
-        className="infoimg"
-        alt="infoimg"
         src={`http://localhost:5000/${Product.item_image}`}
+        style={{ width: '100%' }}
       />
-      <div className="box">
+      <div style={{ width: '90%', margin: '1rem auto' }}>
         {/* 상품 회사 */}
-        <div className="company">{Product.item_maker}</div>
+        <div style={{ fontSize: '15px', color: '#4F4F4F', marginTop: '20px' }}>{Product.item_maker}</div>
         {/* 상품 이름 */}
-        <div className="item_title">{Product.item_title}</div>
+        <div style={{ fontSize: '20px', marginTop: '17px' }}>{Product.item_title}</div>
         {/* 상품 가격 */}
-        <div className="price">{Product.how_much} 원</div>
+        <div style={{ fontSize: '20px', fontWeight: 'bold', textAlign: 'right', marginTop: '27px' }}>{Product.how_much} 원</div>
         {/* 찜하기 버튼 */}
       </div>
-      <div
-        style={{
-          display: "flex",
-          // justifyContent: "center",
-          float: "left",
-          width: "100%",
-          justifyContent: "space-around",
-        }}
-      >
-        <div style={{ paddingBottom: "15px" }}>
-          <ProductInfo detail={Product} />
-        </div>
 
-        {/* 결제 버튼 */}
-        <div className="payment">
-          <Button className="paybtn" onClick={getProductHandler}>
-            구매하기
-          </Button>
-          <br />
+      <div className="fix-linear" style={{width: '100%', height: '115px', position: 'fixed', top: '92%', zIndex: '1'}}>
+        <div style={{ display: "flex", float: "left", width: "100%", justifyContent: "space-evenly" }}>
+          {/* 찜하기 버튼 */}
+          <div style={{ paddingBottom: "15px" }}>
+            <ProductInfo detail={Product} />
+          </div>
+          {/* 결제 버튼 */}
+            <Button style={{ width: '80%', height: '39px', borderRadius: '20px', backgroundColor: '#B4E8E6', border: 0 }} onClick={getProductHandler}>
+              <p style={{fontSize: '15px', fontFamily: 'NeoDunggeunmo', margin: 0}}>구매하기</p>
+            </Button>
         </div>
       </div>
 
       {/* 상품 상세 정보 */}
-      <br />
-      <hr />
-      <div className="detail">상품 정보</div>
+      <hr style={{ marginTop: '61px' }} />
+      <div style={{ fontSize: '20px', textAlign: 'center', margin: '17px'}}>상품 정보</div>
       <img
-        className="infoimg"
         alt="infoimg"
         src={`http://localhost:5000/${Product.item_info}`}
       />

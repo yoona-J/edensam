@@ -1,19 +1,13 @@
 import React from "react";
-import "../MyWishlistPage.css";
+// import "../MyWishlistPage.css";
 
 function UserCardBlock(props) {
-  // const renderCartImage = (item_image) => {
-  //   if (item_image.length > 0) {
-  //     let image = item_image[0];
-  //     return `http://localhost:5000/${image}`;
-  //   }
-  // };
 
   const renderItems = () =>
     props.uploads &&
     props.uploads.map((upload, index) => (
       <a href={`/product/${upload._id}`} key={index}>
-        <div>
+        <div style={{ width: '166px', height: '250px'}}>
           <img
             src={`http://localhost:5000/${upload.item_image[0]}`}
             style={{
@@ -24,7 +18,7 @@ function UserCardBlock(props) {
             }}
           />
 
-          <div className="winame">{upload.item_title}</div>
+          <div style={{ fontSize: '15px' }}>{upload.item_title}</div>
         </div>
       </a>
     ));
