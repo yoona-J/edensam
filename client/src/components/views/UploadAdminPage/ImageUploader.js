@@ -12,11 +12,7 @@ function ImageUploader(props) {
 
         const config = {
             header: {
-                // 'content-type': 'multipart/form-data'
-                // Accept: 'application/json',
                 'Content-Type': 'application/json',
-                // 'X-Content-Type-Options': 'nosniff',
-                // 'dataType': 'jsonp',
 
             }
         }
@@ -56,8 +52,6 @@ function ImageUploader(props) {
         newImages.splice(currentIndex, 1)
         setImages(newImages)
         props.refreshFunction(newImages)
-
-        // console.log('currentIndex', currentIndex)
     }
 
     return (

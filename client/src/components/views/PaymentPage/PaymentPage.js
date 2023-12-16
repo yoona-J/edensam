@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from 'axios'
 
 import { Checkbox } from "antd";
-
 import { useHistory } from "react-router-dom";
-
 import "./PaymentPage.css";
 
 function PaymentPage(props) {
@@ -37,7 +35,6 @@ function PaymentPage(props) {
     if (ProductId) {
       Axios.get(`/api/admin/upload/products_by_id?id=${ProductId}&type=single`)
         .then((response) => {
-          // console.log(response.data.upload[0])
           setProduct(response.data.upload[0])
         })
     }
@@ -45,14 +42,11 @@ function PaymentPage(props) {
     if (FriendMailboxId) {
       Axios.post(`/api/mailbox/friend/getMailbox`, { params: { 'FriendId': FriendId } })
         .then((response) => {
-          // console.log(response.data[0])
           setMailbox(response.data[0])
           setFriendName(response.data[0].maker.name)
         })
     }
   }, [props])
-
-  // console.log(Mailbox)
 
   const onChange = (event) => {
     console.log(`${event.target.checked}`)

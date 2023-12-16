@@ -17,7 +17,6 @@ function MakeMailboxPage(props) {
   const [CalendarForm, setCalendarForm] = useState({})
 
   useEffect(() => {
-    // console.log(props.user.userData)
     if (props.user.userData !== undefined) {
       setUserId(props.user.userData)
     } else {
@@ -29,11 +28,8 @@ function MakeMailboxPage(props) {
   const [Title, setTitle] = useState('')
 
   const ImageHandleClick = (event) => {
-    // console.log(event.target.value)
     setIsClicked(event.target.value)
   }
-
-  // console.log(IsClicked)
 
   const MailboxImg = () => {
     if (IsClicked === '1') {
@@ -70,11 +66,6 @@ function MakeMailboxPage(props) {
   const updateCalendar = (newCalendar) => {
     setCalendarForm(newCalendar)
   }
-
-
-  // console.log('IsClicked', IsClicked)
-  // console.log('Title', Title)
-  // console.log('CalendarForm', CalendarForm)
 
   const submitHandler = (event) => {
     event.preventDefault();

@@ -8,8 +8,6 @@ import WishButton from './img/WishButton.png'
 
 function ProductInfo(props) {
   const dispatch = useDispatch();
-
-  // const [imageSrc, setImageSrc] = useState("./img/empty_heart.png");
   const [IsClicked, setIsClicked] = useState(false);
 
   const clickHandler = () => {

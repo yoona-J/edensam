@@ -217,9 +217,6 @@ function MyMailboxPage(props) {
         <button onClick={CopyLink} style={{ width: '30%', height: '40px', backgroundColor: '#B4E8E6', borderRadius: '60px', marginTop: '76px', fontSize: '15px', fontFamily: 'NeoDunggeunmo', border: 0 }}>
           <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>공유</p>
         </button>
-          {/* <div>
-            <p style={{ margin: '0', fontSize: '20px', textAlign: 'center'}}>공유</p>
-          </div> */}
         <a href={`/mailbox/${UserId._id}/create`} style={{ textDecorationLine: 'none', color: '#000',  width: '30%' }}>
           <div style={{ width: '100%', height: '40px', backgroundColor: '#FAD993', borderRadius: '60px', paddingTop: '7px', marginTop: '76px' }}>
             <p style={{ margin: '0', fontSize: '20px', textAlign: 'center' }}>생성</p>

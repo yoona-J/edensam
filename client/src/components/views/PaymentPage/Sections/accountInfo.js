@@ -5,7 +5,6 @@ import Axios from "axios";
 import "./paystyle.css";
 
 function Accountinfo(props) {
-  // const history = useHistory();
 
   const [FriendId, setFriendId] = useState("");
   const [FriendMailboxId, setFriendMailboxId] = useState("");

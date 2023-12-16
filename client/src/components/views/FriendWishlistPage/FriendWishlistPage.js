@@ -3,7 +3,6 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import WishlistIcon from './img/WishlistIcon.png'
-// import "./FriendWishlistPage.css";
 
 function FriendWishlistPage(props) {
   const history = useHistory();

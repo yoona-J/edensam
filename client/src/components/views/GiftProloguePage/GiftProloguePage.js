@@ -59,7 +59,6 @@ function GiftProloguePage(props) {
 
     Axios.post("/api/mail", body).then((response) => {
       if (response.status === 200) {
-        // alert('편지가 정상적으로 저장되었습니다.')
         props.history.push("/mailing/success");
       } else {
         alert("편지가 저장되지 않았습니다.");

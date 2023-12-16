@@ -2,7 +2,6 @@
   font-family: Pretendard;
   width: 90%;
   margin: 3rem auto;
-  /* padding: 0 25px; */
 }
 
 .title {
@@ -61,8 +60,6 @@ a {
 
 .Container {
   padding: "1%";
-  /* width: "180px";
-  height: "150px"; */
   margin: "1% 0% 1% 0%";
   /* grid */
   display: flex;

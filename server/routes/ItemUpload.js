@@ -78,19 +78,13 @@ router.post("/", (req, res) => {
   });
 });
 
-//여서부터 작성 중
 //ItemListPage.js db에서 아이템 정보 가져옴
-
 router.get("/product", (req, res) => {
   ItemUpload.find().exec((err, upload) => {
     if (err) return res.status(400).json({ success: false, err });
     return res.status(200).json({ success: true, upload });
   });
 });
-
-//detail page 작업중
-
-//  axios.get(`/api/admin/upload/product/products_by_id?id=${productId}&type=single`);
 
 router.get("/products_by_id", (req, res) => {
 
@@ -112,13 +106,11 @@ router.get("/products_by_id", (req, res) => {
 });
 
 router.post("/history_by_id", (req, res) => {
-  // console.log("req", req.body);
   const giftAvailables = req.body.giftAvailable;
   const GiftAvailable = giftAvailables.map((gift) => {
     return gift.giftAvailable;
   });
 
-  // console.log(GiftAvailable)
   ItemUpload.find({ _id: GiftAvailable }).exec((err, item) => {
     if (err) return res.status(400).send(err);
     return res.status(200).send(item);
@@ -126,7 +118,6 @@ router.post("/history_by_id", (req, res) => {
 });
 
 router.post("/wishItem", (req, res) => {
-  // console.log(req.body.item);
   const items = req.body.item;
 
   const Items = items.map((item) => {
@@ -142,13 +133,11 @@ router.post("/wishItem", (req, res) => {
 });
 
 router.post("/mail_gift", (req, res) => {
-  // console.log("req", req.body);
   const giftAvailables = req.body.giftAvailable;
   const GiftAvailable = giftAvailables.map((gift) => {
     return gift.giftAvailable;
   });
 
-  // console.log(GiftAvailable)
   ItemUpload.find({ _id: GiftAvailable }).exec((err, item) => {
     if (err) return res.status(400).send(err);
     return res.status(200).send(item);

@@ -5,14 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function (SpecificComponent, option, adminRoute = null) {
     function AuthenticationCheck(props) {
-        // console.log(props)
         let user = useSelector(state => state.user);
         const dispatch = useDispatch();
 
         useEffect(() => {
             //To know my current status, send Auth request 
             dispatch(auth()).then(response => {
-                // console.log('auth', response)
                 //Not Loggined in Status 
                 if (response.payload.isAuth === false && props.match.url === '/register') {
                     props.history.push('/register')

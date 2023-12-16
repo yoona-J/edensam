@@ -11,7 +11,6 @@ function CalendarPage(props) {
     });
 
     const yearOnChange = (event) => {
-        // console.log('event.target.value', typeof parseInt(event.target.value))
         let y = parseInt(event.target.value)
         setCalendarForm({ ...CalendarForm, year: y })
         props.refreshFunction({ ...CalendarForm, year: event.target.value })
@@ -53,7 +52,6 @@ function CalendarPage(props) {
         // console.log(Today.getMonth()+1)
         for (let m = 1; m <= Today.getMonth()+1; m += 1) {
             if (m < 10) {
-                // 날짜가 2자리로 나타나야 했기 때문에 1자리 월에 0을 붙혀준다
                 Month.push(m);
             } else {
                 Month.push(m);
@@ -68,7 +66,6 @@ function CalendarPage(props) {
     if (CalendarForm.year === Today.getFullYear() && CalendarForm.month === Today.getMonth() + 1) {
         for (let d = Today.getDate(); d <= date; d += 1) {
             if (d < 10) {
-                // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
                 Day.push(d);
             } else {
                 Day.push(d);
@@ -77,7 +74,6 @@ function CalendarPage(props) {
     } else if (CalendarForm.year === Today.getFullYear() + 1 && CalendarForm.month < Today.getMonth() + 1) {
         for (let d = 1; d <= date; d += 1) {
             if (d < 10) {
-                // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
                 Day.push(d);
             } else {
                 Day.push(d);
@@ -85,12 +81,8 @@ function CalendarPage(props) {
         }
     }
     else if (CalendarForm.year === Today.getFullYear() + 1 && CalendarForm.month === Today.getMonth() + 1) {
-        // console.log(CalendarForm.year === Today.getFullYear() + 1, CalendarForm.month <= Today.getMonth() + 1)
-        // console.log(CalendarForm.month)
-        // console.log(Today.getMonth() + 1)
         for (let d = 1; d <= Today.getDate(); d += 1) {
             if (d < 10) {
-                // 날짜가 2자리로 나타나야 했기 때문에 1자리 일에 0을 붙혀준다
                 Day.push(d);
             } else {
                 Day.push(d);

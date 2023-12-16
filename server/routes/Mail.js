@@ -13,7 +13,6 @@ router.post("/", (req, res) => {
   console.log(req.body);
   const mail = new Mail(req.body);
   mail.save((err) => {
-    // console.log('err', err)
     if (err) return res.status(400).json({ success: false, err });
     return res.status(200).json({ success: true });
   });
@@ -21,8 +20,6 @@ router.post("/", (req, res) => {
 
 //내 우체통 내 편지 정보 가져오기
 router.post("/getMails", (req, res) => {
-  // console.log('getMails', req.body);
-  const userId = req.body.params.userId;
   const mailboxId = req.body.params.mailboxId;
   Mail.find({ mailboxId: mailboxId })
     .populate("mailboxId")
@@ -33,7 +30,6 @@ router.post("/getMails", (req, res) => {
 });
 
 router.post("/getMail", (req, res) => {
-  // console.log('getMail', req.body);
   const mailId = req.body.params.mailId;
   Mail.find({ _id: mailId })
     .exec((err, mail) => {
@@ -43,7 +39,6 @@ router.post("/getMail", (req, res) => {
 });
 
 router.post("/getMailHistory", (req, res) => {
-  // console.log(req.body);
   const userId = req.body.params.userId;
   Mail.find({ writerid: userId })
     .populate("writerid")
@@ -54,7 +49,6 @@ router.post("/getMailHistory", (req, res) => {
 });
 
 router.post("/getFriendId", (req, res) => {
-  // console.log(req.body);
   const friendId = req.body.friendId;
   User.find({ _id: friendId }).exec((err, user) => {
     if (err) return res.status(400).send(err);
@@ -63,7 +57,6 @@ router.post("/getFriendId", (req, res) => {
 });
 
 router.post("/getGiftInfo", (req, res) => {
-  // console.log(req.body)
   const userId = req.body.params.userId._id;
   Mail.find({ writerid: userId })
     .populate("writerid")
@@ -74,7 +67,6 @@ router.post("/getGiftInfo", (req, res) => {
 });
 
 router.post("/getMyGift", (req, res) => {
-  // console.log(req.body);
   const userId = req.body.params.userId._id;
   Mail.find({ friendId: userId })
     .populate("friendId")

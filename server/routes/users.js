@@ -57,16 +57,16 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/logout", auth, (req, res) => {
-  // User.findOneAndUpdate(
-  //   { _id: req.user._id },
-  //   { token: "", tokenExp: "" },
-  //   (err, doc) => {
-  //     if (err) return res.json({ success: false, err });
-  //     return res.status(200).send({
-  //       success: true,
-  //     });
-  //   }
-  // );
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { token: "", tokenExp: "" },
+    (err, doc) => {
+      if (err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true,
+      });
+    }
+  );
 });
 
 router.post('/exit', (req, res) => {
@@ -81,8 +81,6 @@ router.post('/exit', (req, res) => {
 
 router.post("/changeFavorite", (req, res) => {
   console.log(req.body)
-  // const userId = req.body.ID
-  // const Favorite = req.body.favorite
   User.findOneAndUpdate(
     { _id: req.body.ID },
     { $set: { favorite: req.body.favorite } },
@@ -115,7 +113,6 @@ router.post("/search", (req, res) => {
 
 router.post("/addToCart", auth, (req, res) => {
   //유저 정보 가져오기
-  // console.log(req.user._id)
   User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
     userInfo.wishList.forEach((item) => {
@@ -166,7 +163,6 @@ router.get("/userCartInfo", auth, (req, res) => {
     });
 
     Upload.find({ _id: { $in: array } })
-      // .populate("writer")
       .exec((err, wishListtDetail) => {
         if (err) return res.status(400).send(err);
         return res
@@ -179,7 +175,6 @@ router.get("/userCartInfo", auth, (req, res) => {
 router.post("/successBuy", auth, (req, res) => {
   //1. User Collection 안에  History 필드 안에  간단한 결제 정보 넣어주기
   let history = [];
-  let transactionData = {};
 
   req.body.cartDetail.forEach((item) => {
     history.push({
@@ -195,7 +190,6 @@ router.post("/successBuy", auth, (req, res) => {
 //히스토리 저장
 router.post("/addToHistory", auth, (req, res) => {
   //유저 정보 가져오기
-  // console.log(req.user._id)
   User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
     userInfo.history.forEach((item) => {

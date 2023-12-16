@@ -37,7 +37,6 @@ function NewItem(props) {
           <div style={{ width: "100px", textAlign: "left", fontFamily: "Pretendard-Regular" }}>
             {upload.item_title}
           </div>
-          {/* <div style={{width:"100px",textAlign:"right"}}>{`${upload.how_much}원`}</div> */}
         </div>
       </a>
     );

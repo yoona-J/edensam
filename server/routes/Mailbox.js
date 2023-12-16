@@ -10,7 +10,6 @@ router.post('/', (req, res) => {
     console.log(req.body)
     const mailbox = new Mailbox(req.body)
     mailbox.save((err) => {
-        // console.log('err', err)
         if(err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })
@@ -19,7 +18,6 @@ router.post('/', (req, res) => {
 
 //내 우체통 정보 가져오기
 router.post('/getMailbox', (req, res) => {
-    // console.log(req.body)
     const userId = req.body.params.userId._id
     Mailbox.find({ 'maker': userId})
         .populate("maker")
@@ -41,8 +39,6 @@ router.post('/deleteMailbox', (req, res) => {
 })
 
 router.post('/friend/getMailbox', (req, res) => {
-    // console.log(req.body)
-    
     //친구 우체통
     const friendId = req.body.params.FriendId
     Mailbox.find({ 'maker': friendId})
